@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 function Login() {
   return (
-    <div className='bg-[url(login-background-mobile.png)] bg-cover h-[100vh] w-full'>
+    <div className='bg-[url(./assets/login-background-mobile.png)] bg-cover h-[100vh] w-full'>
         <Header />
         <div className='mt-10'>
         <p className='heading text-center'>Member Login</p>
@@ -12,7 +12,7 @@ function Login() {
             <div><input type="email" placeholder='Enter your email' /></div>
            <div> <input type="password" placeholder='Enter your password' /></div>
            <div> <button className='primary-btn'>Login</button></div>
-           
+
          <div className='text-xs mt-4'>
          <p className='text-white'>You don't have an account? <Link className='text-blue-500' to='/register'>Register here</Link></p>
            <p className='text-blue-500 uderline'><Link>Forgot your password?</Link></p>

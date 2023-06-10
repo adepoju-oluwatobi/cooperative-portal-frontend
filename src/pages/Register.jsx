@@ -11,7 +11,7 @@ function Register() {
         regInfoCloseBtn = document.getElementById('reg-info-close-btn').style.display = "none"
     }
   return (
-    <div className='bg-[url(login-background-mobile.png)] bg-cover h-[100vh] w-full'>
+    <div className='bg-[url(./assets/login-background-mobile.png)] bg-cover h-[100vh] w-full'>
         <Header />
         <div>
                 <div id='reg-info' className='container bg-white w-[300px] m-auto mt-4 text-xs flex justify-center items-center'>

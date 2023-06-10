@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 function Admin() {
   return (
-    <div className='bg-[url(login-background-mobile.png)] bg-cover h-[100vh] w-full'>
+    <div className='bg-[url(./assets/login-background-mobile.png)] bg-cover h-[100vh] w-full'>
         <Header />
         <div className='mt-10'>
         <p className='heading text-center'>Admin Login</p>
