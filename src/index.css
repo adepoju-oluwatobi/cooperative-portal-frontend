@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities{
+    .container{
+        @apply p-2
+    }
+    .primary-btn{
+        @apply bg-green-600 p-4 text-white text-xs md:text-sm lg:text-base w-[100px] rounded-lg
+    }
+    .primary-btn:hover{
+        @apply bg-green-900
+    }
+
+    .secondary-btn{
+        @apply bg-blue-500 p-4 text-white text-xs md:text-sm lg:text-base w-[100px] rounded-lg
+    }
+    .hero-heading{
+        @apply font-bold text-2xl text-center
+    }
+    .hero-desc{
+        @apply text-[10px] text-center w-[40ch] m-auto
+    }
+    .hero-btn{
+        @apply text-xs bg-black p-3 md:p-4 rounded-lg w-fit m-auto
+    }
+    input{
+        @apply bg-opacity-50 border p-2 mb-4 rounded-lg w-fit m-auto
+    }
+    .heading{
+        @apply text-white font-bold text-2xl md:text-3xl mb-1
+    }
+    form{
+        @apply w-[90%] md:w-[425px] bg-black bg-opacity-50 rounded-lg p-8 h-fit m-auto
+    }
+}
