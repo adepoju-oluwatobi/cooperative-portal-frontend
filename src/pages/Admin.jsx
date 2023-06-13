@@ -14,8 +14,7 @@ function Admin() {
            <div> <button className='primary-btn'>Login</button></div>
 
            <div className='text-xs mt-4'>
-           <p className='text-blue-500 uderline'><Link>Forgot your password?</Link></p>
-           <p className='text-white'>Login as <Link className='text-blue-500' to='/login'>Member</Link></p>
+           <p className='text-blue-500 uderline'><Link>Forgot your password?</Link></p><p className='text-white'>Login as <Link className='text-blue-500' to='/login'>Member</Link></p>
          </div>
         </form>
         </div>

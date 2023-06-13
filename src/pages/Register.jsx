@@ -38,7 +38,7 @@ function Register() {
            <div> <button className='primary-btn'>Register</button></div>
 
            <div className='text-xs mt-4'>
-           <p className='text-white'>Already a member?<Link className='text-blue-500' to='/'>Login here</Link></p>
+           <p className='text-white'>Already a member?<Link className='text-blue-500' to='/login'>Login here</Link></p>
          </div>
         </form>
         </div>

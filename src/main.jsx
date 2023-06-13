@@ -9,23 +9,29 @@ import App from "./App";
 import Login from "./pages/Login";
 import Admin from "./pages/Admin";
 import Register from "./pages/Register";
+import HomePage from "./pages/HomePage";
+import UnderConstruction from "./pages/UnderConstruction";
 
 const router = createBrowserRouter([
+ {
+  path: "/home",
+  element: <App />,
+ },
   {
-    path: "/app",
-    element: <App />,
-  },
-  {
-    path: "/",
-    element: <Login />,
+    path: "/login",
+    element: <Login />
   },
   {
     path: "/admin",
-    element: <Admin />,
+    element: <Admin />
   },
   {
     path: "/register",
     element: <Register />
+  },
+  {
+    path: "/",
+    element: <UnderConstruction />,
   }
 ]);
 

@@ -29,7 +29,7 @@ function Header() {
         <div className='mobile-header'>
             <div className='flex justify-between items-center'>
                 <div className='site-title'>
-                    <p className='font-bold text-lg'> Honeyland Cooperative <span>Society</span></p>
+                    <Link to='/'><p className='font-bold text-lg'> Honeyland Cooperative <span>Society</span></p></Link>
                 </div>
 
                 <div className='menu-toggle transition-all duration-500'>
@@ -51,13 +51,30 @@ function Header() {
     </div>
       {/*mobile nav-menu */}
       <div className='font-bold nav-menu absolute w-[90%] left-5 hidden transition-all duration-500' id='nav-menu'>
-      <nav className='flex flex-col gap-4 rounded-lg bg-slate-600 opacity-[95%] p-4 text-white text-center mt-2 w-[90%] m-auto'>
-         <Link to='/home'>Home</Link>
-         <Link to='/about'>About</Link>
-         <Link to='/contact'>Contact</Link>
-         <Link to='/' className='primary-btn m-auto'>Login</Link>
+      <nav className='flex flex-col gap-4 rounded-lg bg-black p-8 text-white text-center mt-2 w-[90%] m-auto'>
+         <Link to='/'>Home</Link>
+         <Link to='/'>About</Link>
+         <Link to='/'>Contact</Link>
+         <Link to='/login' className='primary-btn m-auto'>Login</Link>
         <Link to='/register' className='secondary-btn m-auto'>Register</Link>
       </nav>
+      </div>
+
+      {/* Medium nav-menu */}
+      <div className='hidden bg-slate-200 md:flex justify-between items-center p-4'>
+        <div>
+            <p className='font-bold text-lg'>Honeyland Cooperative Society</p>
+        </div>
+
+        <div>
+            <nav className='text-xs'>
+                <Link className='mr-2' to='/under-construction'>Home</Link>
+                <Link className='mr-2' to='/under-construction'>About Us</Link>
+                <Link className='mr-2' to='/under-construction'>Contact Us</Link>
+                <Link className='mr-2' to='/login'>Login</Link>
+                <Link className='mr-2 bg-black px-4 py-2 text-white rounded-xl' to = '/register'>Become a member</Link>
+            </nav>
+        </div>
       </div>
   </>
   )
