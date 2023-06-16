@@ -1,47 +1,87 @@
 import React from 'react'
 import SavingsImg from '../assets/savings-img.png'
+import LoanImg from "../assets/loan-img.jpg"
 
 function Services() {
+    let card_1 = document.getElementById('card-1')
+    let card_2 = document.getElementById('card-2')
+    let card_3 = document.getElementById('card-3')
+
+    function savings(){
+        card_1 = document.getElementById('card-1').style.display = "block"
+        card_2 = document.getElementById('card-2').style.display = "none"
+        card_3 = document.getElementById('card-3').style.display = "none"
+    }
+
+    function loan(){
+        card_2 = document.getElementById('card-2').style.display = "block"
+        card_1 = document.getElementById('card-1').style.display = "none"
+        card_3 = document.getElementById('card-3').style.display = "none"
+    }
+
+    function purchase(){
+        card_1 = document.getElementById('card-1').style.display = "none"
+        card_2 = document.getElementById('card-2').style.display = "none"
+        card_3 = document.getElementById('card-3').style.display = "block"
+    }
+   
   return (
-    <div className='p-4 '>
-        <p className='font-bold text-3xl mb-2'>Our Services</p>
-       <div className='flex justify-center items-center'>
-         {/* CARD ONE */}
-         <div className='mb-10'>
-           <div className='flex justify-evenly'>
-           <p className='hover:bg-[#8EAC90] w-fit px-8 py-2 hover:text-white rounded-lg mb-2 cursor-pointer'>Savings</p>
-           <p className='hover:bg-[#8EAC90] w-fit px-8 py-2 hover:text-white rounded-lg mb-2 cursor-pointer'>Savings</p>
-           <p className='hover:bg-[#8EAC90] w-fit px-8 py-2 hover:text-white rounded-lg mb-2 cursor-pointer'>Savings</p>
-           </div>
+   <div>
+        <p className='font-bold text-3xl p-4'>Our Services</p>
+        {/**Tab menu */}
+        <div className='px-4 flex items-center gap-2'>
+            <div className='bg-black text-white py-2 px-4 w-[120px] text-center rounded-lg' onClick={savings}>Savings</div>
+            <div className='bg-black text-white py-2 px-4 w-[120px] text-center rounded-lg' onClick={loan}>Loan</div>
+            <div className='bg-black text-white py-2 px-4 w-[120px] text-center rounded-lg' onClick={purchase}>Purchases</div>
+        </div>
+        {/**horizontal line */}
+        <div className='w-[60%] m-auto mt-4'>
+            <hr></hr>
+        </div>
+        {/**tab card 1 */}
+        <div className='p-4 w-[100%] m-auto' id='card-1'>
             <div>
-                <img src={SavingsImg} alt="" />
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde rerum voluptate iste, deserunt blanditiis aut harum nihil mollitia earum voluptatem obcaecati saepe distinctio sequi! Facere sint velit eum dicta similique?</p>
-                <button className='bg-black w-fit px-8 py-2 text-white rounded-lg mb-2 mt-2'>Start Saving</button>
+                <img src={SavingsImg} alt=""></img>
+            </div>
+            <div className='mt-4'>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, dolorum? Iure, dolorum. Enim provident iure vel laudantium, exercitationem dolore odit eaque quis hic temporibus at incidunt earum eum quidem itaque.
+                </p>
+            </div>
+            <div>
+                <button className='bg-black text-white py-2 px-4 w-[120px] text-center rounded-lg mt-4'>Start Saving</button>
             </div>
         </div>
-        {/** END OF CARD */}
+         {/**tab card 2 */}
+        <div className='p-4 w-[100%] m-auto hidden' id='card-2'>
+            <div>
+                <img src={LoanImg} alt=""></img>
+            </div>
+            <div className='mt-4'>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, dolorum? Iure, dolorum. Enim provident iure vel laudantium, exercitationem dolore odit eaque quis hic temporibus at incidunt earum eum quidem itaque.
+                </p>
+            </div>
+            <div>
+                <button className='bg-black text-white py-2 px-4 w-[120px] text-center rounded-lg mt-4'>Get a Loan</button>
+            </div>
+        </div>
 
-         {/* CARD ONE */}
-         <div className='w-[100%] h-auto m-auto hidden'>
+        <div className='p-4 w-[100%] m-auto hidden' id='card-3'>
             <div>
-                <img src={SavingsImg} alt="" />
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde rerum voluptate iste, deserunt blanditiis aut harum nihil mollitia earum voluptatem obcaecati saepe distinctio sequi! Facere sint velit eum dicta similique?</p>
-                <button className='bg-black w-fit px-8 py-2 text-white rounded-lg mb-2 mt-2'>Get a loan</button>
+                <img src={SavingsImg} alt=""></img>
+            </div>
+            <div className='mt-4'>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, dolorum? Iure, dolorum. Enim provident iure vel laudantium, exercitationem dolore odit eaque quis hic temporibus at incidunt earum eum quidem itaque.
+                </p>
+            </div>
+            <div>
+                <button className='bg-black text-white py-2 px-4 w-[fit] text-center rounded-lg mt-4'>Make Purchase</button>
             </div>
         </div>
-        {/** END OF CARD */}
-
-         {/* CARD ONE */}
-         <div className='w-[100%] h-auto m-auto hidden'>
-            <div>
-                <img src={SavingsImg} alt="" />
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde rerum voluptate iste, deserunt blanditiis aut harum nihil mollitia earum voluptatem obcaecati saepe distinctio sequi! Facere sint velit eum dicta similique?</p>
-                <button className='bg-black w-fit px-8 py-2 text-white rounded-lg mb-2 mt-2'>Make a purchase</button>
-            </div>
-        </div>
-        {/** END OF CARD */}
-       </div>
-    </div>
+        
+   </div>
   )
 }
 
