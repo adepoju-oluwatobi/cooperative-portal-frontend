@@ -34,4 +34,7 @@
     form{
         @apply w-[90%] md:w-[425px] bg-black bg-opacity-50 rounded-lg p-8 h-fit m-auto
     }
+    .services-img{
+        @apply w-[280px] h-[200px] m-auto
+    }
 }

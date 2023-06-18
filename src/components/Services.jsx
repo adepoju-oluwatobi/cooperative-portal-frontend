@@ -26,25 +26,25 @@ function Services() {
     }
    
   return (
-   <div>
-        <p className='font-bold text-3xl p-4'>Our Services</p>
+   <div className='text-center'>
+        <p className='font-bold text-3xl p-4 text-center'>Our Services</p>
         {/**Tab menu */}
-        <div className='px-4 flex items-center gap-2'>
-            <div className='bg-black text-white py-2 px-4 w-[120px] text-center rounded-lg' onClick={savings}>Savings</div>
-            <div className='bg-black text-white py-2 px-4 w-[120px] text-center rounded-lg' onClick={loan}>Loan</div>
-            <div className='bg-black text-white py-2 px-4 w-[120px] text-center rounded-lg' onClick={purchase}>Purchases</div>
+        <div className='px-4 flex items-center gap-2 justify-center'>
+            <div className='bg-black text-white text-xs cursor-pointer py-2 px-4 w-[120px] text-center rounded-lg' onClick={savings}>Savings</div>
+            <div className='bg-black text-white text-xs cursor-pointer py-2 px-4 w-[120px] text-center rounded-lg' onClick={loan}>Loan</div>
+            <div className='bg-black text-white text-xs cursor-pointer py-2 px-4 w-[120px] text-center rounded-lg' onClick={purchase}>Purchases</div>
         </div>
         {/**horizontal line */}
         <div className='w-[60%] m-auto mt-4'>
             <hr></hr>
         </div>
         {/**tab card 1 */}
-        <div className='p-4 w-[100%] m-auto' id='card-1'>
+        <div className='p-4 w-[100%]' id='card-1'>
             <div>
-                <img src={SavingsImg} alt=""></img>
+                <img className='services-img' src={SavingsImg} alt=""></img>
             </div>
             <div className='mt-4'>
-                <p>
+                <p className='text-xs w-[50ch] m-auto'>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, dolorum? Iure, dolorum. Enim provident iure vel laudantium, exercitationem dolore odit eaque quis hic temporibus at incidunt earum eum quidem itaque.
                 </p>
             </div>
@@ -55,10 +55,10 @@ function Services() {
          {/**tab card 2 */}
         <div className='p-4 w-[100%] m-auto hidden' id='card-2'>
             <div>
-                <img src={LoanImg} alt=""></img>
+                <img className='services-img' src={LoanImg} alt=""></img>
             </div>
             <div className='mt-4'>
-                <p>
+                <p className='text-xs w-[50ch] m-auto'>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, dolorum? Iure, dolorum. Enim provident iure vel laudantium, exercitationem dolore odit eaque quis hic temporibus at incidunt earum eum quidem itaque.
                 </p>
             </div>
@@ -69,10 +69,10 @@ function Services() {
 
         <div className='p-4 w-[100%] m-auto hidden' id='card-3'>
             <div>
-                <img src={SavingsImg} alt=""></img>
+                <img className='services-img' src={SavingsImg} alt=""></img>
             </div>
             <div className='mt-4'>
-                <p>
+                <p className='text-xs w-[50ch] m-auto'>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, dolorum? Iure, dolorum. Enim provident iure vel laudantium, exercitationem dolore odit eaque quis hic temporibus at incidunt earum eum quidem itaque.
                 </p>
             </div>
