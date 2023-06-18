@@ -63,7 +63,7 @@ function Header() {
       {/* Medium nav-menu */}
       <div className='hidden bg-slate-200 md:flex justify-between items-center p-4'>
         <div>
-            <p className='font-bold text-lg'>Honeyland Cooperative Society</p>
+            <Link to='/'><p className='font-bold text-lg cursor-pointer'>Honeyland Cooperative Society</p></Link>
         </div>
 
         <div>
