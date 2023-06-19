@@ -6,8 +6,8 @@ function HomePage() {
   return (
     <div className=''>
       <Header />
-    <div className='bg-[url(./assets/mobile-hero.png)] md:bg-[url(./assets/Hero-Background.png)] h-[50vh] w-[100%] bg-cover bg-no-repeat text-white'>
-      <p className='hero-heading pt-[10%] md:pt-[5%] lg:pt-[] w-[20ch] m-auto mb-4'>
+    <div className='bg-[url(./assets/mobile-hero.png)] md:bg-[url(./assets/Hero-Background.png)] h-[50vh] md:h-[80vh] w-[100%] bg-cover bg-no-repeat text-white'>
+      <p className='hero-heading pt-[10%] md:pt-[15%] lg:pt-[] w-[20ch] m-auto mb-4'>
       Enrich your future 
       with our flexible saving plan
       </p>

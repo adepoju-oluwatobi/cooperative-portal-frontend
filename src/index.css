@@ -23,7 +23,7 @@
         @apply text-[10px] md:text-xs text-center w-[50ch] m-auto
     }
     .hero-btn{
-        @apply text-xs md:text-xs bg-black p-4 md:p-2 rounded-lg w-fit m-auto
+        @apply text-xs md:text-xs bg-black p-4 md:p-4 rounded-lg w-fit m-auto
     }
     input{
         @apply bg-opacity-50 border p-2 mb-4 rounded-lg w-fit m-auto
@@ -35,6 +35,6 @@
         @apply w-[90%] md:w-[425px] bg-black bg-opacity-50 rounded-lg p-8 h-fit m-auto
     }
     .services-img{
-        @apply w-[280px] h-[200px] m-auto
+        @apply w-[280px] h-[200px] m-auto rounded-lg shadow-black
     }
 }
