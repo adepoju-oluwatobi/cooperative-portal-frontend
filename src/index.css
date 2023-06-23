@@ -39,6 +39,6 @@
     }
     .service-tab-title
     {
-        @apply rounded-lg text-sm px-4 py-2 text-center md:w-[150px]
+        @apply text-sm px-4 py-2 text-center md:w-[150px]
     }
 }
