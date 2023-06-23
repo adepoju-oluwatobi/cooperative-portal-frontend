@@ -50,7 +50,7 @@ function ServicesMobile() {
     }
   return (
     <div className='md:hidden'>
-        <p className='md:text-3xl md:mt-4 font-bold text-center'>Services</p>
+        <p className='mt-4 font-bold text-center'>Services</p>
 
         <div className='flex gap-4 justify-center mt-2'>
             <div className='service-tab-title text-white bg-black' 
