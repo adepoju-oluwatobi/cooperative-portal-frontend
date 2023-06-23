@@ -1,6 +1,7 @@
 import React from 'react'
 import Services from '../components/Services'
 import Header from '../components/Header'
+import ServicesMobile from '../components/ServicesMobile'
 
 function HomePage() {
   return (
@@ -19,6 +20,7 @@ function HomePage() {
       <p className='hero-btn cursor-pointer'>Become a Member</p>
     </div>
     <Services />
+    <ServicesMobile />
     </div>
   )
 }

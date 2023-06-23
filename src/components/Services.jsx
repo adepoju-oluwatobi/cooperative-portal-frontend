@@ -11,7 +11,7 @@ function Services() {
     let p = document.getElementById('p')
 
     function savings(){
-        card_1 = document.getElementById('card-1').style.display = "initial"
+        card_1 = document.getElementById('card-1').style.display = ""
         card_2 = document.getElementById('card-2').style.display = "none"
         card_3 = document.getElementById('card-3').style.display = "none"
         s = document.getElementById('s').style.background = "#8EAC90"
@@ -25,7 +25,7 @@ function Services() {
     }
 
     function loan(){
-        card_2 = document.getElementById('card-2').style.display = "initial"
+        card_2 = document.getElementById('card-2').style.display = "flex"
         card_1 = document.getElementById('card-1').style.display = "none"
         card_3 = document.getElementById('card-3').style.display = "none"
         s = document.getElementById('s').style.background = "none"
@@ -39,7 +39,7 @@ function Services() {
     function purchase(){
         card_1 = document.getElementById('card-1').style.display = "none"
         card_2 = document.getElementById('card-2').style.display = "none"
-        card_3 = document.getElementById('card-3').style.display = "initial"
+        card_3 = document.getElementById('card-3').style.display = "flex"
         s = document.getElementById('s').style.background = "none"
         s = document.getElementById('s').style.color = "black"
         l = document.getElementById('l').style.background = "none"
@@ -48,126 +48,50 @@ function Services() {
         p = document.getElementById('p').style.color = "white"
        
     }
-   
   return (
-  <div>
-     <div className='md:hidden'>
-    {/**Mobile view */}
-        <p className='font-bold text-3xl p-4 text-center'>Our Services</p>
-        {/**Tab menu */}
-        <div className='px-4 flex items-center gap-2 justify-center'>
-            <div id='s' className='bg-[#8EAC90] text-white text-xs cursor-pointer py-2 px-4 w-[120px] text-center rounded-lg' onClick={savings}>Savings</div>
-            <div id='l' className=' text-black text-xs cursor-pointer py-2 px-4 w-[120px] text-center rounded-lg' onClick={loan}>Loan</div>
-            <div id='p' className=' text-black text-xs cursor-pointer py-2 px-4 w-[120px] text-center rounded-lg' onClick={purchase}>Purchases</div>
-        </div>
-        {/**horizontal line */}
-        <div className='w-[60%] m-auto mt-4'>
-            <hr></hr>
-        </div>
-        {/**tab card 1 */}
-        <div className='p-4 w-[100%] m-auto' id='card-1'>
-            <div>
-                <img className='services-img' src={SavingsImg} alt=""></img>
-            </div>
-            <div className=''>
-            <div className='mt-4'>
-                <p className='text-xs w-[50ch] m-auto text-center'>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, dolorum? Iure, dolorum. Enim provident iure vel laudantium, exercitationem dolore odit eaque quis hic temporibus at incidunt earum eum quidem itaque.
-                </p>
-            </div>
-            <div className='w-fit m-auto'>
-                <button className='bg-black text-white py-2 px-4 w-[fit] text-center rounded-lg mt-4 ml-'>Start Saving</button>
-            </div>
-            </div>
-        </div>
-         {/**tab card 2 */}
-         <div className='p-4 w-[100%] m-auto hidden' id='card-2'>
-            <div>
-                <img className='services-img' src={LoanImg} alt=""></img>
-            </div>
-            <div className=''>
-            <div className='mt-4'>
-                <p className='text-xs w-[50ch] m-auto text-center'>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, dolorum? Iure, dolorum. Enim provident iure vel laudantium, exercitationem dolore odit eaque quis hic temporibus at incidunt earum eum quidem itaque.
-                </p>
-            </div>
-            <div className='w-fit m-auto'>
-                <button className='bg-black text-white py-2 px-4 w-[fit] text-center rounded-lg mt-4 ml-'>Get a loan</button>
-            </div>
-            </div>
-        </div>
-        {/**tab card 3 */}
-        <div className='p-4 w-[100%] m-auto hidden' id='card-3'>
-            <div>
-                <img className='services-img' src={SavingsImg} alt=""></img>
-            </div>
-            <div className=''>
-            <div className='mt-4'>
-                <p className='text-xs w-[50ch] m-auto text-center'>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, dolorum? Iure, dolorum. Enim provident iure vel laudantium, exercitationem dolore odit eaque quis hic temporibus at incidunt earum eum quidem itaque.
-                </p>
-            </div>
-            <div className='w-fit m-auto'>
-                <button className='bg-black text-white py-2 px-4 w-[fit] text-center rounded-lg mt-4 ml-'>Make a Purchase</button>
-            </div>
-            </div>
-        </div>
-   </div>
-    {/**End of mobile view */}
+    <div className='hidden md:block'>
+        <p className='md:text-3xl md:mt-4 font-bold text-center'>Services</p>
 
-             {/**Begining of medium view */}
-             <div className='hidden md:block'>
-             <p className='font-bold text-3xl p-4 text-center'>Our Services</p>
-             {/**Tab menu */}
-            <div className='px-4 flex items-center gap-2 justify-center'>
-            <div className='bg-black text-white text-xs cursor-pointer py-2 px-4 w-[120px] text-center rounded-lg' onClick={savings}>Savings</div>
-            <div className='bg-black text-white text-xs cursor-pointer py-2 px-4 w-[120px] text-center rounded-lg' onClick={loan}>Loan</div>
-            <div className='bg-black text-white text-xs cursor-pointer py-2 px-4 w-[120px] text-center rounded-lg' onClick={purchase}>Purchases</div>
-        </div>
-        {/**horizontal line */}
-        <div className='w-[60%] m-auto mt-4'>
-            <hr></hr>
+        <div className='flex gap-4 justify-center mt-2'>
+            <div className='service-tab-title text-white bg-black' 
+            id='s' onClick={savings}>Savings</div>
+            <div className='service-tab-title text-black border-b border-black' id='l' onClick={loan}>Loan</div>
+            <div className='service-tab-title text-black border-b border-black' id='p' onClick={purchase}>Purchases</div>
         </div>
 
-       <div>
-        {/**Card 1 */}
-       <div className='p-4 w-[100%] flex justify-center' id='card-1'>
-            <div>
-                <img className='services-img' src={SavingsImg} alt=""></img>
-            </div>
-            <div className=''>
-            <div className='mt-4'>
-                <p className='text-xs w-[50ch] m-auto pl-4'>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, dolorum? Iure, dolorum. Enim provident iure vel laudantium, exercitationem dolore odit eaque quis hic temporibus at incidunt earum eum quidem itaque.
-                </p>
-            </div>
-            <div className='w-fit pl-4 mt-4'>
-                <button className='bg-black text-white py-2 px-4 w-[fit] text-center rounded-lg'>Start Saving</button>
-            </div>
+        <div className='p-4 md:flex justify-center' id='card-1'>
+            <div><img className='services-img' src={SavingsImg} alt="" /></div>
+            <div className='pl-4 flex flex-col justify-between items-center md:items-start gap-4'>
+                <div>
+                    <p className='w-[40ch] text-center md:text-left text-xs md:text-sm mt-4'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur rem similique, tempora nam quia numquam mollitia doloribus perspiciatis magni debitis vero, deserunt officia. Fuga esse cum possimus voluptates? Non, provident.</p>
+                </div>
+                <div><button className='service-tab-title bg-black text-white'>Start Savings</button></div>
             </div>
         </div>
 
-        {/**card 2 */}
-        <div className='p-4 w-[100%] justify-center hidden' id='card-2'>
-            <div>
-                <img className='services-img' src={SavingsImg} alt=""></img>
-            </div>
-            <div className=''>
-            <div className='mt-4'>
-                <p className='text-xs w-[50ch] m-auto pl-4'>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, dolorum? Iure, dolorum. Enim provident iure vel laudantium, exercitationem dolore odit eaque quis hic temporibus at incidunt earum eum quidem itaque.
-                </p>
-            </div>
-            <div className='w-fit pl-4 mt-4'>
-                <button className='bg-black text-white py-2 px-4 w-[fit] text-center rounded-lg'>Get a Loan</button>
-            </div>
+        <div className='p-4 justify-center hidden' id='card-2'>
+            <div><img className='services-img'  src={LoanImg} alt="" /></div>
+            <div className='pl-4 flex flex-col justify-between items-center md:items-start gap-4'>
+                <div>
+                    <p className='w-[40ch] text-center md:text-left text-xs md:text-sm mt-4'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur rem similique, tempora nam quia numquam mollitia doloribus perspiciatis magni debitis vero, deserunt officia. Fuga esse cum possimus voluptates? Non, provident.</p>
+                </div>
+                <div><button className='service-tab-title bg-black text-white'>Get a Loan</button></div>
             </div>
         </div>
-       </div>
 
 
-             </div>
-  </div>
+        <div className='p-4 justify-center flex-row hidden' id='card-3'>
+            <div><img className='services-img' src={SavingsImg} alt="" /></div>
+            <div className='pl-4 flex flex-col justify-between items-center md:items-start gap-4'>
+                <div>
+                    <p className='w-[40ch] text-center md:text-left text-xs md:text-sm mt-4'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur rem similique, tempora nam quia numquam mollitia doloribus perspiciatis magni debitis vero, deserunt officia. Fuga esse cum possimus voluptates? Non, provident.</p>
+                </div>
+                <div><button className='service-tab-title bg-black text-white hover:bg-green-700'>Make a Purchase</button></div>
+            </div>
+        </div>
+
+
+    </div>
   )
 }
 

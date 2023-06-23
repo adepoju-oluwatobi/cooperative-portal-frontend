@@ -35,6 +35,10 @@
         @apply w-[90%] md:w-[425px] bg-black bg-opacity-50 rounded-lg p-8 h-fit m-auto
     }
     .services-img{
-        @apply w-[280px] h-[200px] m-auto rounded-lg shadow-black
+        @apply w-[280px]  h-[200px]  m-auto rounded-lg shadow-black
+    }
+    .service-tab-title
+    {
+        @apply rounded-lg text-sm px-4 py-2 text-center md:w-[150px]
     }
 }
