@@ -1,4 +1,5 @@
 import React from 'react'
+import Officials from './Officials'
 
 function Benefits() {
   return (
@@ -16,6 +17,7 @@ function Benefits() {
                 <p>Get yearly <span className='text-[#37733A] font-bold text-lg'>dividends</span> at the end of the year</p>
             </div>
         </div>
+        <Officials />
     </div>
   )
 }

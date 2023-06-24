@@ -4,6 +4,7 @@ import Header from '../components/Header'
 import ServicesMobile from '../components/ServicesMobile'
 import Benefits from '../components/Benefits'
 import { Link } from 'react-router-dom'
+import Testimonies from '../components/Testimonies'
 
 function HomePage() {
   return (
@@ -26,6 +27,7 @@ function HomePage() {
     <Services />
     <ServicesMobile />
     <Benefits />
+    <Testimonies />
     </div>
   )
 }
