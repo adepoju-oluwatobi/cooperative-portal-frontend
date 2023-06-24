@@ -5,6 +5,7 @@ import ServicesMobile from '../components/ServicesMobile'
 import Benefits from '../components/Benefits'
 import { Link } from 'react-router-dom'
 import Testimonies from '../components/Testimonies'
+import Footer from '../components/Footer'
 
 function HomePage() {
   return (
@@ -28,6 +29,7 @@ function HomePage() {
     <ServicesMobile />
     <Benefits />
     <Testimonies />
+    <Footer />
     </div>
   )
 }

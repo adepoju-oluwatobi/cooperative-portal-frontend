@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from '../components/Header'
 import { Link } from 'react-router-dom'
+import Footer from '../components/Footer'
 
 function Register() {
     let regInfo = document.getElementById('reg-info')
@@ -11,7 +12,8 @@ function Register() {
         regInfoCloseBtn = document.getElementById('reg-info-close-btn').style.display = "none"
     }
   return (
-    <div className='bg-[url(./assets/login-background-mobile.png)] bg-cover h-[100vh] w-full'>
+   <div>
+     <div className='bg-[url(./assets/login-background-mobile.png)] bg-contain h-full w-full'>
         <Header />
         <div>
                 <div id='reg-info' className='container bg-white w-[300px] m-auto mt-4 text-xs flex justify-center items-center'>
@@ -32,7 +34,6 @@ function Register() {
             <div> <input type="text" placeholder='Enter your last name' /></div>
             <div><input type="email" placeholder='Enter your email' /></div>
             <div> <input type="number" placeholder='saving amount' /></div>
-            <div> <input type="date" placeholder='Enter your date of birth' /></div>
             <label className='text-white' htmlFor="proof of payment">Upload proof of payment</label>
             <div> <input className='w-[200px] text-white text-xs' type="file" placeholder='Upload' /></div>
            <div> <button className='primary-btn'>Register</button></div>
@@ -43,6 +44,8 @@ function Register() {
         </form>
         </div>
     </div>
+    <Footer />
+   </div>
   )
 }
 

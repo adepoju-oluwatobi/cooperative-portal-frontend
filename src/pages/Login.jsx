@@ -1,10 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 function Login() {
   return (
-    <div className='bg-[url(./assets/login-background-mobile.png)] bg-cover h-[100vh] w-full'>
+    <div>
+      <div className='bg-[url(./assets/login-background-mobile.png)] bg-cover h-[100vh] w-full'>
       <Header />
         <div className='mt-10'>
         <p className='heading text-center'>Member Login</p>
@@ -20,7 +22,8 @@ function Login() {
          </div>
         </form>
         </div>
-
+    </div>
+    <Footer />
     </div>
   )
 }
