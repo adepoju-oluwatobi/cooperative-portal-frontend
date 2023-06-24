@@ -1,6 +1,7 @@
 import React from 'react'
 import SavingsImg from '../assets/savings-img.png'
 import LoanImg from "../assets/loan-img.jpg"
+import PurchaseImg from "../assets/purchase-img-3.jpg"
 import { Link } from 'react-router-dom'
 
 function ServicesMobile() {
@@ -90,7 +91,7 @@ function ServicesMobile() {
 
 
         <div className='p-4 justify-center flex-row hidden' id='Mcard-3'>
-            <div><img className='services-img' src={SavingsImg} alt="" /></div>
+            <div><img className='services-img' src={PurchaseImg} alt="" /></div>
             <div className='pl-4 flex flex-col justify-between items-center md:items-start gap-4'>
                 <div>
                     <p className='w-[40ch] text-center md:text-left text-xs md:text-sm mt-4'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur rem similique, tempora nam quia numquam mollitia doloribus perspiciatis magni debitis vero, deserunt officia. Fuga esse cum possimus voluptates? Non, provident.</p>
