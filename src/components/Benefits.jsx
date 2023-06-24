@@ -6,7 +6,7 @@ function Benefits() {
         <p className='md:text-3xl text-2xl mt-4 font-bold text-center'>Benefits</p>
         <div className='flex flex-wrap gap-2 justify-center items-center mt-4 text-center'>
             <div className='bg-white p-4  w-[200px] h-[180px] shadow-2xl flex flex-col gap-2 justify-center items-center rounded-lg'>
-                <p className='text-[#37733A] font-bold text-lg'>1.8%</p>
+                <p className='text-[#37733A] font-bold text-4xl'>1.8%</p>
                 <p>interest on loans within 6 months</p>
             </div>
             <div className='bg-white p-4  w-[200px] h-[180px] shadow-2xl flex flex-col gap-2 justify-center items-center rounded-lg'>
