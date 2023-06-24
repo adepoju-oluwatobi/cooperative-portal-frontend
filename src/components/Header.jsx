@@ -53,8 +53,8 @@ function Header() {
       <div className='font-bold nav-menu absolute w-[90%] left-5 hidden transition-all duration-500' id='nav-menu'>
       <nav className='flex flex-col gap-4 rounded-lg bg-black p-8 text-white text-center mt-2 w-[90%] m-auto'>
          <Link to='/'>Home</Link>
-         <Link to='/'>About</Link>
-         <Link to='/'>Contact</Link>
+         <Link to='/under-construction'>About</Link>
+         <Link to='/under-construction'>Contact</Link>
          <Link to='/login' className='primary-btn m-auto'>Login</Link>
         <Link to='/register' className='secondary-btn m-auto'>Register</Link>
       </nav>

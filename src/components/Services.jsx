@@ -53,10 +53,10 @@ function Services() {
         <p className='md:text-3xl md:mt-4 font-bold text-center'>Services</p>
 
         <div className='flex gap-4 justify-center mt-2'>
-            <div className='service-tab-title text-white bg-black' 
+            <div className='service-tab-title text-white bg-black cursor-pointer' 
             id='s' onClick={savings}>Savings</div>
-            <div className='service-tab-title text-black border-b border-black' id='l' onClick={loan}>Loan</div>
-            <div className='service-tab-title text-black border-b border-black' id='p' onClick={purchase}>Purchases</div>
+            <div className='service-tab-title text-black border-b border-black cursor-pointer' id='l' onClick={loan}>Loan</div>
+            <div className='service-tab-title text-black border-b border-black cursor-pointer' id='p' onClick={purchase}>Purchases</div>
         </div>
 
         <div className='p-4 md:flex justify-center' id='card-1'>

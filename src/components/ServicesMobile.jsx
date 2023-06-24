@@ -1,6 +1,7 @@
 import React from 'react'
 import SavingsImg from '../assets/savings-img.png'
 import LoanImg from "../assets/loan-img.jpg"
+import { Link } from 'react-router-dom'
 
 function ServicesMobile() {
     let Mcard_1 = document.getElementById('Mcard-1')
@@ -65,7 +66,11 @@ function ServicesMobile() {
                 <div>
                     <p className='w-[40ch] text-center md:text-left text-xs md:text-sm mt-4'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur rem similique, tempora nam quia numquam mollitia doloribus perspiciatis magni debitis vero, deserunt officia. Fuga esse cum possimus voluptates? Non, provident.</p>
                 </div>
-                <div><button className='service-tab-title bg-black text-white'>Start Savings</button></div>
+                <div>
+                    <Link to='/under-construction'>
+                    <button className='service-tab-title bg-black text-white rounded-lg'>Start Savings</button>
+                    </Link>
+                </div>
             </div>
         </div>
 
@@ -75,7 +80,11 @@ function ServicesMobile() {
                 <div>
                     <p className='w-[40ch] text-center md:text-left text-xs md:text-sm mt-4'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur rem similique, tempora nam quia numquam mollitia doloribus perspiciatis magni debitis vero, deserunt officia. Fuga esse cum possimus voluptates? Non, provident.</p>
                 </div>
-                <div><button className='service-tab-title bg-black text-white'>Get a Loan</button></div>
+                <div>
+                    <Link to='/under-construction'>
+                    <button className='service-tab-title bg-black text-white rounded-lg'>Get a Loan</button>
+                    </Link>
+                </div>
             </div>
         </div>
 
@@ -86,7 +95,11 @@ function ServicesMobile() {
                 <div>
                     <p className='w-[40ch] text-center md:text-left text-xs md:text-sm mt-4'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur rem similique, tempora nam quia numquam mollitia doloribus perspiciatis magni debitis vero, deserunt officia. Fuga esse cum possimus voluptates? Non, provident.</p>
                 </div>
-                <div><button className='service-tab-title bg-black text-white hover:bg-green-700'>Make a Purchase</button></div>
+                <div>
+                    <Link to='/under-construction'>
+                    <button className='service-tab-title bg-black text-white rounded-lg hover:bg-green-700'>Make a Purchase</button>
+                    </Link>
+                </div>
             </div>
         </div>
 
