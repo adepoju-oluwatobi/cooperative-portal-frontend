@@ -2,6 +2,7 @@ import React from 'react'
 import Services from '../components/Services'
 import Header from '../components/Header'
 import ServicesMobile from '../components/ServicesMobile'
+import Benefits from '../components/Benefits'
 
 function HomePage() {
   return (
@@ -17,10 +18,11 @@ function HomePage() {
       We understand the difficulty in saving in an economy that is not so pocket friendly and that why we are here. Choose from our flexible plans to begin saving for the future.
       </p>
 
-      <p className='hero-btn cursor-pointer'>Become a Member</p>
+    <p className='hero-btn cursor-pointer'>Become a Member</p>
     </div>
     <Services />
     <ServicesMobile />
+    <Benefits />
     </div>
   )
 }
