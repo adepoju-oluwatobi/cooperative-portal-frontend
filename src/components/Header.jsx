@@ -53,8 +53,8 @@ function Header() {
       <div className='font-bold nav-menu absolute w-[90%] left-5 hidden transition-all duration-500' id='nav-menu'>
       <nav className='flex flex-col gap-4 rounded-lg bg-black p-8 text-white text-center mt-2 w-[90%] m-auto'>
          <Link to='/'>Home</Link>
-         <Link to='/under-construction'>About</Link>
-         <Link to='/under-construction'>Contact</Link>
+         <Link to='/about'>About</Link>
+         <Link to='/contact'>Contact</Link>
          <Link to='/login' className='primary-btn m-auto'>Login</Link>
         <Link to='/register' className='secondary-btn m-auto'>Register</Link>
       </nav>
@@ -68,9 +68,9 @@ function Header() {
 
         <div>
             <nav className='text-xs'>
-                <Link className='mr-2' to='/under-construction'>Home</Link>
-                <Link className='mr-2' to='/under-construction'>About Us</Link>
-                <Link className='mr-2' to='/under-construction'>Contact Us</Link>
+                <Link className='mr-2' to='/'>Home</Link>
+                <Link className='mr-2' to='/about'>About Us</Link>
+                <Link className='mr-2' to='/contact'>Contact Us</Link>
                 <Link className='mr-2' to='/login'>Login</Link>
                 <Link className='mr-2 bg-black px-4 py-2 text-white rounded-xl' to = '/register'>Become a member</Link>
             </nav>

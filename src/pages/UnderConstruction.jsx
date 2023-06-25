@@ -8,7 +8,7 @@ function UnderConstruction() {
    <div>
     <Header />
      <div className='w-fit h-screen m-auto mt-[10%]'>
-       <img src={UnderConst} alt="" />
+       <img className='w-[100%]' src={UnderConst} alt="" />
         <p 
         className='p-4 text-white bg-black w-fit rounded-lg m-auto my-4 cursor-pointer'>
             <Link to='/login'>Go back to Login</Link></p>

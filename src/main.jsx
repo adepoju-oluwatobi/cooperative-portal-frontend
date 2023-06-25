@@ -11,6 +11,8 @@ import Admin from "./pages/Admin";
 import Register from "./pages/Register";
 import HomePage from "./pages/HomePage";
 import UnderConstruction from "./pages/UnderConstruction";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 
 const router = createBrowserRouter([
  {
@@ -32,6 +34,14 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <Register />
+  },
+  {
+    path: "/about",
+    element: <About />
+  },
+  {
+    path: "/contact",
+    element: <Contact />
   },
   {
     path: "/under-construction",
