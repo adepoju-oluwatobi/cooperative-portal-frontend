@@ -1,19 +1,59 @@
 import React from 'react'
+import { useState } from 'react'
+import axios from 'axios'
+import {server} from '../server'
 import Header from '../components/Header'
 import { Link } from 'react-router-dom'
 import Footer from '../components/Footer'
+import { useNavigate } from 'react-router-dom'
 
 function Register() {
+    //for registration page info
     let regInfo = document.getElementById('reg-info')
     let regInfoCloseBtn = document.getElementById('reg-info-close-btn')
+    const navigate = useNavigate();
 
     function regInfoClose(){
         regInfo = document.getElementById('reg-info').style.display = "none"
         regInfoCloseBtn = document.getElementById('reg-info-close-btn').style.display = "none"
     }
+    //************************************************************************************ */
+
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [details, setDetails] = useState("");
+
+    async function registerFunction(e)
+    {
+      e.preventDefault(); 
+     try {
+        let res = await axios.post(`${server}/registration`, {
+            username: name,
+            email: email,
+            password: password
+        });
+        console.log(res);
+        
+     } catch (error) {
+        console.log(error.message);
+     } 
+    }
+
+   function register(){
+        setDetails(name, email,password)
+        let userDetails = details;
+         if (userDetails == ''){
+            console.log("enter a value")
+         } else {
+            console.log("success")
+            navigate('/login') 
+         }
+    }
+
   return (
    <div>
-     <div className='bg-[url(./assets/login-background-mobile.png)] bg-contain h-full w-full'>
+     <div className='bg-[url(./assets/login-background-mobile.png)] bg-contain h-[100vh] w-full'>
         <Header />
         <div>
                 <div id='reg-info' className='container bg-white w-[300px] m-auto mt-4 text-xs flex justify-center items-center'>
@@ -29,14 +69,37 @@ function Register() {
             </div>
         <div className='mt-4'>
         <p className='heading text-center'>Register</p>
-        <form action="" className='text-center'>
-            <div> <input type="text" placeholder='Enter your First name' /></div>
-            <div> <input type="text" placeholder='Enter your last name' /></div>
-            <div><input type="email" placeholder='Enter your email' /></div>
-            <div> <input type="number" placeholder='saving amount' /></div>
-            <label className='text-white' htmlFor="proof of payment">Upload proof of payment</label>
+        <form action="" className='text-center' onSubmit={registerFunction}>
+            <div>
+                 <input
+                  type="text" 
+                  placeholder='Enter your Full Name'
+                  value={name}
+                  onChange={(e)=>setName(e.target.value)}
+                  />
+            </div>
+
+            <div>
+                <input 
+                type="email" 
+                placeholder='Enter your email' 
+                value={email}
+                onChange={(e)=>setEmail(e.target.value)}
+                />
+                </div>
+            <div> 
+                <input 
+                type="password" 
+                placeholder='Enter your password' 
+                value={password}
+                onChange={(e)=>setPassword(e.target.value)}
+                />
+                </div>
+           {/**
+            *  <label className='text-white' htmlFor="proof of payment">Upload proof of payment</label>
             <div> <input className='w-[200px] text-white text-xs' type="file" placeholder='Upload' /></div>
-           <div> <button className='primary-btn'>Register</button></div>
+            */}
+           <div id='register' onClick={register}> <button className='primary-btn'>Register</button></div>
 
            <div className='text-xs mt-4'>
            <p className='text-white'>Already a member?<Link className='text-blue-500' to='/login'>Login here</Link></p>

@@ -13,6 +13,7 @@ import HomePage from "./pages/HomePage";
 import UnderConstruction from "./pages/UnderConstruction";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import Dashboard from "./pages/Dashboard";
 
 const router = createBrowserRouter([
  {
@@ -46,7 +47,11 @@ const router = createBrowserRouter([
   {
     path: "/under-construction",
     element: <UnderConstruction />,
-  }
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard />
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
