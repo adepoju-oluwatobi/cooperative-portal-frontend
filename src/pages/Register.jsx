@@ -1,29 +1,32 @@
-import React from 'react'
-import { useState } from 'react'
-import axios from 'axios'
-import {server} from '../server'
-import Header from '../components/Header'
-import { Link } from 'react-router-dom'
-import Footer from '../components/Footer'
-import { useNavigate } from 'react-router-dom'
+import React from 'react';
+import { useState,useContext } from 'react';
+import axios from 'axios';
+import {server} from '../server';
+import Header from '../components/Header';
+import {coperativeUserContext} from '../components/Context'
+import { Link } from 'react-router-dom';
+import Footer from '../components/Footer';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 function Register() {
+    /*const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState(""); 
+    */
+
+    const {name, setName, email, setEmail, password, setPassword} = useContext(coperativeUserContext)
+    const navigate = useNavigate();
+
     //for registration page info
     let regInfo = document.getElementById('reg-info')
     let regInfoCloseBtn = document.getElementById('reg-info-close-btn')
-    const navigate = useNavigate();
 
     function regInfoClose(){
         regInfo = document.getElementById('reg-info').style.display = "none"
         regInfoCloseBtn = document.getElementById('reg-info-close-btn').style.display = "none"
     }
     //************************************************************************************ */
-
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [details, setDetails] = useState("");
-
     async function registerFunction(e)
     {
       e.preventDefault(); 
@@ -32,28 +35,20 @@ function Register() {
             username: name,
             email: email,
             password: password
-        });
-        console.log(res);
-        
+        })
+        toast.success(`${res.data.users.name} Your account have been successfully created`);
+        navigate("/login");
      } catch (error) {
-        console.log(error.message);
+        toast.error(error.response.data.msg);
      } 
-    }
-
-   function register(){
-        setDetails(name, email,password)
-        let userDetails = details;
-         if (userDetails == ''){
-            console.log("enter a value")
-         } else {
-            console.log("success")
-            navigate('/login') 
-         }
-    }
+     setEmail('');
+     setName('');
+     setPassword('');
+}
 
   return (
    <div>
-     <div className='bg-[url(./assets/login-background-mobile.png)] bg-contain h-[100vh] w-full'>
+     <div className='bg-[url(./assets/login-background-mobile.png)] bg-cover bg-no-repeat h-[100vh] w-full'>
         <Header />
         <div>
                 <div id='reg-info' className='container bg-white w-[300px] m-auto mt-4 text-xs flex justify-center items-center'>
@@ -67,8 +62,8 @@ function Register() {
                     </div>
                 </div>
             </div>
-        <div className='mt-4'>
-        <p className='heading text-center'>Register</p>
+        <div className='mt-6'>
+        <p className='heading text-center mb-4'>Register</p>
         <form action="" className='text-center' onSubmit={registerFunction}>
             <div>
                  <input
@@ -99,7 +94,7 @@ function Register() {
             *  <label className='text-white' htmlFor="proof of payment">Upload proof of payment</label>
             <div> <input className='w-[200px] text-white text-xs' type="file" placeholder='Upload' /></div>
             */}
-           <div id='register' onClick={register}> <button className='primary-btn'>Register</button></div>
+           <div id='register'> <button className='primary-btn'>Register</button></div>
 
            <div className='text-xs mt-4'>
            <p className='text-white'>Already a member?<Link className='text-blue-500' to='/login'>Login here</Link></p>

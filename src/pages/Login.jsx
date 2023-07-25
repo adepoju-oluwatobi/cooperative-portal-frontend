@@ -1,15 +1,19 @@
 import React from 'react'
-import {useState} from 'react'
+import {useState, useContext} from 'react'
+import {coperativeUserContext} from '../components/Context'
 import axios from 'axios'
 import { server } from '../server'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import { toast } from 'react-toastify';
 
 function Login() {
-  const [email, setEmail] = useState("");
+  /* const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  */
+ const {email, setEmail, password, setPassword} = useContext(coperativeUserContext)
   const navigate = useNavigate();
 
 
@@ -21,12 +25,13 @@ function Login() {
           email: email,
           password: password
       });
-      navigate('/dashboard') 
-      console.log(res);
+      toast.success(`Welcome ${res.data.users.name}`);
+      navigate("/dashboard");
 
       } catch (error) {
-        console.log(error.message);
+        alert(error.message);
       }
+      
     }
   return (
     <div>

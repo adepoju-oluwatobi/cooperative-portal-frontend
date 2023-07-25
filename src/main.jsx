@@ -14,6 +14,9 @@ import UnderConstruction from "./pages/UnderConstruction";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Dashboard from "./pages/Dashboard";
+import AdminDashboard from "./pages/AdminDashboard";
+import { ToastContainer } from "react-toastify";
+import CreatedContext from "./components/Context";
 
 const router = createBrowserRouter([
  {
@@ -52,10 +55,18 @@ const router = createBrowserRouter([
     path: "/dashboard",
     element: <Dashboard />
   },
+  {
+    path: "admin-dashboard",
+    element: <AdminDashboard />
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <CreatedContext>
+        <RouterProvider router={router} />
+    </CreatedContext>
+    <ToastContainer />
   </React.StrictMode>
+
 );
