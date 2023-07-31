@@ -8,13 +8,13 @@ import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import Dashboard from './Dashboard';
 
 function Register() {
-    /*const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState(""); 
-    */
-
+    // const [name, setName] = useState("");
+    // const [email, setEmail] = useState("");
+    // const [password, setPassword] = useState(""); 
+    
     const {name, setName, email, setEmail, password, setPassword} = useContext(coperativeUserContext)
     const navigate = useNavigate();
 
@@ -104,6 +104,7 @@ function Register() {
     </div>
     <Footer />
    </div>
+   
   )
 }
 

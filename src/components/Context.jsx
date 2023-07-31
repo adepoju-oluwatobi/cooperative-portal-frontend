@@ -2,8 +2,11 @@ import React, {createContext, useState,useEffect} from 'react'
 import { server } from '../server';
 import axios from 'axios';
 
+//const myContext = React.createContext();
+//export default myContext;
+
 export const coperativeUserContext = createContext({});
-    
+
 function CreatedContext({children}) {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -30,10 +33,6 @@ function CreatedContext({children}) {
     useEffect(()=>{
         getUser();
     },[]);
-
-
-
-
   return (
    <coperativeUserContext.Provider value = {{name, setName, email, setEmail, password, setPassword}}>
     {children}

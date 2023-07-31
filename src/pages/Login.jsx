@@ -10,9 +10,9 @@ import Footer from '../components/Footer'
 import { toast } from 'react-toastify';
 
 function Login() {
-  /* const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  */
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  
  const {email, setEmail, password, setPassword} = useContext(coperativeUserContext)
   const navigate = useNavigate();
 

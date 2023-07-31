@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import {coperativeUserContext} from '../components/Context'
+import CreatedContext, {coperativeUserContext} from '../components/Context'
 import Benefits from '../components/Benefits'
 import Header from '../components/Header';
 import ProfilePics from '../assets/dummy-off1.png'
@@ -11,8 +11,9 @@ import Footer from '../components/Footer';
 
 function Dashboard() {
 const {name} = useContext(coperativeUserContext);
+const sharedData = useContext(CreatedContext)
 
-
+//handles the values of finaces in dashboard
 const [balance, setBalance] = useState("N100,000.00");
 const [loanAmt, setLoanAmt] = useState("N200,000.00")
 const [monthlySav, setMonthlySav] = useState("N20,000.00")
@@ -51,7 +52,7 @@ let showBal = document.getElementById('show');
           <div className='flex items-center justify-between'>
             <div className='flex items-center'>
               <img className='w-10 md:w-20' src={ProfilePics} alt="" />
-              <p className='md:text-xl'>Hello, <span className='font-bold'>{name}</span></p>
+              <p className='md:text-xl'>Hello, <span className='font-bold'>{sharedData}</span></p>
             </div>
             <div className='flex items-start cursor-pointer gap-3 pr-4'>
               <img className='w-5' src={Bell} alt="" />
