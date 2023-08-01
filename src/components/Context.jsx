@@ -15,6 +15,7 @@ function CreatedContext({children}) {
      axios.defaults.withCredentials = true;
 
     const [user, setUser] = useState(null);
+    const [ready, setReady] = useState(false);
 
     async function getUser()
     {
@@ -22,8 +23,8 @@ function CreatedContext({children}) {
             if (!user)
             {
                 const user = await axios.get(`${server}/profile`);
-                //setUser(user);
-                console.log(user.data);
+                setUser(user);
+                //console.log(user);
             }
         } catch (error) {
             console.log(error);
@@ -33,8 +34,9 @@ function CreatedContext({children}) {
     useEffect(()=>{
         getUser();
     },[]);
+
   return (
-   <coperativeUserContext.Provider value = {{name, setName, email, setEmail, password, setPassword}}>
+   <coperativeUserContext.Provider value = {{name, setName, email, setEmail, password, setPassword, user, setUser}}>
     {children}
     </coperativeUserContext.Provider>
   )
