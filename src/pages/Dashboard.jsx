@@ -55,8 +55,10 @@ function Dashboard() {
               <p className='md:text-xl'>Hello, {user?.data.users} <span className='font-bold'>{sharedData}</span></p>
             </div>
             <div className='flex items-start cursor-pointer gap-3 pr-4'>
+              {/**LOGOUT BUTTON */}
+              <button className='p-1 px-2 rounded-lg bg-red-500 text-white'>Logout</button>
               <img className='w-5' src={Bell} alt="" />
-              <img className='w-5' src={CareService} alt="" />
+              {/* <img className='w-5' src={CareService} alt="" /> */}
               <img className='w-5' src={Settings} alt="" />
             </div>
           </div>
