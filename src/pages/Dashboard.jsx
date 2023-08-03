@@ -8,10 +8,23 @@ import CareService from '../assets/customer-care.svg'
 import Settings from '../assets/settings.svg'
 import Eye from '../assets/eye.svg'
 import Footer from '../components/Footer';
+import { server } from '../server';
+import axios from 'axios';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 function Dashboard() {
   const { user } = useContext(coperativeUserContext);
-  const sharedData = useContext(CreatedContext)
+  const sharedData = useContext(CreatedContext);
+  const navigate = useNavigate();
+
+  const logout = async() => {
+    try {
+      await axios.post(`${server}/logout`)
+    } catch (error) {
+      console.log("error")
+    }
+  }
 
   //handles the values of finaces in dashboard
   const [balance, setBalance] = useState("N100,000.00");
@@ -23,6 +36,7 @@ function Dashboard() {
   let savings = document.getElementById('savings');
   let hideBal = document.getElementById('hide');
   let showBal = document.getElementById('show');
+  let printStatementBtn = document.getElementById('print-statement-btn');
 
 
   //function to hide financial figure
@@ -42,6 +56,20 @@ function Dashboard() {
     hideBal = document.getElementById('hide').style.display = "block"
     showBal = document.getElementById('show').style.display = "none"
   }
+
+   function applyForLoan(){
+      navigate("/loan-form")
+    }
+
+  function printStatement(){
+      toast.info("This service is not available yet. We ll notify once its done.")
+      printStatementBtn = document.getElementById('print-statement-btn').style.background = "gray";
+
+    }
+
+    function makePurchase(){
+       toast.info("This service is not available yet. We ll notify once its done.")
+    }
   return (
     <div>
       <Header />
@@ -56,7 +84,7 @@ function Dashboard() {
             </div>
             <div className='flex items-start cursor-pointer gap-3 pr-4'>
               {/**LOGOUT BUTTON */}
-              <button className='p-1 px-2 rounded-lg bg-red-500 text-white'>Logout</button>
+              <button onClick={logout} className='p-1 px-2 rounded-lg bg-red-500 text-white'>Logout</button>
               <img className='w-5' src={Bell} alt="" />
               {/* <img className='w-5' src={CareService} alt="" /> */}
               <img className='w-5' src={Settings} alt="" />
@@ -90,13 +118,13 @@ function Dashboard() {
           </div>
 
           <div className='flex justify-evenly mt-2'>
-            <div className='bg-black text-white p-2 rounded-lg cursor-pointer'>
+            <div className='bg-black text-white p-2 rounded-lg cursor-pointer' onClick={applyForLoan}>
               <p className='text-[10px] md:text-base md:p-2'>Apply for loan</p>
             </div>
-            <div className='bg-black text-white p-2 rounded-lg cursor-pointer'>
+            <div id='print-statement-btn' className='bg-black text-white p-2 rounded-lg cursor-pointer ' onClick={printStatement}>
               <p className='text-[10px] md:text-base md:p-2'>Print Statement</p>
             </div>
-            <div className='bg-black text-white p-2 rounded-lg cursor-pointer'>
+            <div className='bg-black text-white p-2 rounded-lg cursor-pointer' onClick={makePurchase}>
               <p className='text-[10px] md:text-base md:p-2'>Make a purchase</p>
             </div>
           </div>

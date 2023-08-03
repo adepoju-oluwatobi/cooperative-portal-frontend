@@ -17,6 +17,7 @@ import Dashboard from "./pages/Dashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 import { ToastContainer } from "react-toastify";
 import CreatedContext from "./components/Context";
+import LoanForm from "./components/LoanForm";
 
 const router = createBrowserRouter([
  {
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
   {
     path: "admin-dashboard",
     element: <AdminDashboard />
+  },
+  {
+    path: "/loan-form",
+    element: <LoanForm />
   }
 ]);
 
