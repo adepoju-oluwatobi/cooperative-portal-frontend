@@ -132,7 +132,7 @@ function Dashboard() {
               <div className="flex items-center gap-2">
                 <p className="md:text-2xl">Available Balance</p>
                 <img
-                  className="w-4 md:w-6"
+                  className="w-4 md:w-6 "
                   src={Eye}
                   alt=""
                   onClick={hide}
