@@ -13,6 +13,10 @@ function LoanForm() {
       <Header />
       <div className="h-auto p-4 bg-[url(./assets/loan-bg.jpg)] text-white">
         <p className="text-center font-bold text-3xl p-4">Loan Application Form</p>
+        <p className="underline font-bold p-2 text-center bg-green-500 text-slate-100 mb-4 w-[250px] md:w-[350px] m-auto">
+            <span className="text-lg">Note:</span>You can only access 70% of
+            your total savings as loan!
+          </p>
         <form action="">
           <input
             type="text"
@@ -38,10 +42,6 @@ function LoanForm() {
             className="w-[100%]"
             required
           />
-          <p className="underline font-bold p-4">
-            <span className="text-lg">Note:</span>You can only access 70% of
-            your total savings as loan!
-          </p>
           <input
             type="text"
             placeholder="Purpose of loan"
@@ -123,7 +123,7 @@ function LoanForm() {
         <input type="file" className="w-[100%] text-sm"/>
             <input type="submit"  className="bg-black text-white ml-[-10px]"/>
         </form>
-        <div className="p-4 text-center">
+        <div className="p-4 text-center flex justify-center">
              <p onClick={goback} className="p-2 bg-red-400 w-[260px] px-4 rounded-lg">Cancel and go Back</p>
         </div>
       </div>
