@@ -16,15 +16,17 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
 function Dashboard() {
-  const { user } = useContext(coperativeUserContext);
+  const { user, setReady } = useContext(coperativeUserContext);
   const sharedData = useContext(CreatedContext);
   const navigate = useNavigate();
 
   const logout = async () => {
     try {
-      await axios.post(`${server}/logout`);
+      const data = await axios.post(`${server}/logout`);
+      navigate("/login");
+      //console.log(data);
     } catch (error) {
-      console.log("error");
+      console.log(error);
     }
   };
 
@@ -111,10 +113,11 @@ function Dashboard() {
             </div>
             <div className="flex items-start cursor-pointer gap-3 pr-4">
               {/**LOGOUT BUTTON */}
-                {/* <img src={LogoutBtn} alt="" /> */}
+              {/* <img src={LogoutBtn} alt="" /> */}
               <button
                 onClick={logout}
-                className="p-1 px-2 mb-2 rounded-lg bg-red-500 text-white text-xs md:text-sm">
+                className="p-1 px-2 mb-2 rounded-lg bg-red-500 text-white text-xs md:text-sm"
+              >
                 Logout
               </button>
               {/* <img className='w-5' src={Bell} alt="" />
@@ -124,7 +127,7 @@ function Dashboard() {
           </div>
 
           <div className="w-[100%] h-[180px] md:h-[280px] bg-[#6A2982] text-white rounded-xl px-4 py-2 md:p-4 flex flex-col md:gap-2">
-             {/** AVAILABLE BALANCE */}
+            {/** AVAILABLE BALANCE */}
             <div className="">
               <div className="flex items-center gap-2">
                 <p className="md:text-2xl">Available Balance</p>
@@ -146,7 +149,7 @@ function Dashboard() {
               <p className="text-3xl md:text-5xl font-bold" id="balance">
                 {balance}
               </p>
-               <p className="text-xs font-thin opacity-50">Devided:{dividend} || Total bal: N155,000.00</p>
+              <p className="text-xs font-thin opacity-50">Devided:{dividend} || Total bal: N155,000.00</p>
             </div>
             {/** MONTHLY SAVINGS */}
             <div>
