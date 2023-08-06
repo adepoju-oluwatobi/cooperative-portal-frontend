@@ -24,7 +24,7 @@ function Add() {
       .post("https://test-api-uxtu.onrender.com/users", inputData)
       .then((res) => {
         toast.success("Data added successfully");
-        navigate("admin-dashboard");
+        navigate("/admin-dashboard");
       })
       .catch((err) => console.log(err));
   }

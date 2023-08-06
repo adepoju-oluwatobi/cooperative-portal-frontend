@@ -20,7 +20,7 @@ function EditUser() {
   async function handleSubmit(event) {
     event.preventDefault();
    axios
-     .put("https://test-api-uxtu.onrender.com/users/" + id, data)
+     .post("https://test-api-uxtu.onrender.com/users/" + id, data)
      .then((res) => {
        toast.info("Data updated successfully!");
        navigate("admin-dashboard");

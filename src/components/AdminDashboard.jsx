@@ -96,7 +96,7 @@ function Dashboard() {
       axios
         .delete("https://test-api-uxtu.onrender.com/users/" + id)
         .then((res) => {
-          navigate("admin-dashboard");
+          navigate("/admin-dashboard");
           toast.success("User have been deleted successfully");
           location.reload();
         })
