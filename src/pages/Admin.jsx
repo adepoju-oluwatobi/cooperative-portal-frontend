@@ -41,6 +41,9 @@ function Admin() {
 
            <div className='text-xs mt-4'>
            <p className='text-blue-500 uderline'><Link>Forgot your password?</Link></p><p className='text-white'>Login as <Link className='text-blue-500' to='/login'>Member</Link></p>
+           <Link to="/admin-dashboard">
+            <p>Go to dashboard</p>
+           </Link>
          </div>
         </form>
         </div>
