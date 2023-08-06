@@ -10,19 +10,21 @@ function EditUser() {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   useEffect(() => {
-    axios
-      .get("https://test-api-5r2b.onrender.com/users" + id)
-      .then((res) => setData(res.data))
-      .catch((err) => toast.error(err));
+     axios
+       .get("https://test-api-uxtu.onrender.com/users/" + id)
+       .then((res) => setData(res.data))
+       .catch((err) => console.log(err));
   }, []);
-  function handleSubmit(event) {
+
+  
+  async function handleSubmit(event) {
     event.preventDefault();
-    axios
-      .put("https://test-api-5r2b.onrender.com/users" + id, data)
-      .then((res) => {
-        toast.info("Data updated successfully!");
-        navigate("/admin-dashboard");
-      });
+   axios
+     .put("https://test-api-uxtu.onrender.com/users/" + id, data)
+     .then((res) => {
+       toast.info("Data updated successfully!");
+       navigate("/admin-dashboard");
+     });
   }
   return (
     <div>

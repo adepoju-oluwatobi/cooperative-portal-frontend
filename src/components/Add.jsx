@@ -21,7 +21,7 @@ function Add() {
     event.preventDefault();
 
     axios
-      .post("https://test-api-5r2b.onrender.com/users", inputData)
+      .post("https://test-api-uxtu.onrender.com/users", inputData)
       .then((res) => {
         toast.success("Data added successfully");
         navigate("/admin-dashboard");

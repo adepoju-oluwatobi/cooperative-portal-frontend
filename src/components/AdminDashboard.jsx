@@ -19,7 +19,7 @@ function Dashboard() {
   /**FETCHES THE DATA FROM BACKEND */
   useEffect(() => {
     axios
-      .get("https://test-api-5r2b.onrender.com/users")
+      .get("https://test-api-uxtu.onrender.com/users")
       .then((res) => {
         setColumns(Object.keys(res.data[0]));
         setRecords(res.data);
@@ -94,7 +94,7 @@ function Dashboard() {
 
     if (confirmDelete) {
       axios
-        .delete("https://test-api-5r2b.onrender.com/users" + id)
+        .delete("https://test-api-uxtu.onrender.com/users/" + id)
         .then((res) => {
           navigate("/admin-dashboard");
           toast.success("User have been deleted successfully");
