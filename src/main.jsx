@@ -14,11 +14,12 @@ import UnderConstruction from "./pages/UnderConstruction";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Dashboard from "./pages/Dashboard";
-import AdminDashboard from "./pages/AdminDashboard";
+import AdminDashboard from "./components/AdminDashboard"
 import { ToastContainer } from "react-toastify";
 import CreatedContext from "./components/Context";
 import LoanForm from "./components/LoanForm";
 import EditUser from "./components/EditUser";
+import Add from "./components/Add";
 
 const router = createBrowserRouter([
  {
@@ -66,8 +67,12 @@ const router = createBrowserRouter([
     element: <LoanForm />
   },
   {
-    path: "/edit-user",
+    path: "/update/:id",
     element: <EditUser/>
+  },
+  {
+    path: "/create",
+    element: <Add/>
   }
 ]);
 
