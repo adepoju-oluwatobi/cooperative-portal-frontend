@@ -23,7 +23,7 @@ function EditUser() {
      .put("https://test-api-uxtu.onrender.com/users/" + id, data)
      .then((res) => {
        toast.info("Data updated successfully!");
-       navigate("/admin-dashboard");
+       navigate("admin-dashboard");
      });
   }
   return (
