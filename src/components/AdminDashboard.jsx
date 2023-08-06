@@ -34,7 +34,11 @@ function Dashboard() {
   }, []);
   /**HANDLE LOAD TIME IF THE DATA TOOK TOO LONG TO FETCH */
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className=" flex justify-center items-center h-[100vh]">
+        <p className="w-[150px] h-[150px] bg-black text-white rounded-full text-center p-4 flex justify-center items-center font-bold shadow-xl text-xl"> Loading...</p>
+      </div>
+    );
   }
   /**HANDLES ERROR IF DATA COULD NOT BE FETCHED */
   if (error) {
