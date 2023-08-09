@@ -19,7 +19,7 @@ function Dashboard() {
   /**FETCHES THE DATA FROM BACKEND */
   useEffect(() => {
     axios
-      .get("https://test-api-uxtu.onrender.com/users")
+      .get("http://localhost:3000/users")
       .then((res) => {
         setColumns(Object.keys(res.data[0]));
         setRecords(res.data);
@@ -58,9 +58,16 @@ function Dashboard() {
             <thead className="bg-black">
               <tr>
                 {/**MAPS THE TITLE OF EACH COLUMN FROM THE BACKEND */}
-                {columns.map((column) => (
+                {/* {columns.map((column) => (
                   <th key={column}>{column}</th>
-                ))}
+                ))} */}
+                <th>#</th>
+                <th>Name</th>
+                <th>Monthly Savings</th>
+                <th>Loan Amount</th>
+                <th>Loan Balance</th>
+                <th>Monthly deduction</th>
+                <th>Available Bal</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -74,7 +81,7 @@ function Dashboard() {
                   <td>{record.loanAmount}</td>
                   <td>{record.loanBalance}</td>
                   <td>{record.monthlyDeduction}</td>
-                  <td>{record.availableBal}</td>
+                  <td>{record.availableBalance}</td>
                   <td className="flex gap-4">
                     <Link to={`/update/${record.id}`}>
                       <div className="">
@@ -98,7 +105,7 @@ function Dashboard() {
 
     if (confirmDelete) {
       axios
-        .delete("https://test-api-uxtu.onrender.com/users/" + id)
+        .delete("http://localhost:3000/users/" + id)
         .then((res) => {
           navigate("/admin-dashboard");
           toast.success("User have been deleted successfully");

@@ -1,13 +1,65 @@
 {
   "users": [
     {
-      "name": "Mrs Salu",
+      "name": "",
+      "email": "",
+      "address": "",
+      "PhoneNumber": "",
+      "nextOfKin": "",
+      "password": "",
+      "monthlySavings": "",
+      "loanAmount": "",
+      "loanBalance": "",
+      "monthlyDeduction": "",
+      "availableBal": "",
+      "id": ""
+    },
+    {
+      "name": "Adepoju Oluwatobi",
       "monthlySavings": "20,000",
+      "loanAmount": "150,000",
+      "loanBalance": "137,500",
+      "monthlyDeduction": "12,500",
+      "availableBalance": "150,000",
+      "id": "DGgQG6-",
+      "availableBal": "150,000"
+    },
+    {
+      "name": "new ",
+      "monthlySavings": "150,000",
       "loanAmount": "-",
       "loanBalance": "-",
       "monthlyDeduction": "-",
-      "availableBalance": "50,000",
-      "id": 2
+      "availableBalance": "100,000",
+      "id": "oGznDs3"
+    },
+    {
+      "name": "Adepoju Anu",
+      "email": "anu@gmail.com",
+      "address": "11, mutiue strt, mosan",
+      "PhoneNumber": "",
+      "nextOfKin": "Oluwatobi",
+      "password": "mofolorunsho24$",
+      "monthlySavings": "20,000",
+      "loanAmount": "",
+      "loanBalance": "",
+      "monthlyDeduction": "",
+      "availableBalance": "",
+      "id": "6Ikt07O"
+    },
+    {
+      "name": "new",
+      "email": "kunletobi",
+      "address": "no address",
+      "PhoneNumber": "",
+      "nextOfKin": "tobi",
+      "password": "mofolorunsho",
+      "monthlySavings": "20,000",
+      "loanAmount": "",
+      "loanBalance": "",
+      "monthlyDeduction": "",
+      "availableBalance": "",
+      "id": "DCDKycS"
     }
   ]
 }
