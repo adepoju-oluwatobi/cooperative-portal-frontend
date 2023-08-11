@@ -82,7 +82,7 @@ function EditUser() {
               type="text"
               value={data.availableBal}
               onChange={(e) =>
-                setData({ ...data, availableBal: e.target.value })
+                setData({ ...data, availableBalance: e.target.value })
               }
             />
             <button className="bg-violet-500 border-0 text-white p-2 cursor-pointer rounded-xl">

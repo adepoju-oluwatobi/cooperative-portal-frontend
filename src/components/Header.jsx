@@ -50,7 +50,7 @@ function Header() {
         </div>
     </div>
       {/*mobile nav-menu */}
-      <div className='font-bold nav-menu absolute w-[90%] left-5 hidden transition-all duration-500' id='nav-menu'>
+      <div className='font-bold nav-menu absolute w-[90%] left-5 hidden transition-all duration-300' id='nav-menu'>
       <nav className='flex flex-col gap-4 rounded-lg bg-black p-8 text-white text-center mt-2 w-[90%] m-auto'>
          <Link to='/'>Home</Link>
          <Link to='/about'>About</Link>

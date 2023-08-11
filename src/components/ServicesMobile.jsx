@@ -51,62 +51,103 @@ function ServicesMobile() {
        
     }
   return (
-    <div className='md:hidden'>
-        <p className='mt-4 font-bold text-center text-2xl'>Services</p>
+    <div className="md:hidden">
+      <p className="mt-4 font-bold text-center text-2xl">Services</p>
 
-        <div className='flex gap-4 justify-center mt-2'>
-            <div className='service-tab-title text-white bg-black' 
-            id='Ms' onClick={savings}>Savings</div>
-            <div className='service-tab-title text-black border-b border-black' id='Ml' onClick={loan}>Loan</div>
-            <div className='service-tab-title text-black border-b border-black' id='Mp' onClick={purchase}>Purchases</div>
+      <div className="flex gap-4 justify-center mt-2">
+        <div
+          className="service-tab-title text-white bg-black transition-all duration-[300] ease-in-out"
+          id="Ms"
+          onClick={savings}
+        >
+          Savings
         </div>
-
-        <div className='p-4 md:flex justify-center' id='Mcard-1'>
-            <div><img className='services-img' src={SavingsImg} alt="" /></div>
-            <div className='pl-4 flex flex-col justify-between items-center md:items-start gap-4'>
-                <div>
-                    <p className='w-[40ch] text-center md:text-left text-xs md:text-sm mt-4'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur rem similique, tempora nam quia numquam mollitia doloribus perspiciatis magni debitis vero, deserunt officia. Fuga esse cum possimus voluptates? Non, provident.</p>
-                </div>
-                <div>
-                    <Link to='/under-construction'>
-                    <button className='service-tab-title bg-black text-white rounded-lg'>Start Savings</button>
-                    </Link>
-                </div>
-            </div>
+        <div
+          className="service-tab-title text-black border-b border-black transition-all duration-[300] ease-in-out"
+          id="Ml"
+          onClick={loan}
+        >
+          Loan
         </div>
-
-        <div className='p-4 justify-center hidden' id='Mcard-2'>
-            <div><img className='services-img'  src={LoanImg} alt="" /></div>
-            <div className='pl-4 flex flex-col justify-between items-center md:items-start gap-4'>
-                <div>
-                    <p className='w-[40ch] text-center md:text-left text-xs md:text-sm mt-4'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur rem similique, tempora nam quia numquam mollitia doloribus perspiciatis magni debitis vero, deserunt officia. Fuga esse cum possimus voluptates? Non, provident.</p>
-                </div>
-                <div>
-                    <Link to='/under-construction'>
-                    <button className='service-tab-title bg-black text-white rounded-lg'>Get a Loan</button>
-                    </Link>
-                </div>
-            </div>
+        <div
+          className="service-tab-title text-black border-b border-black transition-all duration-[300] ease-in-out"
+          id="Mp"
+          onClick={purchase}
+        >
+          Purchases
         </div>
+      </div>
 
-
-        <div className='p-4 justify-center flex-row hidden' id='Mcard-3'>
-            <div><img className='services-img' src={PurchaseImg} alt="" /></div>
-            <div className='pl-4 flex flex-col justify-between items-center md:items-start gap-4'>
-                <div>
-                    <p className='w-[40ch] text-center md:text-left text-xs md:text-sm mt-4'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur rem similique, tempora nam quia numquam mollitia doloribus perspiciatis magni debitis vero, deserunt officia. Fuga esse cum possimus voluptates? Non, provident.</p>
-                </div>
-                <div>
-                    <Link to='/under-construction'>
-                    <button className='service-tab-title bg-black text-white rounded-lg hover:bg-green-700'>Make a Purchase</button>
-                    </Link>
-                </div>
-            </div>
+      <div className="p-4 md:flex justify-center" id="Mcard-1">
+        <div>
+          <img className="services-img" src={SavingsImg} alt="" />
         </div>
+        <div className="pl-4 flex flex-col justify-between items-center md:items-start gap-4">
+          <div>
+            <p className="w-[40ch] text-center md:text-left text-xs md:text-sm mt-4">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur
+              rem similique, tempora nam quia numquam mollitia doloribus
+              perspiciatis magni debitis vero, deserunt officia. Fuga esse cum
+              possimus voluptates? Non, provident.
+            </p>
+          </div>
+          <div>
+            <Link to="/under-construction">
+              <button className="service-tab-title bg-black text-white rounded-lg">
+                Start Savings
+              </button>
+            </Link>
+          </div>
+        </div>
+      </div>
 
+      <div className="p-4 justify-center hidden" id="Mcard-2">
+        <div>
+          <img className="services-img" src={LoanImg} alt="" />
+        </div>
+        <div className="pl-4 flex flex-col justify-between items-center md:items-start gap-4">
+          <div>
+            <p className="w-[40ch] text-center md:text-left text-xs md:text-sm mt-4">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur
+              rem similique, tempora nam quia numquam mollitia doloribus
+              perspiciatis magni debitis vero, deserunt officia. Fuga esse cum
+              possimus voluptates? Non, provident.
+            </p>
+          </div>
+          <div>
+            <Link to="/under-construction">
+              <button className="service-tab-title bg-black text-white rounded-lg">
+                Get a Loan
+              </button>
+            </Link>
+          </div>
+        </div>
+      </div>
 
+      <div className="p-4 justify-center flex-row hidden" id="Mcard-3">
+        <div>
+          <img className="services-img" src={PurchaseImg} alt="" />
+        </div>
+        <div className="pl-4 flex flex-col justify-between items-center md:items-start gap-4">
+          <div>
+            <p className="w-[40ch] text-center md:text-left text-xs md:text-sm mt-4">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur
+              rem similique, tempora nam quia numquam mollitia doloribus
+              perspiciatis magni debitis vero, deserunt officia. Fuga esse cum
+              possimus voluptates? Non, provident.
+            </p>
+          </div>
+          <div>
+            <Link to="/under-construction">
+              <button className="service-tab-title bg-black text-white rounded-lg hover:bg-green-700">
+                Make a Purchase
+              </button>
+            </Link>
+          </div>
+        </div>
+      </div>
     </div>
-  )
+  );
 }
 
 export default ServicesMobile
