@@ -20,6 +20,7 @@ import CreatedContext from "./components/Context";
 import LoanForm from "./components/LoanForm";
 import EditUser from "./components/EditUser";
 import Add from "./components/Add";
+import FAQ from "./components/FAQ";
 
 const router = createBrowserRouter([
  {
@@ -73,6 +74,10 @@ const router = createBrowserRouter([
   {
     path: "/create",
     element: <Add/>
+  },
+  {
+    path: "/FAQ",
+    element: <FAQ />
   }
 ]);
 
