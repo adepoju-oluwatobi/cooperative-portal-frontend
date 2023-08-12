@@ -85,14 +85,14 @@ function ServicesMobile() {
         <div className="pl-4 flex flex-col justify-between items-center md:items-start gap-4">
           <div>
             <p className="w-[40ch] text-center md:text-left text-xs md:text-sm mt-4">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur
-              rem similique, tempora nam quia numquam mollitia doloribus
-              perspiciatis magni debitis vero, deserunt officia. Fuga esse cum
-              possimus voluptates? Non, provident.
+              “By Definition, Saving – For Anything – Requires Us To Not Get
+              Things Now So That We Can Get Bigger Ones Later.”
+              <p className="font-bold py-2"> — Jean Chatzky </p>
+              <p>Let's get you started with as little as possible.</p>
             </p>
           </div>
           <div>
-            <Link to="/under-construction">
+            <Link to="/register">
               <button className="service-tab-title bg-black text-white rounded-lg">
                 Start Savings
               </button>
@@ -108,14 +108,13 @@ function ServicesMobile() {
         <div className="pl-4 flex flex-col justify-between items-center md:items-start gap-4">
           <div>
             <p className="w-[40ch] text-center md:text-left text-xs md:text-sm mt-4">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur
-              rem similique, tempora nam quia numquam mollitia doloribus
-              perspiciatis magni debitis vero, deserunt officia. Fuga esse cum
-              possimus voluptates? Non, provident.
+              Our low interest rate loan facility has over the years helped
+              increase the welfare of our members.
+              <p className="font-bold py-2 text-lg">Apply for one now!</p>
             </p>
           </div>
           <div>
-            <Link to="/under-construction">
+            <Link to="/login">
               <button className="service-tab-title bg-black text-white rounded-lg">
                 Get a Loan
               </button>
@@ -131,14 +130,12 @@ function ServicesMobile() {
         <div className="pl-4 flex flex-col justify-between items-center md:items-start gap-4">
           <div>
             <p className="w-[40ch] text-center md:text-left text-xs md:text-sm mt-4">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur
-              rem similique, tempora nam quia numquam mollitia doloribus
-              perspiciatis magni debitis vero, deserunt officia. Fuga esse cum
-              possimus voluptates? Non, provident.
+              With access to appliances and edibles purchases credit facilities,
+              you can get to increase your standard of living.
             </p>
           </div>
           <div>
-            <Link to="/under-construction">
+            <Link to="/login">
               <button className="service-tab-title bg-black text-white rounded-lg hover:bg-green-700">
                 Make a Purchase
               </button>
