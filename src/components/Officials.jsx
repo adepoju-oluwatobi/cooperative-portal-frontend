@@ -3,7 +3,7 @@ import Vp from '../assets/vice-president.png'
 import FinancialSec from "../assets/financial-secretary.png";
 import AssSec from "../assets/ass-sec.png";
 import AssFinSec from "../assets/ass-fin-sec.png"
-import Auditor from "../assets/auditor.png";
+import Audito from "../assets/auditor.png";
 import ChiefWhip from "../assets/chief-whip.png"
 import PRO from "../assets/pro.png"
 import Treasurer from "../assets/treasurer.png"
@@ -80,7 +80,7 @@ function Officials() {
 
         <div className="flex flex-col justify-center items-center">
           <div>
-            <img className="w-[200px]" src={Auditor} alt="" />
+            <img className="w-[200px]" src={Audito} alt="" />
           </div>
           <div className="-mt-4">
             <p>
