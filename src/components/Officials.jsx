@@ -7,6 +7,7 @@ import ChiefWhip from "../assets/chief-whip.png"
 import PRO from "../assets/pro.png"
 import Treasurer from "../assets/treasurer.png"
 import President from "../assets/dummy-off1.png"
+import Audito from "../assets/Auditor.png"
 
 function Officials() {
   return (
@@ -77,7 +78,7 @@ function Officials() {
           </div>
         </div>
 
-        {/* <div className="flex flex-col justify-center items-center">
+        <div className="flex flex-col justify-center items-center">
           <div>
             <img className="w-[200px]" src={Audito} alt="" />
           </div>
@@ -87,7 +88,7 @@ function Officials() {
             </p>
             <p className="text-center font-bold">Auditor</p>
           </div>
-        </div> */}
+        </div>
 
         <div className="flex flex-col justify-center items-center">
           <div>
