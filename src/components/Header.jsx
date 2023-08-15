@@ -119,9 +119,9 @@ function Header() {
           <Link to="/login" className="primary-btn m-auto">
             Login
           </Link>
-          <Link to="/register" className="secondary-btn m-auto">
+          {/* <Link to="/register" className="secondary-btn m-auto">
             Register
-          </Link>
+          </Link> */}
         </nav>
       </div>
 

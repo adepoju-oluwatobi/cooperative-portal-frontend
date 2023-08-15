@@ -81,7 +81,7 @@ function Officials() {
          // showIndicators={false} // Hide carousel indicators
           emulateTouch // Enable touch emulation for desktop
           swipeable // Enable swipe gestures
-          selectedItem={3} // Start at the second item to show three items on large screens
+          selectedItem={1} // Start at the second item to show three items on large screens
         >
           {officialsData.map((official, index) => (
             <div key={index} className="flex justify-center items-center">

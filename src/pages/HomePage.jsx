@@ -23,7 +23,7 @@ function HomePage() {
             plans to begin saving for the future.
           </p>
 
-          <Link to="/register">
+          <Link to="/about">
             <p className="hero-btn cursor-pointer">Know More</p>
           </Link>
         </div>

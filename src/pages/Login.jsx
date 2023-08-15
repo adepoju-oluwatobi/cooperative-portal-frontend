@@ -40,7 +40,7 @@ function Login() {
         <div className='mt-10'>
         <p className='heading text-center'>Member Login</p>
 
-          <form action="" className='text-center' onSubmit={loginFunction}>
+          <form action="" className='text-center mt-4' onSubmit={loginFunction}>
             <div>
               <input 
               id='email' 
