@@ -5,25 +5,46 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import Header from "./Header";
 import Footer from "./Footer";
+import { server_cooperative } from "../server";
 
 function EditUser() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [data, setData] = useState([]);
+
+
+  const document_cookies = document.cookie;
+  //var token = document_cookies.split("=")[1];
+  var config = {
+    headers: {
+      Authorization: `Bearer ${document_cookies}`,
+    },
+  };
+
   useEffect(() => {
-     axios
-       .get("http://localhost:3000/users/" + id)
-       .then((res) => setData(res.data))
-       .catch((err) => console.log(err));
+    axios.get(`${server_cooperative}/${id}`, config)
+    .then((res) =>{
+      res.data.msg.data.map((data)=>{
+        setData(data);
+        return data._id
+      })
+      // console.log(res.data.msg.data)
+    })
+    // axios
+    //   .get(`${server_cooperative}/${id}`, config)
+    //   .then((res) => {
+    //     setData(res.data.msg.data);
+    //     console.log(id)
+    //   })
+    //   .catch((err) => console.log(err));
   }, []);
 
-  
   async function handleSubmit(event) {
     event.preventDefault();
-   axios.put("http://localhost:3000/users/" + id, data).then((res) => {
-     toast.info("Data updated successfully!");
-     navigate("/admin-dashboard");
-   });
+    axios.put("http://localhost:3000/users/" + id, data).then((res) => {
+      toast.info("Data updated successfully!");
+      navigate("/admin-dashboard");
+    });
   }
   return (
     <div>
@@ -36,7 +57,7 @@ function EditUser() {
             onSubmit={handleSubmit}
           >
             <input
-              placeholder="Members Name"
+              placeholder="ID"
               type="text"
               value={data.id}
               disabled
@@ -44,45 +65,47 @@ function EditUser() {
             <input
               placeholder="Members Name"
               type="text"
-              value={data.name}
-              onChange={(e) => setData({ ...data, name: e.target.value })}
+              value={data.username}
+              onChange={(e) => setData({ ...data, username: e.target.value })}
             />
             <input
               placeholder="Monthly Savings"
               type="text"
-              value={data.monthlySavings}
+              value={data.monthly_saving}
               onChange={(e) =>
-                setData({ ...data, monthlySavings: e.target.value })
+                setData({ ...data, monthly_saving: e.target.value })
               }
             />
             <input
               placeholder="Loan Amount"
               type="text"
-              value={data.loanAmount}
-              onChange={(e) => setData({ ...data, loanAmount: e.target.value })}
+              value={data.loan_amount}
+              onChange={(e) =>
+                setData({ ...data, loan_amount: e.target.value })
+              }
             />
             <input
               placeholder="Loan Balance"
               type="text"
-              value={data.loanBalance}
+              value={data.loan_balance}
               onChange={(e) =>
-                setData({ ...data, loanBalance: e.target.value })
+                setData({ ...data, loan_balance: e.target.value })
               }
             />
             <input
               placeholder="Loan Monthly Deduction"
               type="text"
-              value={data.monthlyDeduction}
+              value={data.monthly_deduction}
               onChange={(e) =>
-                setData({ ...data, monthlyDeduction: e.target.value })
+                setData({ ...data, monthly_deduction: e.target.value })
               }
             />
             <input
               placeholder="Available Balance"
               type="text"
-              value={data.availableBal}
+              value={data.available_balance}
               onChange={(e) =>
-                setData({ ...data, availableBalance: e.target.value })
+                setData({ ...data, available_balance: e.target.value })
               }
             />
             <button className="bg-violet-500 border-0 text-white p-2 cursor-pointer rounded-xl">

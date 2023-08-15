@@ -20,7 +20,7 @@
       "loanAmount": "150,000",
       "loanBalance": "137,500",
       "monthlyDeduction": "12,500",
-      "availableBalance": "150,000",
+      "availableBalance": "70,000",
       "id": "oGznDs3"
     },
     {
@@ -36,20 +36,6 @@
       "monthlyDeduction": "",
       "availableBalance": "",
       "id": "6Ikt07O"
-    },
-    {
-      "name": "new",
-      "email": "kunletobi",
-      "address": "no address",
-      "PhoneNumber": "",
-      "nextOfKin": "tobi",
-      "password": "mofolorunsho",
-      "monthlySavings": "20,000",
-      "loanAmount": "",
-      "loanBalance": "",
-      "monthlyDeduction": "",
-      "availableBalance": "",
-      "id": "DCDKycS"
     }
   ]
 }

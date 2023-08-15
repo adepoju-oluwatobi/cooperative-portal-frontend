@@ -1,9 +1,9 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer"
 import InfoIcon from "../assets/info.svg";
 import Benefits from "./Benefits"
-import Officials from "./Officials";
 
 function FAQ() {
   const [activeQuestion, setActiveQuestion] = useState(null);
@@ -74,7 +74,15 @@ const faqData = [
   },
   {
     question: "Can I see the Bye-Law before joining?",
-    answer: "Yes you can. Click here or Go to RESOURCES > BYE-LAW.",
+    answer: (
+      <div>
+        you can{" "}
+        <span className="text-blue-300">
+          <Link to="/bye-law">Click here </Link>
+        </span>{" "}
+        or go to RESOURCES to read more on the bye laws.
+      </div>
+    ),
   },
   {
     question: "Is there any fee to be paid before joining?",

@@ -1,5 +1,6 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import CreatedContext, { coperativeUserContext } from "../components/Context";
 import { Link, useNavigate } from "react-router-dom";
 import EditIcon from "../assets/edit.svg";
 import DeleteIcon from "../assets/delete.svg";
@@ -8,47 +9,78 @@ import Header from "./Header";
 import AddMember from "../assets/add-member.svg"
 import Loading from "./Loading";
 import Error from "./Error";
+import {server_cooperative, server} from "../server"
 
 function Dashboard() {
   /**HOLD THE DATA FROM DATABASE */
   const [columns, setColumns] = useState([]);
   const [records, setRecords] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(false);
 
-  const navigate = useNavigate(); //USED FOR NAVIGATING
+  const navigate = useNavigate(); 
+  
+  const { user, setReady, ready } = useContext(coperativeUserContext);
+  // const sharedData = useContext(CreatedContext);
 
+  if (ready && !user)
+  {
+    navigate("/login");
+  }
+
+
+
+  //USED FOR NAVIGATING
+  const document_cookies = document.cookie;
+  //var token = document_cookies.split("=")[1];
+  var config = {
+        headers:{
+          Authorization: `Bearer ${document_cookies}`
+        }
+  }
+
+ // console.log(token)
   /**FETCHES THE DATA FROM BACKEND */
   useEffect(() => {
     axios
-      .get("http://localhost:3000/users")
+      .get(`${server_cooperative}`, config)
       .then((res) => {
-        setColumns(Object.keys(res.data[0]));
-        setRecords(res.data);
+        setColumns(Object.keys(res.data.msg.data[0]));
+        setRecords(res.data.msg.data);
         setLoading(false);
+        //console.log(res.data.msg.data)
       })
       .catch((err) => {
         //RETURN ERROR IF FAILED
-        setError("Error fetching data from the API.");
+        setError(true);
         setLoading(false);
-        console.error(err);
+        //console.error(err);
       });
   }, []);
-  /**HANDLE LOAD TIME IF THE DATA TOOK TOO LONG TO FETCH */
+  // /**HANDLE LOAD TIME IF THE DATA TOOK TOO LONG TO FETCH */
   if (loading) {
     return (
       <Loading/>
     );
   }
   /**HANDLES ERROR IF DATA COULD NOT BE FETCHED */
-  if (error) {
-    return (
-    <div>
-      <Error/>
-    </div>
-    );
-  }
+  // if (error) {
+  //   return (
+  //   <div>
+  //     <Error />
+  //   </div>
+  //   );
+  // }
 
+  const logout = async () => {
+    try {
+      const data = await axios.post(`${server}/logout`);
+      navigate("/admin");
+      //console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div>
       <Header />
@@ -71,13 +103,22 @@ function Dashboard() {
         </div>
         <div className="bg-[url(./assets/loan-bg.jpg)] h-auto bg-no-repeat bg-cover hidden md:block">
           <p className="text-center text-2xl font-bold p-6">Admin Dashboard</p>
+          <p>Welcome {user}</p>
           <div className="w-fit m-auto">
-            <Link to="/create">
-              <p className="bg-violet-500 text-white w-fit p-2 my-2 flex rounded-xl">
-                {" "}
-                Add New Member <img className="w-6" src={AddMember} alt="" />
-              </p>
-            </Link>
+            <div className="flex justify-between">
+              <Link to="/create">
+                <p className="bg-violet-500 text-white w-fit p-2 my-2 flex rounded-xl">
+                  {" "}
+                  Add New Member <img className="w-6" src={AddMember} alt="" />
+                </p>
+              </Link>
+              <button
+                onClick={logout}
+                className="p-1 px-2 mb-2 rounded-lg bg-red-500 text-white text-xs md:text-sm"
+              >
+                Logout
+              </button>
+            </div>
             <div className="py-4">
               <table
                 border="1"
@@ -102,14 +143,14 @@ function Dashboard() {
                 <tbody className="bg-slate-400">
                   {/**MAPS THE DATA FROM THE BACKEND */}
                   {records.map((record) => (
-                    <tr key={record.id}>
-                      <td>{record.id}</td>
-                      <td>{record.name}</td>
-                      <td>{record.monthlySavings}</td>
-                      <td>{record.loanAmount}</td>
-                      <td>{record.loanBalance}</td>
-                      <td>{record.monthlyDeduction}</td>
-                      <td>{record.availableBalance}</td>
+                    <tr key={record._id}>
+                      <td>{record._id}</td>
+                      <td>{record.username}</td>
+                      <td>{record.monthly_saving}</td>
+                      <td>{record.loan_amount}</td>
+                      <td>{record.loan_balance}</td>
+                      <td>{record.monthly_deduction}</td>
+                      <td>{record.available_balance}</td>
                       <td className="flex gap-4">
                         <Link to={`/update/${record.id}`}>
                           <div className="">
@@ -166,7 +207,7 @@ function Dashboard() {
 
     if (confirmDelete) {
       axios
-        .delete("http://localhost:3000/users/" + id)
+        .delete(`${server_cooperative}/${records[0]._id}`, config)
         .then((res) => {
           navigate("/admin-dashboard");
           toast.success("User have been deleted successfully");

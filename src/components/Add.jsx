@@ -4,20 +4,18 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import Header from "./Header";
 import Footer from "./Footer";
+import { server_cooperative } from "../server";
 
 function Add() {
   const [inputData, setInputData] = useState({
-    name: "",
-    email: "",
-    address: "",
-    PhoneNumber: "",
-    nextOfKin: "",
+    username: "",
     password: "",
-    monthlySavings: "",
-    loanAmount: "",
-    loanBalance: "",
-    monthlyDeduction: "",
-    availableBalance: "",
+    email: "",
+    available_balance: "",
+    monthly_saving: "",
+    loan_amount: "",
+    loan_balance: "",
+    monthly_deduction: "",
   });
 
   const navigate = useNavigate();
@@ -25,8 +23,17 @@ function Add() {
   function handleSubmit(event) {
     event.preventDefault();
 
+    const document_cookies = document.cookie;
+    //var token = document_cookies.split("=")[1];
+    console.log(document_cookies)
+    var config = {
+      headers: {
+        Authorization: `Bearer ${document_cookies}`,
+      },
+    };
+
     axios
-      .post("http://localhost:3000/users/", inputData)
+      .post(`${server_cooperative}`, inputData, config)
       .then((res) => {
         toast.success("Data added successfully");
         navigate("/admin-dashboard");
@@ -50,7 +57,7 @@ function Add() {
               placeholder="Members Name"
               type="text"
               onChange={(e) =>
-                setInputData({ ...inputData, name: e.target.value })
+                setInputData({ ...inputData, username: e.target.value })
               }
               required
             />
@@ -59,22 +66,6 @@ function Add() {
               type="text"
               onChange={(e) =>
                 setInputData({ ...inputData, email: e.target.value })
-              }
-              required
-            />
-            <input
-              placeholder="Address"
-              type="text"
-              onChange={(e) =>
-                setInputData({ ...inputData, address: e.target.value })
-              }
-              required
-            />
-            <input
-              placeholder="Next of kin"
-              type="text"
-              onChange={(e) =>
-                setInputData({ ...inputData, nextOfKin: e.target.value })
               }
               required
             />
@@ -90,7 +81,7 @@ function Add() {
               placeholder="Monthly Savings"
               type="text"
               onChange={(e) =>
-                setInputData({ ...inputData, monthlySavings: e.target.value })
+                setInputData({ ...inputData, monthly_saving: e.target.value })
               }
               required
             />
@@ -98,28 +89,34 @@ function Add() {
               placeholder="Loan Amount"
               type="text"
               onChange={(e) =>
-                setInputData({ ...inputData, loanAmount: e.target.value })
+                setInputData({ ...inputData, loan_amount: e.target.value })
               }
             />
             <input
               placeholder="Loan Balance"
               type="text"
               onChange={(e) =>
-                setInputData({ ...inputData, loanBalance: e.target.value })
+                setInputData({ ...inputData, loan_balance: e.target.value })
               }
             />
             <input
               placeholder="Loan Monthly Deduction"
               type="text"
               onChange={(e) =>
-                setInputData({ ...inputData, monthlyDeduction: e.target.value })
+                setInputData({
+                  ...inputData,
+                  monthly_deduction: e.target.value,
+                })
               }
             />
             <input
               placeholder="Available Balance"
               type="text"
               onChange={(e) =>
-                setInputData({ ...inputData, availableBalance: e.target.value })
+                setInputData({
+                  ...inputData,
+                  available_balance: e.target.value,
+                })
               }
             />
             <input

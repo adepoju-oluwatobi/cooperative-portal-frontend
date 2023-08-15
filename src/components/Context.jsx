@@ -20,9 +20,10 @@ function CreatedContext({ children }) {
   async function getUser() {
     try {
       if (!user) {
-        // const user = await axios.get(`${server}/profile`);
-       // const user = await axios.get('');
-        setUser(user);
+        const user = await axios.get(`${server}/profile`);
+      //  const user = await axios.get('');
+        setUser(user.data.users);
+        // console.log(user.data.users);
         setReady(true);
       }
 

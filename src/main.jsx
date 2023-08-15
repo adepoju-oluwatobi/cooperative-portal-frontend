@@ -21,35 +21,37 @@ import LoanForm from "./components/LoanForm";
 import EditUser from "./components/EditUser";
 import Add from "./components/Add";
 import FAQ from "./components/FAQ";
+import ByeLaw from "./components/ByeLaw";
+import AdminRegistration from "./pages/AdminRegistration";
 
 const router = createBrowserRouter([
- {
-  path: "/home",
-  element: <App />,
- },
- {
-  path: "/",
-  element: <HomePage />
- },
+  {
+    path: "/home",
+    element: <App />,
+  },
+  {
+    path: "/",
+    element: <HomePage />,
+  },
   {
     path: "/login",
-    element: <Login />
+    element: <Login />,
   },
   {
     path: "/admin",
-    element: <Admin />
+    element: <Admin />,
   },
   {
     path: "/register",
-    element: <Register />
+    element: <Register />,
   },
   {
     path: "/about",
-    element: <About />
+    element: <About />,
   },
   {
     path: "/contact",
-    element: <Contact />
+    element: <Contact />,
   },
   {
     path: "/under-construction",
@@ -57,28 +59,36 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard />
+    element: <Dashboard />,
   },
   {
     path: "admin-dashboard",
-    element: <AdminDashboard />
+    element: <AdminDashboard />,
   },
   {
     path: "/loan-form",
-    element: <LoanForm />
+    element: <LoanForm />,
   },
   {
     path: "/update/:id",
-    element: <EditUser/>
+    element: <EditUser />,
   },
   {
     path: "/create",
-    element: <Add/>
+    element: <Add />,
   },
   {
     path: "/FAQ",
-    element: <FAQ />
-  }
+    element: <FAQ />,
+  },
+  {
+    path: "/bye-law",
+    element: <ByeLaw />,
+  },
+  {
+    path: "/admin-registration",
+    element: <AdminRegistration />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
