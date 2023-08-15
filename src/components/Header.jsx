@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
 import HlcLogo from '../assets/hlc-logo.png'
+import CsLogo from '../assets/cs-logo.png'
 
 function Header() {
     let menuOpenBtn = document.getElementById('menu-open-btn')
@@ -41,7 +42,10 @@ function Header() {
                   {" "}
                   Honeyland Cooperative <span>Society</span>
                 </p> */}
-                <img className="w-8 ml-4" src={HlcLogo} alt="" />
+                <div className="flex">
+                  <img className="w-8 ml-4 rounded-lg" src={HlcLogo} alt="" />
+                  <img className="w-8 ml-4 rounded-lg" src={CsLogo} alt="" />
+                </div>
               </Link>
             </div>
 
@@ -128,7 +132,10 @@ function Header() {
             {/* <p className="font-bold text-lg cursor-pointer">
               Honeyland Cooperative Society
             </p> */}
-            <img className="w-10 ml-4" src={HlcLogo} alt="" />
+            <div className="flex -gap-2">
+              <img className="w-10 ml-4 rounded-lg" src={HlcLogo} alt="" />
+              <img className="w-10 ml-4 rounded-lg" src={CsLogo} alt="" />
+            </div>
           </Link>
         </div>
 
