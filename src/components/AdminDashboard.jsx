@@ -38,8 +38,6 @@ function Dashboard() {
           Authorization: `Bearer ${document_cookies}`
         }
   }
-
- // console.log(token)
   /**FETCHES THE DATA FROM BACKEND */
   useEffect(() => {
     axios
@@ -152,7 +150,7 @@ function Dashboard() {
                       <td>{record.monthly_deduction}</td>
                       <td>{record.available_balance}</td>
                       <td className="flex gap-4">
-                        <Link to={`/update/${record.id}`}>
+                        <Link to={`/update/${record._id}`}>
                           <div className="">
                             <img src={EditIcon} alt="edit" className="w-6" />
                           </div>

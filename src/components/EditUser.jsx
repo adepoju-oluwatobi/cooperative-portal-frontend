@@ -29,19 +29,12 @@ function EditUser() {
         return data._id
       })
       // console.log(res.data.msg.data)
-    })
-    // axios
-    //   .get(`${server_cooperative}/${id}`, config)
-    //   .then((res) => {
-    //     setData(res.data.msg.data);
-    //     console.log(id)
-    //   })
-    //   .catch((err) => console.log(err));
+    }).catch((err) => console.log(err));
   }, []);
 
   async function handleSubmit(event) {
     event.preventDefault();
-    axios.put("http://localhost:3000/users/" + id, data).then((res) => {
+    axios.patch(`${server_cooperative}/${id}`, data, ).then((res) => {
       toast.info("Data updated successfully!");
       navigate("/admin-dashboard");
     });
@@ -59,7 +52,7 @@ function EditUser() {
             <input
               placeholder="ID"
               type="text"
-              value={data.id}
+              value={data._id}
               disabled
             />
             <input
