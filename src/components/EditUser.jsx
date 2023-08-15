@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import Header from "./Header";
@@ -8,34 +8,45 @@ import Footer from "./Footer";
 import { server_cooperative } from "../server";
 
 function EditUser() {
+  // Get the 'id' parameter from the URL using useParams
   const { id } = useParams();
   const navigate = useNavigate();
   const [data, setData] = useState([]);
 
-
+  // Retrieve the user's authentication token from cookies
   const document_cookies = document.cookie;
-  //var token = document_cookies.split("=")[1];
+  var token = document_cookies.split("=")[1];
+
+  // Set up the axios request configuration with the token
   var config = {
     headers: {
       Authorization: `Bearer ${document_cookies}`,
     },
   };
 
+  // Fetch the user data when the component mounts
   useEffect(() => {
-    axios.get(`${server_cooperative}/${id}`, config)
-    .then((res) =>{
-      res.data.msg.data.map((data)=>{
-        setData(data);
-        return data._id
+    axios
+      .get(`${server_cooperative}/${id}`, config)
+      .then((res) => {
+        // Update the state with the fetched user data
+        res.data.msg.data.map((data) => {
+          setData(data);
+          return data._id;
+        });
       })
-      // console.log(res.data.msg.data)
-    }).catch((err) => console.log(err));
+      .catch((err) => console.log(err));
   }, []);
 
+  // Handle the form submission
   async function handleSubmit(event) {
     event.preventDefault();
-    axios.patch(`${server_cooperative}/${id}`, data, ).then((res) => {
+
+    // Send a patch request to update the user data
+    axios.patch(`${server_cooperative}/${id}`, data, config).then((res) => {
+      // Display a success toast message
       toast.info("Data updated successfully!");
+      // Navigate back to the dashboard
       navigate("/admin-dashboard");
     });
   }
@@ -49,12 +60,7 @@ function EditUser() {
             className="flex flex-col w-fit m-auto bg-black bg-opacity-60 p-4"
             onSubmit={handleSubmit}
           >
-            <input
-              placeholder="ID"
-              type="text"
-              value={data._id}
-              disabled
-            />
+            <input placeholder="ID" type="text" value={data._id} disabled />
             <input
               placeholder="Members Name"
               type="text"

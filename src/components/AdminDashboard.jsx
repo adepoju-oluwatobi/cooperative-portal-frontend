@@ -4,6 +4,8 @@ import CreatedContext, { coperativeUserContext } from "../components/Context";
 import { Link, useNavigate } from "react-router-dom";
 import EditIcon from "../assets/edit.svg";
 import DeleteIcon from "../assets/delete.svg";
+import Smile from '../assets/smile.svg';
+import Sad from '../assets/sad.svg'
 import { toast } from "react-toastify";
 import Header from "./Header";
 import AddMember from "../assets/add-member.svg"
@@ -101,8 +103,13 @@ function Dashboard() {
         </div>
         <div className="bg-[url(./assets/loan-bg.jpg)] h-auto bg-no-repeat bg-cover hidden md:block">
           <p className="text-center text-2xl font-bold p-6">Admin Dashboard</p>
-          <p>Welcome {user}</p>
           <div className="w-fit m-auto">
+            <div className="flex items-center gap-2 mb-4">
+              <p className="text-2xl">
+                Welcome <span className="font-bold">{user}</span>
+              </p>
+              <img className="w-6" src={Smile} alt="" />
+            </div>
             <div className="flex justify-between">
               <Link to="/create">
                 <p className="bg-violet-500 text-white w-fit p-2 my-2 flex rounded-xl">
@@ -112,9 +119,12 @@ function Dashboard() {
               </Link>
               <button
                 onClick={logout}
-                className="p-1 px-2 mb-2 rounded-lg bg-red-500 text-white text-xs md:text-sm"
+                className="px-6 mb-2 rounded-lg bg-red-500 text-white text-xs md:text-sm"
               >
-                Logout
+                <div className="flex gap-2 items-center">
+                  <p>Logout</p>
+                  <img className="w-6" src={Sad} alt="" />
+                </div>
               </button>
             </div>
             <div className="py-4">
@@ -128,7 +138,7 @@ function Dashboard() {
                     {/* {columns.map((column) => (
                   <th key={column}>{column}</th>
                 ))} */}
-                    <th>#</th>
+                    <th>id</th>
                     <th>Name</th>
                     <th>Monthly Savings</th>
                     <th>Loan Amount</th>
