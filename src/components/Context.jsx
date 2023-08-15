@@ -21,14 +21,13 @@ function CreatedContext({ children }) {
     try {
       if (!user) {
         // const user = await axios.get(`${server}/profile`);
-        const user = await axios.get('');
+       // const user = await axios.get('');
         setUser(user);
-        setReady(false);
+        setReady(true);
       }
 
     } catch (error) {
       console.log(error);
-      setReady(true);
     }
   }
 
