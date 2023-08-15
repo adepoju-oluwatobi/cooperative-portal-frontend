@@ -4,6 +4,8 @@ import { Carousel } from "react-responsive-carousel";
 import Vp from "../assets/vice-president.png";
 import FinSec from "../assets/financial-secretary.png";
 import AssSec from "../assets/ass-sec.png";
+import Sec from "../assets/sec.png";
+import Welfare from "../assets/welfare.png"
 import AssFinSec from "../assets/ass-fin-sec.png";
 import ChiefWhip from "../assets/chief-whip.png";
 import PRO from "../assets/pro.png";
@@ -34,9 +36,19 @@ function Officials() {
       position: "Assitant Financial Secretary",
     },
     {
+      image: Sec,
+      name: "Mrs Apatira .T",
+      position: "Secretary",
+    },
+    {
       image: AssSec,
       name: "Mrs. Ogunjobi Bolanle",
       position: "Assitant Secretary",
+    },
+    {
+      image: Welfare,
+      name: "Mrs. Olufunso Ogunsanya",
+      position: "Welfare Officer",
     },
     {
       image: ChiefWhip,

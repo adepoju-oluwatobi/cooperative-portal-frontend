@@ -69,7 +69,7 @@ function EditUser() {
             />
             <input
               placeholder="Monthly Savings"
-              type="text"
+              type="number"
               value={data.monthly_saving}
               onChange={(e) =>
                 setData({ ...data, monthly_saving: e.target.value })
@@ -77,7 +77,7 @@ function EditUser() {
             />
             <input
               placeholder="Loan Amount"
-              type="text"
+              type="number"
               value={data.loan_amount}
               onChange={(e) =>
                 setData({ ...data, loan_amount: e.target.value })
@@ -85,7 +85,7 @@ function EditUser() {
             />
             <input
               placeholder="Loan Balance"
-              type="text"
+              type="number"
               value={data.loan_balance}
               onChange={(e) =>
                 setData({ ...data, loan_balance: e.target.value })
@@ -93,7 +93,7 @@ function EditUser() {
             />
             <input
               placeholder="Loan Monthly Deduction"
-              type="text"
+              type="number"
               value={data.monthly_deduction}
               onChange={(e) =>
                 setData({ ...data, monthly_deduction: e.target.value })
@@ -101,7 +101,7 @@ function EditUser() {
             />
             <input
               placeholder="Available Balance"
-              type="text"
+              type="number"
               value={data.available_balance}
               onChange={(e) =>
                 setData({ ...data, available_balance: e.target.value })

@@ -79,7 +79,7 @@ function Add() {
             />
             <input
               placeholder="Monthly Savings"
-              type="text"
+              type="number"
               onChange={(e) =>
                 setInputData({ ...inputData, monthly_saving: e.target.value })
               }
@@ -87,21 +87,21 @@ function Add() {
             />
             <input
               placeholder="Loan Amount"
-              type="text"
+              type="number"
               onChange={(e) =>
                 setInputData({ ...inputData, loan_amount: e.target.value })
               }
             />
             <input
               placeholder="Loan Balance"
-              type="text"
+              type="number"
               onChange={(e) =>
                 setInputData({ ...inputData, loan_balance: e.target.value })
               }
             />
             <input
               placeholder="Loan Monthly Deduction"
-              type="text"
+              type="number"
               onChange={(e) =>
                 setInputData({
                   ...inputData,
@@ -111,7 +111,7 @@ function Add() {
             />
             <input
               placeholder="Available Balance"
-              type="text"
+              type="number"
               onChange={(e) =>
                 setInputData({
                   ...inputData,
