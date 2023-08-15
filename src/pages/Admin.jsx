@@ -8,24 +8,37 @@ import axios from "axios";
 import { server } from "../server";
 
 function Admin() {
+  // Retrieve 'email' and 'password' states from the context
   const { email, setEmail, password, setPassword } = useContext(
     coperativeUserContext
   );
+
+  // Initialize the navigate function from react-router-dom
   const navigate = useNavigate();
 
+  // Handle login function when form is submitted
   async function loginFunction(e) {
     e.preventDefault();
     try {
+      // Send a POST request to the server to perform login
       let res = await axios.post(`${server}/login`, {
         email: email,
         password: password,
       });
+
+      // Display a success toast with the user's name
       toast.success(`Welcome ${res.data.users.name}`);
+
+      // Navigate to the admin dashboard
       navigate("/admin-dashboard");
     } catch (error) {
+      // Display an alert if there's an error
       alert(error.message);
     }
   }
+
+  // Render the login form
+
   return (
     <div className="bg-[url(./assets/login-background-mobile.png)] bg-cover h-[100vh] w-full">
       <Header />
@@ -34,7 +47,6 @@ function Admin() {
         <form action="" className="text-center" onSubmit={loginFunction}>
           <div>
             <input
-              id="email"
               type="email"
               name="email"
               placeholder="Enter your email"
@@ -45,9 +57,7 @@ function Admin() {
           <div>
             {" "}
             <input
-              id="password"
               type="password"
-              name="password"
               placeholder="Enter your password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -68,9 +78,6 @@ function Admin() {
                 Member
               </Link>
             </p>
-            <Link to="/admin-dashboard">
-              <p>Go to dashboard</p>
-            </Link>
           </div>
         </form>
       </div>

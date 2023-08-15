@@ -23,13 +23,13 @@
         @apply text-[10px] md:text-xs text-center w-[50ch] m-auto
     }
     .hero-btn{
-        @apply text-xs md:text-xs bg-[#8EAC90] p-2 md:p-4 rounded-lg w-fit m-auto
+        @apply text-xs md:text-sm bg-[black] py-2 px-6 md:py-2 hover:bg-slate-800 duration-300 rounded-lg w-fit m-auto
     }
     input{
         @apply bg-opacity-50 border p-2 mb-4 rounded-lg w-fit m-auto
     }
     .heading{
-        @apply text-white font-bold text-2xl md:text-3xl mb-1
+        @apply text-white font-bold text-2xl md:text-4xl mb-1
     }
     form{
         @apply w-[90%] md:w-[425px] bg-black bg-opacity-50 rounded-lg p-8 h-fit m-auto

@@ -72,7 +72,7 @@ function Login() {
           </div>
 
          <div className='text-xs mt-4'>
-         <p className='text-white'>You don't have an account? <Link className='text-blue-500' to='/register'>Register here</Link></p>
+         {/* <p className='text-white'>You don't have an account? <Link className='text-blue-500' to='/register'>Register here</Link></p> */}
            <p className='text-blue-500 uderline'><Link>Forgot your password?</Link></p>
         <p className='text-white'>Login as <Link className='text-red-500' to='/admin'>Admin</Link></p>
          </div>

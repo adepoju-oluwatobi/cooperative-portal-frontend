@@ -92,13 +92,22 @@ function Dashboard() {
             </p>
             <p>But you can Add member to the database.</p>
           </div>
-          <div className="flex justify-center">
+          <div className="flex flex-col items-center justify-center">
             <Link to="/create">
               <p className="bg-violet-500 text-white w-fit p-2 my-2 flex rounded-xl">
                 {" "}
                 Add New Member <img className="w-6" src={AddMember} alt="" />
               </p>
             </Link>
+            <button
+              onClick={logout}
+              className="px-6 py-2 mb-2 rounded-lg bg-red-500 text-white text-xs md:text-sm"
+            >
+              <div className="flex gap-2 items-center">
+                <p>Logout</p>
+                <img className="w-6" src={Sad} alt="" />
+              </div>
+            </button>
           </div>
         </div>
         <div className="bg-[url(./assets/loan-bg.jpg)] h-auto bg-no-repeat bg-cover hidden md:block">

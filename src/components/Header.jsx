@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
+import HlcLogo from '../assets/hlc-logo.png'
 
 function Header() {
     let menuOpenBtn = document.getElementById('menu-open-btn')
@@ -36,10 +37,11 @@ function Header() {
           <div className="flex justify-between items-center">
             <div className="site-title">
               <Link to="/">
-                <p className="font-bold text-lg">
+                {/* <p className="font-bold text-lg">
                   {" "}
                   Honeyland Cooperative <span>Society</span>
-                </p>
+                </p> */}
+                <img className="w-8 ml-4" src={HlcLogo} alt="" />
               </Link>
             </div>
 
@@ -83,7 +85,7 @@ function Header() {
         id="nav-menu"
       >
         <nav className="flex flex-col gap-4 rounded-lg bg-black p-8 text-white text-center mt-2 w-[90%] m-auto">
-          <Link to="/">Home</Link>
+          {/* <Link to="/">Home</Link> */}
           <Link to="/about">About</Link>
           <div className="relative inline-block">
             <button
@@ -120,20 +122,21 @@ function Header() {
       </div>
 
       {/* Medium nav-menu */}
-      <div className="hidden bg-slate-200 md:flex justify-between items-center p-4">
+      <div className="hidden bg-slate-200 md:flex justify-between items-center p-2">
         <div>
           <Link to="/">
-            <p className="font-bold text-lg cursor-pointer">
+            {/* <p className="font-bold text-lg cursor-pointer">
               Honeyland Cooperative Society
-            </p>
+            </p> */}
+            <img className="w-10 ml-4" src={HlcLogo} alt="" />
           </Link>
         </div>
 
         <div>
           <nav className="text-xs">
-            <Link className="mr-2" to="/">
+            {/* <Link className="mr-2" to="/">
               Home
-            </Link>
+            </Link> */}
             <Link className="mr-2" to="/about">
               About Us
             </Link>
@@ -145,7 +148,7 @@ function Header() {
                 Resources
               </button>
               {isDropdownOpen && (
-                <div className="absolute left-0 mt-2 bg-white border border-gray-300 shadow-md rounded-md p-2">
+                <div className="absolute left-0 mt-2 w-[150px] bg-white border border-gray-300 shadow-md rounded-md p-2 duration-300">
                   <Link
                     to="/FAQ"
                     className="block px-4 py-2 hover:bg-gray-100 rounded-md"
@@ -170,12 +173,12 @@ function Header() {
             >
               Login
             </Link>
-            <Link
+            {/* <Link
               className="mr-2 bg-black px-4 py-2 text-white rounded-xl"
               to="/register"
             >
               Become a member
-            </Link>
+            </Link> */}
           </nav>
         </div>
       </div>
