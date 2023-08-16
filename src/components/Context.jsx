@@ -22,7 +22,7 @@ function CreatedContext({ children }) {
       if (!user) {
         const user = await axios.get(`${server}/profile`);
       //  const user = await axios.get('');
-        setUser(user.data.users);
+        setUser(user.data?.users);
         // console.log(user.data.users);
         setReady(true);
       }
