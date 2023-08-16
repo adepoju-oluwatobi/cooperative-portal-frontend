@@ -23,7 +23,7 @@ function Add() {
   function handleSubmit(event) {
     event.preventDefault();
 
-    const document_cookies = document.cookie;
+    const document_cookies = window.localStorage.getItem("admin_token");
     //var token = document_cookies.split("=")[1];
     console.log(document_cookies)
     var config = {

@@ -33,7 +33,8 @@ function Dashboard() {
 
 
   //USED FOR NAVIGATING
-  const document_cookies = document.cookie;
+  const document_cookies = window.localStorage.getItem("admin_token");
+  //console.log(document_cookies)
   //var token = document_cookies.split("=")[1];
   var config = {
         headers:{
@@ -75,6 +76,7 @@ function Dashboard() {
   const logout = async () => {
     try {
       const data = await axios.post(`${server}/logout`);
+      window.localStorage.removeItem("admin_token")
       navigate("/admin");
       //console.log(data);
     } catch (error) {

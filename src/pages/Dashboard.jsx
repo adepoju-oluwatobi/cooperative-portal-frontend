@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import CreatedContext, { coperativeUserContext } from "../components/Context";
 import Benefits from "../components/Benefits";
 import Header from "../components/Header";
@@ -8,21 +8,30 @@ import CareService from "../assets/customer-care.svg";
 import Settings from "../assets/settings.svg";
 import Eye from "../assets/eye.svg";
 import EyeClose from "../assets/eye-close.svg";
-import LogoutBtn from "../assets/logout-btn.svg"
+import LogoutBtn from "../assets/logout-btn.svg";
 import Footer from "../components/Footer";
-import { server } from "../server";
+import { server, server_cooperative, server_cooperative_login } from "../server";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
-function Dashboard() {
-  const { user, setReady } = useContext(coperativeUserContext);
-  const sharedData = useContext(CreatedContext);
+function Dashboard({ res }) {
+const {user_dash, setUser_dash, userID, setUserID, userInfo, setUserInfo} = useContext(coperativeUserContext)
+
+  //console.log(user.data.decoded.user);
+  const [balance, setBalance] = useState(null);
+  const [loanAmt, setLoanAmt] = useState("N150,000.00");
+  const [loanBal, setLoanBal] = useState("N137,500.00");
+  const [loanDed, setLoanDed] = useState("N12,500.00");
+  const [monthlySav, setMonthlySav] = useState("N20,000.00");
+  const [dividend, setDividend] = useState(`N${5000}`);
   const navigate = useNavigate();
 
+  // console.log(res)
   const logout = async () => {
     try {
-      const data = await axios.post(`${server}/logout`);
+      const data = await axios.post(`${server_cooperative_login}/logout_user`);
+      window.localStorage.removeItem("user_token")
       navigate("/login");
       //console.log(data);
     } catch (error) {
@@ -30,14 +39,10 @@ function Dashboard() {
     }
   };
 
-  //handles the values of finaces in dashboard
-  const [balance, setBalance] = useState("N150,000.00");
-  const [loanAmt, setLoanAmt] = useState("N150,000.00");
-  const [loanBal, setLoanBal] = useState("N137,500.00");
-  const [loanDed, setLoanDed] = useState("N12,500.00");
-  const [monthlySav, setMonthlySav] = useState("N20,000.00");
-  const [dividend, setDividend] = useState(`N${5000}`);
-
+//   function user_detail_container(){
+//     setBalance(userInfo.available_balance)
+//   }
+// user_detail_container();
   let bal = document.getElementById("balance");
   let loan = document.getElementById("loan");
   let savings = document.getElementById("savings");
@@ -93,6 +98,20 @@ function Dashboard() {
     const currentMonth = currentDate.getMonth();
     const currentYear = currentDate.getFullYear();
   }
+
+//   const document_cookies = window.localStorage.getItem("user_token");
+//   //console.log(document_cookies)
+//   //var token = document_cookies.split("=")[1];
+//   var config = {
+//     headers: {
+//       Authorization: `Bearer ${document_cookies}`,
+//     },
+//   };
+// async function getDetails(){
+//   const users = await axios.get(`${server_cooperative}/${userID}`, config)
+//   console.log(users);
+// }
+// getDetails();
   return (
     <div>
       <Header />
@@ -105,9 +124,10 @@ function Dashboard() {
                 <img className="w-10 md:w-20" src={ProfilePics} alt="" />
               </div>
               <p className="md:text-xl">
-                Hello,{" "}
+                {/* Hello,{user.data.user} */}
+                Hello, {user_dash}
                 <span className="font-bold text-sm md:text-xl">
-                  {user?.data.users}
+                  {/* {user?.data.users} */}
                 </span>{" "}
               </p>
             </div>
@@ -149,7 +169,9 @@ function Dashboard() {
               <p className="text-3xl md:text-5xl font-bold" id="balance">
                 {balance}
               </p>
-              <p className="text-xs font-thin opacity-50">Devided:{dividend} || Total bal: N155,000.00</p>
+              <p className="text-xs font-thin opacity-50">
+                Devided:{dividend} || Total bal: N155,000.00
+              </p>
             </div>
             {/** MONTHLY SAVINGS */}
             <div>

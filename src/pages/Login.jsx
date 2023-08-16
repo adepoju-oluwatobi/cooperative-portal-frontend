@@ -2,34 +2,42 @@ import React from 'react'
 import {useState, useContext} from 'react'
 import {coperativeUserContext} from '../components/Context'
 import axios from 'axios'
-import { server } from '../server'
+import { server_cooperative, server_cooperative_login } from '../server'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { toast } from 'react-toastify';
+import Dashboard from './Dashboard'
 
 function Login() {
   // const [email, setEmail] = useState("");
   // const [password, setPassword] = useState("");
   
  const {email, setEmail, password, setPassword} = useContext(coperativeUserContext)
-  const navigate = useNavigate();
+const navigate = useNavigate();
 
 
     async function loginFunction(e)
     {
       e.preventDefault(); 
       try {
-        let res = await axios.post(`${server}/login`, {
+        let res = await axios.post(`${server_cooperative_login}/login_user`, {
           email: email,
           password: password
       });
-      toast.success(`Welcome ${res.data.users.name}`);
+      window.localStorage.setItem("user_token", res.data.token)
+      toast.success(`Welcome ${res.data.msg.username}`);
       navigate("/dashboard");
+      console.log(res)
+      return(
+        <>
+        <Dashboard res = {res} />
+        </>
+      )
 
       } catch (error) {
-        alert(error.message);
+        console.log(error)
       }
       
     }

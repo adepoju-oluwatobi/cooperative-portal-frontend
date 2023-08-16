@@ -14,8 +14,8 @@ function EditUser() {
   const [data, setData] = useState([]);
 
   // Retrieve the user's authentication token from cookies
-  const document_cookies = document.cookie;
-  var token = document_cookies.split("=")[1];
+  const document_cookies = window.localStorage.getItem("admin_token");
+  // var token = document_cookies.split("=")[1];
 
   // Set up the axios request configuration with the token
   var config = {

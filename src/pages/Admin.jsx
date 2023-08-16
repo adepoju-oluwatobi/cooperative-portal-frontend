@@ -28,7 +28,7 @@ function Admin() {
 
       // Display a success toast with the user's name
       toast.success(`Welcome ${res.data.users.name}`);
-
+      window.localStorage.setItem("admin_token", res.data.token)
       // Navigate to the admin dashboard
       navigate("/admin-dashboard");
     } catch (error) {
