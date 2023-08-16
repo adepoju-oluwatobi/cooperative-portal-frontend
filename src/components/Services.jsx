@@ -96,7 +96,7 @@ function Services() {
             </p>
           </div>
           <div>
-            <Link to="/register">
+            <Link to="/contact">
               <button className="service-tab-title bg-black text-white">
                 Start Savings
               </button>
