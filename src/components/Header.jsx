@@ -91,9 +91,10 @@ function Header() {
         <nav className="flex flex-col gap-4 rounded-lg bg-black p-8 text-white text-center mt-2 w-[90%] m-auto">
           {/* <Link to="/">Home</Link> */}
           <Link to="/about">About</Link>
+          <Link to="/contact">Contact</Link>
           <div className="relative inline-block">
             <button
-              className="mr-2 bg-gray-300 px-4 py-2 rounded-md focus:outline-none"
+              className="mr-2 bg-blue-500 px-4 py-2 rounded-md focus:outline-none"
               onClick={toggleDropdown}
             >
               Resources
@@ -115,7 +116,6 @@ function Header() {
               </div>
             )}
           </div>
-          <Link to="/contact">Contact</Link>
           <Link to="/login" className="primary-btn m-auto">
             Login
           </Link>
