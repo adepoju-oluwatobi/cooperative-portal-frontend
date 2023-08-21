@@ -15,33 +15,32 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
-function Dashboard({ res }) {
-const {user_dash, setUser_dash, userID, setUserID, userInfo, setUserInfo} = useContext(coperativeUserContext)
+function Dashboard() {
+ const {
+   user_dash,
+   balance,
+   loanAmt,
+   loanBal,
+   loanDed,
+   monthlySav,
+   dividend,
+   ready,
+   userInfo,
+ } = useContext(coperativeUserContext);
 
-  //console.log(user.data.decoded.user);
-  const [balance, setBalance] = useState(null);
-  const [loanAmt, setLoanAmt] = useState("N150,000.00");
-  const [loanBal, setLoanBal] = useState("N137,500.00");
-  const [loanDed, setLoanDed] = useState("N12,500.00");
-  const [monthlySav, setMonthlySav] = useState("N20,000.00");
-  const [dividend, setDividend] = useState(`N${5000}`);
   const navigate = useNavigate();
 
-  // console.log(res)
   const logout = async () => {
     try {
       const data = await axios.post(`${server_cooperative_login}/logout_user`);
       window.localStorage.removeItem("user_token")
       navigate("/login");
-      //console.log(data);
+      // console.log(data);
     } catch (error) {
       console.log(error);
     }
   };
 
-//   function user_detail_container(){
-//     setBalance(userInfo.available_balance)
-//   }
 // user_detail_container();
   let bal = document.getElementById("balance");
   let loan = document.getElementById("loan");
@@ -51,8 +50,6 @@ const {user_dash, setUser_dash, userID, setUserID, userInfo, setUserInfo} = useC
   let hideBal = document.getElementById("hide");
   let showBal = document.getElementById("show");
   let printStatementBtn = document.getElementById("print-statement-btn");
-
-  //loanDeduction = document.getElementById("a").innerHTML = "Fuck you";
 
   //function to hide financial figure
   function hide() {
@@ -99,136 +96,149 @@ const {user_dash, setUser_dash, userID, setUserID, userInfo, setUserInfo} = useC
     const currentYear = currentDate.getFullYear();
   }
 
-//   const document_cookies = window.localStorage.getItem("user_token");
-//   //console.log(document_cookies)
-//   //var token = document_cookies.split("=")[1];
-//   var config = {
-//     headers: {
-//       Authorization: `Bearer ${document_cookies}`,
-//     },
-//   };
-// async function getDetails(){
-//   const users = await axios.get(`${server_cooperative}/${userID}`, config)
-//   console.log(users);
-// }
-// getDetails();
+  //const document_cookies = window.localStorage.getItem("user_token");
+  //console.log(document_cookies)
+  //var token = document_cookies.split("=")[1];
+  // var config = {
+  //   headers: {
+  //     Authorization: `Bearer ${document_cookies}`,
+  //   },
+  // };
+async function getDetails(){
+  const users = await axios.get(
+    `${server_cooperative_login}/getsingle/${userID}`
+  );
+  console.log(userID);
+}
+getDetails();
+
+console.log()
   return (
     <div>
       <Header />
-      <div className="flex justify-center">
-        <div className="w-[300px] md:w-[600px] h-auto py-2">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              {/* <img className="w-10 md:w-20" src={ProfilePics} alt="" /> */}
-              <div>
-                <img className="w-10 md:w-20" src={ProfilePics} alt="" />
+        <div className="flex justify-center">
+          <div className="w-[300px] md:w-[600px] h-auto py-2">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                {/* <img className="w-10 md:w-20" src={ProfilePics} alt="" /> */}
+                <div>
+                  <img className="w-10 md:w-20" src={ProfilePics} alt="" />
+                </div>
+                <p className="md:text-xl">
+                  {/* Hello,{user.data.user} */}
+                  Hello, {user_dash}
+                  <span className="font-bold text-sm md:text-xl">
+                    {/* {user?.data.users} */}
+                  </span>{" "}
+                </p>
               </div>
-              <p className="md:text-xl">
-                {/* Hello,{user.data.user} */}
-                Hello, {user_dash}
-                <span className="font-bold text-sm md:text-xl">
-                  {/* {user?.data.users} */}
-                </span>{" "}
-              </p>
-            </div>
-            <div className="flex items-start cursor-pointer gap-3 pr-4">
-              {/**LOGOUT BUTTON */}
-              {/* <img src={LogoutBtn} alt="" /> */}
-              <button
-                onClick={logout}
-                className="p-1 px-2 mb-2 rounded-lg bg-red-500 text-white text-xs md:text-sm"
-              >
-                Logout
-              </button>
-              {/* <img className='w-5' src={Bell} alt="" />
+              <div className="flex items-start cursor-pointer gap-3 pr-4">
+                {/**LOGOUT BUTTON */}
+                {/* <img src={LogoutBtn} alt="" /> */}
+                <button
+                  onClick={logout}
+                  className="p-1 px-2 mb-2 rounded-lg bg-red-500 text-white text-xs md:text-sm"
+                >
+                  Logout
+                </button>
+                {/* <img className='w-5' src={Bell} alt="" />
               <img className='w-5' src={CareService} alt="" />
               <img className='w-5' src={Settings} alt="" /> */}
+              </div>
             </div>
-          </div>
 
-          <div className="w-[100%] h-[180px] md:h-[280px] bg-[#6A2982] text-white rounded-xl px-4 py-2 md:p-4 flex flex-col md:gap-2">
-            {/** AVAILABLE BALANCE */}
-            <div className="">
-              <div className="flex items-center gap-2">
-                <p className="md:text-2xl">Available Balance</p>
-                <img
-                  className="w-4 md:w-6 "
-                  src={Eye}
-                  alt=""
-                  onClick={hide}
-                  id="hide"
-                />
-                <img
-                  className="w-4 md:w-6 hidden"
-                  src={EyeClose}
-                  alt=""
-                  onClick={show}
-                  id="show"
-                />
-              </div>
-              <p className="text-3xl md:text-5xl font-bold" id="balance">
-                {balance}
-              </p>
-              <p className="text-xs font-thin opacity-50">
-                Devided:{dividend} || Total bal: N155,000.00
-              </p>
-            </div>
-            {/** MONTHLY SAVINGS */}
-            <div>
-              <p className="text-sm md:text-lg">Monthly Savings</p>
-              <p className="font-bold md:text-2xl" id="savings">
-                {monthlySav}
-              </p>
-            </div>
-            {/** LOAN */}
-            <div className="flex gap-2">
-              {/** LOAN AMOUNT */}
-              <div>
-                <p className="text-xs md:text-lg">Loan Amount</p>
-                <p className="font-bold text-sm md:text-2xl" id="loan">
-                  {loanAmt}
+            <div className="w-[100%] h-[180px] md:h-[280px] bg-[#6A2982] text-white rounded-xl px-4 py-2 md:p-4 flex flex-col md:gap-2">
+              {/** AVAILABLE BALANCE */}
+              <div className="">
+                <div className="flex items-center gap-2">
+                  <p>Available Balance: {}</p>
+                  <img
+                    className="w-4 md:w-6 "
+                    src={Eye}
+                    alt=""
+                    onClick={hide}
+                    id="hide"
+                  />
+                  <img
+                    className="w-4 md:w-6 hidden"
+                    src={EyeClose}
+                    alt=""
+                    onClick={show}
+                    id="show"
+                  />
+                </div>
+                <p className="text-3xl md:text-5xl font-bold" id="balance">
+                  {balance}
+                </p>
+                <p className="text-xs font-thin opacity-50">
+                  Devided:{dividend} || Total bal: N155,000.00
                 </p>
               </div>
-              {/**LOAN BALANCE */}
+              {/** MONTHLY SAVINGS */}
               <div>
-                <p className="text-xs md:text-lg">Loan Balance</p>
-                <p className="font-bold text-sm md:text-2xl" id="loan-balance">
-                  {loanBal}
+                <p className="text-sm md:text-lg">Monthly Savings</p>
+                <p className="font-bold md:text-2xl" id="savings">
+                  {monthlySav}
                 </p>
               </div>
-              {/**LOAN MONTHLY DEDUCTION */}
-              <div>
-                <p className="text-xs md:text-lg">Deduction</p>
-                <p className="font-bold text-sm md:text-2xl" id="a">
-                  {loanDed}
-                </p>
+              {/** LOAN */}
+              <div className="flex gap-2">
+                {/** LOAN AMOUNT */}
+                <div>
+                  <p className="text-xs md:text-lg">Loan Amount</p>
+                  <p className="font-bold text-sm md:text-2xl" id="loan">
+                    {loanAmt}
+                  </p>
+                </div>
+                {/**LOAN BALANCE */}
+                <div>
+                  <p className="text-xs md:text-lg">Loan Balance</p>
+                  <p
+                    className="font-bold text-sm md:text-2xl"
+                    id="loan-balance"
+                  >
+                    {loanBal}
+                  </p>
+                </div>
+                {/**LOAN MONTHLY DEDUCTION */}
+                <div>
+                  <p className="text-xs md:text-lg">Deduction</p>
+                  <p className="font-bold text-sm md:text-2xl" id="a">
+                    {loanDed}
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="flex justify-evenly mt-2">
-            <div
-              className="bg-black text-white p-2 rounded-lg cursor-pointer"
-              onClick={applyForLoan}
-            >
-              <p className="text-[10px] md:text-base md:p-2">Apply for loan</p>
-            </div>
-            <div
-              id="print-statement-btn"
-              className="bg-black text-white p-2 rounded-lg cursor-pointer "
-              onClick={printStatement}
-            >
-              <p className="text-[10px] md:text-base md:p-2">Print Statement</p>
-            </div>
-            <div
-              className="bg-black text-white p-2 rounded-lg cursor-pointer"
-              onClick={makePurchase}
-            >
-              <p className="text-[10px] md:text-base md:p-2">Make a purchase</p>
+            <div className="flex justify-evenly mt-2">
+              <div
+                className="bg-black text-white p-2 rounded-lg cursor-pointer"
+                onClick={applyForLoan}
+              >
+                <p className="text-[10px] md:text-base md:p-2">
+                  Apply for loan
+                </p>
+              </div>
+              <div
+                id="print-statement-btn"
+                className="bg-black text-white p-2 rounded-lg cursor-pointer "
+                onClick={printStatement}
+              >
+                <p className="text-[10px] md:text-base md:p-2">
+                  Print Statement
+                </p>
+              </div>
+              <div
+                className="bg-black text-white p-2 rounded-lg cursor-pointer"
+                onClick={makePurchase}
+              >
+                <p className="text-[10px] md:text-base md:p-2">
+                  Make a purchase
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
       <Benefits />
       <Footer />
     </div>

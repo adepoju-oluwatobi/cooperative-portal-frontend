@@ -2,8 +2,6 @@ import React, { createContext, useState, useEffect } from "react";
 import { server } from "../server";
 import axios from "axios";
 import {server_cooperative_login} from "../server"
-//const myContext = React.createContext();
-//export default myContext;
 
 export const coperativeUserContext = createContext({});
 
@@ -18,14 +16,12 @@ function CreatedContext({ children }) {
   const [ready, setReady] = useState(false);
   const [user_dash, setUser_dash] = useState(null);
   const [userID, setUserID] = useState(null);
-  const [userInfo, setUserInfo] = useState(null)
+  const [userInfo, setUserInfo] = useState({})
   async function getUser() {
     try {
       if (!user) {
         const user = await axios.get(`${server}/profile`);
-      //  const user = await axios.get('');
         setUser(user.data?.users);
-        // console.log(user.data.users);
         setReady(true);
       }
 
@@ -38,9 +34,6 @@ function CreatedContext({ children }) {
     getUser();
   }, []);
 
-
-
-
 const document_cookies = window.localStorage.getItem("user_token");
 var config = {
   headers: {
@@ -51,29 +44,28 @@ var config = {
 async function user_details() {
   if (!user_dash) {
     try {
-      const user_detail = await axios.get(
+      const response = await axios.get(
         `${server_cooperative_login}/stay_logged_in`,
         config
       );
-      setUser_dash(user_detail.data.decoded?.user);
-      setUserID(user_detail.data.decoded?.userID);
-      setUserInfo(user_detail.data.decoded)
+      const { user, userID, decoded } = response.data;
+
+      setUser_dash(response.data.decoded?.user);
+      setUserID(response.data.decoded?.userID);
+      setUserInfo(decoded?.userInfo.data);
       setReady(true);
-      console.log(user_detail);
+
+      console.log(userInfo);
     } catch (error) {
       console.log(error);
     }
   }
 }
 
+
 useEffect(() => {
   user_details();
 }, []);
-
-
-
-
-
 
   return (
     <coperativeUserContext.Provider
@@ -91,7 +83,9 @@ useEffect(() => {
         userID,
         setUserID,
         userInfo,
-        setUserInfo
+        setUserInfo,
+        ready,
+        setReady
       }}
     >
       {children}

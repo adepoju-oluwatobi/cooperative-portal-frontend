@@ -10,10 +10,7 @@ import Footer from '../components/Footer'
 import { toast } from 'react-toastify';
 import Dashboard from './Dashboard'
 
-function Login() {
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-  
+function Login() {  
  const {email, setEmail, password, setPassword} = useContext(coperativeUserContext)
 const navigate = useNavigate();
 
@@ -30,11 +27,6 @@ const navigate = useNavigate();
       toast.success(`Welcome ${res.data.msg.username}`);
       navigate("/dashboard");
       console.log(res)
-      return(
-        <>
-        <Dashboard res = {res} />
-        </>
-      )
 
       } catch (error) {
         console.log(error)
