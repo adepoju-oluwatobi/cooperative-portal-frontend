@@ -79,11 +79,11 @@ function Dashboard() {
   }
   //function to show financial figures
   function show() {
-    bal = document.getElementById("balance").innerHTML = userData.msg.data[0].available_balance;
-    loan = document.getElementById("loan").innerHTML = userData.msg.data[0].loan_amount;
-    savings = document.getElementById("savings").innerHTML = userData.msg.data[0].monthly_saving;
-    loanBalance = document.getElementById("loan-balance").innerHTML = userData.msg.data[0].loan_balance;
-    loanDeduction = document.getElementById("a").innerHTML = userData.msg.data[0].monthly_deduction;
+    bal = document.getElementById("balance").innerHTML = `N${userData.msg.data[0].available_balance}`;
+    loan = document.getElementById("loan").innerHTML = `N${userData.msg.data[0].loan_amount}`;
+    savings = document.getElementById("savings").innerHTML = `N${userData.msg.data[0].monthly_saving}`;
+    loanBalance = document.getElementById("loan-balance").innerHTML = `N${userData.msg.data[0].loan_balance}`;
+    loanDeduction = document.getElementById("a").innerHTML = `N${userData.msg.data[0].monthly_deduction}`;
     hideBal = document.getElementById("hide").style.display = "block";
     showBal = document.getElementById("show").style.display = "none";
   }
