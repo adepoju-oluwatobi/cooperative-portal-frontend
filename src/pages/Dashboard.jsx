@@ -151,7 +151,7 @@ function Dashboard() {
               <div className="">
                 <div className="flex items-center gap-2">
                   <p>
-                    Available Balance: {userData.msg.data[0].available_balance}
+                    Available Balance
                   </p>
                   <img
                     className="w-4 md:w-6 "
@@ -171,9 +171,9 @@ function Dashboard() {
                 <p className="text-3xl md:text-5xl font-bold" id="balance">
                   {userData.msg.data[0].available_balance}
                 </p>
-                <p className="text-xs font-thin opacity-50">
+                {/* <p className="text-xs font-thin opacity-50">
                   Devided:{} || Total bal: N155,000.00
-                </p>
+                </p> */}
               </div>
               {/** MONTHLY SAVINGS */}
               <div>
