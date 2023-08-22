@@ -58,7 +58,7 @@ function Dashboard() {
 
   /**------------------------------------------------------------------- */
   // user_detail_container();
-  let bal = document.getElementById("balance");
+  let availableBalance = userData.msg.data[0].available_balance;
   let loan = document.getElementById("loan");
   let savings = document.getElementById("savings");
   let loanBalance = document.getElementById("loan-balance");
@@ -79,7 +79,7 @@ function Dashboard() {
   }
   //function to show financial figures
   function show() {
-    bal = document.getElementById("balance").innerHTML = userData.msg.data[0].available_balance;
+    bal = document.getElementById("balance").innerHTML = availableBalance;
     loan = document.getElementById("loan").innerHTML = userData.msg.data[0].loan_amount;
     savings = document.getElementById("savings").innerHTML = userData.msg.data[0].monthly_saving;
     loanBalance = document.getElementById("loan-balance").innerHTML = userData.msg.data[0].loan_balance;
@@ -150,9 +150,7 @@ function Dashboard() {
               {/** AVAILABLE BALANCE */}
               <div className="">
                 <div className="flex items-center gap-2">
-                  <p>
-                    Available Balance
-                  </p>
+                  <p>Available Balance</p>
                   <img
                     className="w-4 md:w-6 "
                     src={Eye}
@@ -169,7 +167,7 @@ function Dashboard() {
                   />
                 </div>
                 <p className="text-3xl md:text-5xl font-bold" id="balance">
-                  {userData.msg.data[0].available_balance}
+                  {availableBalance}
                 </p>
                 {/* <p className="text-xs font-thin opacity-50">
                   Devided:{} || Total bal: N155,000.00
