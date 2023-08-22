@@ -14,34 +14,50 @@ import { server, server_cooperative, server_cooperative_login } from "../server"
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import Loading from "../components/Loading";
 
 function Dashboard() {
- const {
-   user_dash,
-   balance,
-   loanAmt,
-   loanBal,
-   loanDed,
-   monthlySav,
-   dividend,
-   ready,
-   userInfo,
- } = useContext(coperativeUserContext);
+  const {
+    userID,
+    user_dash,
+  } = useContext(coperativeUserContext);
+
+  const [userData, setUserData] = useState(null);
+  console.log(userData);
 
   const navigate = useNavigate();
 
   const logout = async () => {
     try {
       const data = await axios.post(`${server_cooperative_login}/logout_user`);
-      window.localStorage.removeItem("user_token")
+      window.localStorage.removeItem("user_token");
       navigate("/login");
       // console.log(data);
     } catch (error) {
       console.log(error);
     }
   };
+ 
+  // Fetch user details when the component mounts
+  useEffect(() => {
+    async function fetchUserData() {
+      try {
+        const response = await axios.get(
+          `${server_cooperative_login}/getsingle/${userID}`
+        );
+        setUserData(response.data); // Store user data in state
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    if (userID) {
+      fetchUserData();
+    }
+  }, [userID]); // Run this effect whenever userID changes
 
-// user_detail_container();
+
+  /**------------------------------------------------------------------- */
+  // user_detail_container();
   let bal = document.getElementById("balance");
   let loan = document.getElementById("loan");
   let savings = document.getElementById("savings");
@@ -95,63 +111,48 @@ function Dashboard() {
     const currentMonth = currentDate.getMonth();
     const currentYear = currentDate.getFullYear();
   }
-
-  //const document_cookies = window.localStorage.getItem("user_token");
-  //console.log(document_cookies)
-  //var token = document_cookies.split("=")[1];
-  // var config = {
-  //   headers: {
-  //     Authorization: `Bearer ${document_cookies}`,
-  //   },
-  // };
-async function getDetails(){
-  const users = await axios.get(
-    `${server_cooperative_login}/getsingle/${userID}`
-  );
-  console.log(userID);
-}
-getDetails();
-
-console.log()
   return (
     <div>
       <Header />
-        <div className="flex justify-center">
-          <div className="w-[300px] md:w-[600px] h-auto py-2">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                {/* <img className="w-10 md:w-20" src={ProfilePics} alt="" /> */}
-                <div>
-                  <img className="w-10 md:w-20" src={ProfilePics} alt="" />
-                </div>
-                <p className="md:text-xl">
-                  {/* Hello,{user.data.user} */}
-                  Hello, {user_dash}
-                  <span className="font-bold text-sm md:text-xl">
-                    {/* {user?.data.users} */}
-                  </span>{" "}
-                </p>
+      <div className="flex justify-center">
+        <div className="w-[300px] md:w-[600px] h-auto py-2">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              {/* <img className="w-10 md:w-20" src={ProfilePics} alt="" /> */}
+              <div>
+                <img className="w-10 md:w-20" src={ProfilePics} alt="" />
               </div>
-              <div className="flex items-start cursor-pointer gap-3 pr-4">
-                {/**LOGOUT BUTTON */}
-                {/* <img src={LogoutBtn} alt="" /> */}
-                <button
-                  onClick={logout}
-                  className="p-1 px-2 mb-2 rounded-lg bg-red-500 text-white text-xs md:text-sm"
-                >
-                  Logout
-                </button>
-                {/* <img className='w-5' src={Bell} alt="" />
+              <p className="md:text-xl">
+                {/* Hello,{user.data.user} */}
+                Hello, {user_dash}
+                <span className="font-bold text-sm md:text-xl">
+                  {/* {user?.data.users} */}
+                </span>{" "}
+              </p>
+            </div>
+            <div className="flex items-start cursor-pointer gap-3 pr-4">
+              {/**LOGOUT BUTTON */}
+              {/* <img src={LogoutBtn} alt="" /> */}
+              <button
+                onClick={logout}
+                className="p-1 px-2 mb-2 rounded-lg bg-red-500 text-white text-xs md:text-sm"
+              >
+                Logout
+              </button>
+              {/* <img className='w-5' src={Bell} alt="" />
               <img className='w-5' src={CareService} alt="" />
               <img className='w-5' src={Settings} alt="" /> */}
-              </div>
             </div>
+          </div>
 
+          {userData ? (
             <div className="w-[100%] h-[180px] md:h-[280px] bg-[#6A2982] text-white rounded-xl px-4 py-2 md:p-4 flex flex-col md:gap-2">
               {/** AVAILABLE BALANCE */}
               <div className="">
                 <div className="flex items-center gap-2">
-                  <p>Available Balance: {}</p>
+                  <p>
+                    Available Balance: {userData.msg.data[0].available_balance}
+                  </p>
                   <img
                     className="w-4 md:w-6 "
                     src={Eye}
@@ -168,17 +169,17 @@ console.log()
                   />
                 </div>
                 <p className="text-3xl md:text-5xl font-bold" id="balance">
-                  {balance}
+                  {userData.msg.data[0].available_balance}
                 </p>
                 <p className="text-xs font-thin opacity-50">
-                  Devided:{dividend} || Total bal: N155,000.00
+                  Devided:{} || Total bal: N155,000.00
                 </p>
               </div>
               {/** MONTHLY SAVINGS */}
               <div>
                 <p className="text-sm md:text-lg">Monthly Savings</p>
                 <p className="font-bold md:text-2xl" id="savings">
-                  {monthlySav}
+                  {userData.msg.data[0].monthly_saving}
                 </p>
               </div>
               {/** LOAN */}
@@ -187,7 +188,7 @@ console.log()
                 <div>
                   <p className="text-xs md:text-lg">Loan Amount</p>
                   <p className="font-bold text-sm md:text-2xl" id="loan">
-                    {loanAmt}
+                    {userData.msg.data[0].loan_amount}
                   </p>
                 </div>
                 {/**LOAN BALANCE */}
@@ -197,48 +198,47 @@ console.log()
                     className="font-bold text-sm md:text-2xl"
                     id="loan-balance"
                   >
-                    {loanBal}
+                    {userData.msg.data[0].loan_balance}
                   </p>
                 </div>
                 {/**LOAN MONTHLY DEDUCTION */}
                 <div>
                   <p className="text-xs md:text-lg">Deduction</p>
                   <p className="font-bold text-sm md:text-2xl" id="a">
-                    {loanDed}
+                    {userData.msg.data[0].monthly_deduction}
                   </p>
                 </div>
               </div>
             </div>
+          ) : (
+            <div>
+              <Loading />
+            </div>
+          )}
 
-            <div className="flex justify-evenly mt-2">
-              <div
-                className="bg-black text-white p-2 rounded-lg cursor-pointer"
-                onClick={applyForLoan}
-              >
-                <p className="text-[10px] md:text-base md:p-2">
-                  Apply for loan
-                </p>
-              </div>
-              <div
-                id="print-statement-btn"
-                className="bg-black text-white p-2 rounded-lg cursor-pointer "
-                onClick={printStatement}
-              >
-                <p className="text-[10px] md:text-base md:p-2">
-                  Print Statement
-                </p>
-              </div>
-              <div
-                className="bg-black text-white p-2 rounded-lg cursor-pointer"
-                onClick={makePurchase}
-              >
-                <p className="text-[10px] md:text-base md:p-2">
-                  Make a purchase
-                </p>
-              </div>
+          <div className="flex justify-evenly mt-2">
+            <div
+              className="bg-black text-white p-2 rounded-lg cursor-pointer"
+              onClick={applyForLoan}
+            >
+              <p className="text-[10px] md:text-base md:p-2">Apply for loan</p>
+            </div>
+            <div
+              id="print-statement-btn"
+              className="bg-black text-white p-2 rounded-lg cursor-pointer "
+              onClick={printStatement}
+            >
+              <p className="text-[10px] md:text-base md:p-2">Print Statement</p>
+            </div>
+            <div
+              className="bg-black text-white p-2 rounded-lg cursor-pointer"
+              onClick={makePurchase}
+            >
+              <p className="text-[10px] md:text-base md:p-2">Make a purchase</p>
             </div>
           </div>
         </div>
+      </div>
       <Benefits />
       <Footer />
     </div>

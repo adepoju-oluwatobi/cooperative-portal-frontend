@@ -13,7 +13,7 @@ import Loading from "./Loading";
 import Error from "./Error";
 import {server_cooperative, server} from "../server"
 
-function Dashboard() {
+function AdminDashboard() {
   /**HOLD THE DATA FROM DATABASE */
   const [columns, setColumns] = useState([]);
   const [records, setRecords] = useState([]);
@@ -25,10 +25,10 @@ function Dashboard() {
   const { user, setReady, ready } = useContext(coperativeUserContext);
   // const sharedData = useContext(CreatedContext);
 
-  if (ready && !user)
-  {
-    navigate("/login");
-  }
+  // if (ready && !user)
+  // {
+  //   navigate("/login");
+  // }
 
 
 
@@ -237,4 +237,4 @@ function Dashboard() {
   }
 }
 
-export default Dashboard;
+export default AdminDashboard;
