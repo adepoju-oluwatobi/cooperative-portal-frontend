@@ -212,7 +212,7 @@ function Dashboard() {
             </div>
           ) : (
             <div>
-              <Loading />
+              <h1>Loading Data</h1>
             </div>
           )}
 
