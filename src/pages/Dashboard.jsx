@@ -32,7 +32,7 @@ function Dashboard() {
       const data = await axios.post(`${server_cooperative_login}/logout_user`);
       window.localStorage.removeItem("user_token");
       navigate("/login");
-      location.reload();
+      // location.reload();
       // console.log(data);
     } catch (error) {
       console.log(error);
