@@ -34,7 +34,7 @@ const router = createBrowserRouter([
     element: <HomePage />,
   },
   {
-    path: "/login",
+    path: "https://honeyland-cooperative-portal.vercel.app/login",
     element: <Login />,
   },
   {
