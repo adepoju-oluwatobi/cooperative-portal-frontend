@@ -30,6 +30,7 @@ const navigate = useNavigate();
 
       } catch (error) {
         console.log(error)
+        toast.error("Incorrect Email and Password")
       }
       
     }
