@@ -7,6 +7,50 @@
     {
       "src": "/login",
       "dest": "/"
+    },
+    {
+      "src": "/dashboard",
+      "dest": "/"
+    },
+    {
+      "src": "/about",
+      "dest": "/"
+    },
+    {
+      "src": "/admin",
+      "dest": "/"
+    },
+    {
+      "src": "/contact",
+      "dest": "/"
+    },
+    {
+      "src": "/admin-dashboard",
+      "dest": "/"
+    },
+    {
+      "src": "/loan-form",
+      "dest": "/"
+    },
+    {
+      "src": "/update/:id",
+      "dest": "/"
+    },
+    {
+      "src": "/create",
+      "dest": "/"
+    },
+    {
+      "src": "/FAQ",
+      "dest": "/"
+    },
+    {
+      "src": "/bye-law",
+      "dest": "/"
+    },
+    {
+      "src": "/admin-registration",
+      "dest": "/"
     }
   ]
 }
