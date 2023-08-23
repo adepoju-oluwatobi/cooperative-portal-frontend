@@ -30,7 +30,7 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "/",
+    path: "/cooperative-portal-frontend.vercel.app/",
     element: <HomePage />,
   },
   {
