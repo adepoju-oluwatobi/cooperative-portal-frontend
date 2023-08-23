@@ -24,6 +24,7 @@ const navigate = useNavigate();
           password: password
       });
       window.localStorage.setItem("user_token", res.data.token)
+       location.reload();
       toast.success(`Welcome ${res.data.msg.username}`);
       navigate("/dashboard");
       console.log(res)
