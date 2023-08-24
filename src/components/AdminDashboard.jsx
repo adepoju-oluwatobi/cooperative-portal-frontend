@@ -12,6 +12,7 @@ import AddMember from "../assets/add-member.svg"
 import Loading from "./Loading";
 import Error from "./Error";
 import {server_cooperative, server} from "../server"
+import { data } from "autoprefixer";
 
 function AdminDashboard() {
   /**HOLD THE DATA FROM DATABASE */
@@ -154,6 +155,7 @@ function AdminDashboard() {
                     <th>Monthly Savings</th>
                     <th>Loan Amount</th>
                     <th>Loan Balance</th>
+                    <th>Total Loan Paid</th>
                     <th>Monthly deduction</th>
                     <th>Available Bal</th>
                     <th>Action</th>
@@ -168,6 +170,7 @@ function AdminDashboard() {
                       <td>{record.monthly_saving}</td>
                       <td>{record.loan_amount}</td>
                       <td>{record.loan_balance}</td>
+                      <td>{record.total_loan_paid}</td>
                       <td>{record.monthly_deduction}</td>
                       <td>{record.available_balance}</td>
                       <td className="flex gap-4">
@@ -178,7 +181,7 @@ function AdminDashboard() {
                         </Link>
                         <div
                           className=""
-                          onClick={(e) => deleteUser(record.id)}
+                          onClick={(e) => deleteUser(record._id)}
                         >
                           <img
                             src={DeleteIcon}
@@ -221,18 +224,46 @@ function AdminDashboard() {
       </div> */}
     </div>
   );
+  // function deleteUser(id) {
+  //   const confirmDelete = window.confirm("Are you sure you want to delete?");
+
+  //   if (confirmDelete) {
+  //     records.map((record)=>{
+  //       axios
+  //         .delete(`${server_cooperative}/${records[0]._id}`, config)
+  //         .then((res) => {
+  //           navigate("/admin-dashboard");
+  //           toast.success("User have been deleted successfully");
+  //           location.reload();
+  //         })
+  //         .catch((err) => console.log(err));
+  //     })
+  //     axios
+  //       .delete(`${server_cooperative}/${records[0]._id}`, config)
+  //       .then((res) => {
+  //         navigate("/admin-dashboard");
+  //         toast.success("User have been deleted successfully");
+  //         location.reload();
+  //       })
+  //       .catch((err) => console.log(err));
+  //   }
+  // }
+
   function deleteUser(id) {
     const confirmDelete = window.confirm("Are you sure you want to delete?");
 
     if (confirmDelete) {
       axios
-        .delete(`${server_cooperative}/${records[0]._id}`, config)
+        .delete(`${server_cooperative}/${id}`, config) // Use the provided `id` parameter
         .then((res) => {
-          navigate("/admin-dashboard");
-          toast.success("User have been deleted successfully");
-          location.reload();
+          // Filter out the deleted record from the state
+          setRecords(records.filter((record) => record._id !== id));
+          toast.success("User has been deleted successfully");
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          console.log(err);
+          toast.error("Failed to delete user");
+        });
     }
   }
 }

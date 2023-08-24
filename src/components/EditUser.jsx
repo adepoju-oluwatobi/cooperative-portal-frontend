@@ -92,6 +92,14 @@ function EditUser() {
               }
             />
             <input
+              placeholder="Total loan paid"
+              type="number"
+              value={data.total_loan_paid}
+              onChange={(e) =>
+                setData({ ...data, total_loan_paid: e.target.value })
+              }
+            />
+            <input
               placeholder="Loan Monthly Deduction"
               type="number"
               value={data.monthly_deduction}

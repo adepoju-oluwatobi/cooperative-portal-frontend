@@ -15,6 +15,7 @@ function Add() {
     monthly_saving: "",
     loan_amount: "",
     loan_balance: "",
+    total_loan_paid: "",
     monthly_deduction: "",
   });
 
@@ -97,6 +98,13 @@ function Add() {
               type="number"
               onChange={(e) =>
                 setInputData({ ...inputData, loan_balance: e.target.value })
+              }
+            />
+            <input
+              placeholder="Total loan paid"
+              type="number"
+              onChange={(e) =>
+                setInputData({ ...inputData, total_loan_paid: e.target.value })
               }
             />
             <input

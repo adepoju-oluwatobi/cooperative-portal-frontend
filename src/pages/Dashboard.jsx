@@ -198,7 +198,7 @@ function Dashboard() {
                     Total Loan Paid
                   </p>
                   <p className="font-bold text-sm md:text-2xl" id="loan">
-                    {userData.msg.data[0].loan_amount}
+                    {userData.msg.data[0].total_loan_paid}
                   </p>
                 </div>
                 {/**LOAN BALANCE */}
