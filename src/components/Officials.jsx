@@ -10,7 +10,7 @@ import AssFinSec from "../assets/ass-fin-sec.png";
 import ChiefWhip from "../assets/chief-whip.png";
 import PRO from "../assets/pro.png";
 import Treasurer from "../assets/treasurer.png";
-import President from "../assets/dummy-off1.png";
+import President from "../assets/president.png";
 import Auditor from "../assets/Auditor.png";
 
 function Officials() {

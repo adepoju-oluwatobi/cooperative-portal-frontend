@@ -56,7 +56,6 @@ function Dashboard() {
     }
   }, [userID]); // Run this effect whenever userID changes
 
-
   /**------------------------------------------------------------------- */
   // user_detail_container();
   let bal = document.getElementById("balance");
@@ -151,9 +150,7 @@ function Dashboard() {
               {/** AVAILABLE BALANCE */}
               <div className="">
                 <div className="flex items-center gap-2">
-                  <p>
-                    Available Balance
-                  </p>
+                  <p>Available Balance</p>
                   <img
                     className="w-4 md:w-6 "
                     src={Eye}
@@ -177,24 +174,32 @@ function Dashboard() {
                 </p> */}
               </div>
               {/** MONTHLY SAVINGS */}
-              <div>
-                <p className="text-sm md:text-lg">Monthly Savings</p>
-                <p className="font-bold md:text-2xl" id="savings">
-                  {userData.msg.data[0].monthly_saving}
-                </p>
+              <div className="flex gap-4">
+                <div>
+                  <p className="text-xs md:text-sm">Curr. Mon. Savings</p>
+                  <p className="font-bold md:text-2xl" id="savings">
+                    {userData.msg.data[0].monthly_saving}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-xs md:text-sm">Loan Amount</p>
+                  <p className="font-bold text-sm md:text-2xl" id="loan">
+                    {userData.msg.data[0].loan_amount}
+                  </p>
+                </div>
               </div>
               {/** LOAN */}
               <div className="flex gap-2">
                 {/** LOAN AMOUNT */}
                 <div>
-                  <p className="text-xs md:text-lg">Loan Amount</p>
+                  <p className="text-xs md:text-sm">Total Loan Paid</p>
                   <p className="font-bold text-sm md:text-2xl" id="loan">
                     {userData.msg.data[0].loan_amount}
                   </p>
                 </div>
                 {/**LOAN BALANCE */}
                 <div>
-                  <p className="text-xs md:text-lg">Loan Balance</p>
+                  <p className="text-xs md:text-sm">Current Loan Balance</p>
                   <p
                     className="font-bold text-sm md:text-2xl"
                     id="loan-balance"
@@ -204,7 +209,7 @@ function Dashboard() {
                 </div>
                 {/**LOAN MONTHLY DEDUCTION */}
                 <div>
-                  <p className="text-xs md:text-lg">Deduction</p>
+                  <p className="text-xs md:text-sm">Montly Loan Deduction</p>
                   <p className="font-bold text-sm md:text-2xl" id="a">
                     {userData.msg.data[0].monthly_deduction}
                   </p>
