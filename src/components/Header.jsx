@@ -119,6 +119,9 @@ function Header() {
           <Link to="/login" className="primary-btn m-auto">
             Login
           </Link>
+          <Link to="/dashboard" className="secondary-btn m-auto">
+            Dashboard
+          </Link>
           {/* <Link to="/register" className="secondary-btn m-auto">
             Register
           </Link> */}
