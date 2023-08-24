@@ -150,7 +150,7 @@ function Dashboard() {
               {/** AVAILABLE BALANCE */}
               <div className="">
                 <div className="flex items-center gap-2">
-                  <p>Available Balance</p>
+                  <p className="opacity-70">Available Balance</p>
                   <img
                     className="w-4 md:w-6 "
                     src={Eye}
@@ -166,7 +166,7 @@ function Dashboard() {
                     id="show"
                   />
                 </div>
-                <p className="text-3xl md:text-5xl font-bold" id="balance">
+                <p className="text-xl md:text-3xl font-bold" id="balance">
                   {userData.msg.data[0].available_balance}
                 </p>
                 {/* <p className="text-xs font-thin opacity-50">
@@ -174,32 +174,38 @@ function Dashboard() {
                 </p> */}
               </div>
               {/** MONTHLY SAVINGS */}
-              <div className="flex gap-4">
-                <div>
-                  <p className="text-xs md:text-sm">Curr. Mon. Savings</p>
+              <div className="flex gap-4 w-[100%]">
+                <div className="w-[50%]">
+                  <p className="text-xs md:text-sm opacity-70">
+                    Curr. Mon. Savings
+                  </p>
                   <p className="font-bold md:text-2xl" id="savings">
                     {userData.msg.data[0].monthly_saving}
                   </p>
                 </div>
-                <div>
-                  <p className="text-xs md:text-sm">Loan Amount</p>
+                {/** LOAN AMOUNT */}
+                <div children="">
+                  <p className="text-xs md:text-sm opacity-70">Loan Amount</p>
                   <p className="font-bold text-sm md:text-2xl" id="loan">
                     {userData.msg.data[0].loan_amount}
                   </p>
                 </div>
               </div>
               {/** LOAN */}
-              <div className="flex gap-2">
-                {/** LOAN AMOUNT */}
-                <div>
-                  <p className="text-xs md:text-sm">Total Loan Paid</p>
+              <div className="flex gap-2 w-[100%]">
+                <div className="w-[50%]">
+                  <p className="text-xs md:text-sm opacity-70">
+                    Total Loan Paid
+                  </p>
                   <p className="font-bold text-sm md:text-2xl" id="loan">
                     {userData.msg.data[0].loan_amount}
                   </p>
                 </div>
                 {/**LOAN BALANCE */}
-                <div>
-                  <p className="text-xs md:text-sm">Current Loan Balance</p>
+                <div className="">
+                  <p className="text-xs md:text-sm opacity-70">
+                    Current Loan Bal.
+                  </p>
                   <p
                     className="font-bold text-sm md:text-2xl"
                     id="loan-balance"
@@ -207,13 +213,15 @@ function Dashboard() {
                     {userData.msg.data[0].loan_balance}
                   </p>
                 </div>
-                {/**LOAN MONTHLY DEDUCTION */}
-                <div>
-                  <p className="text-xs md:text-sm">Montly Loan Deduction</p>
-                  <p className="font-bold text-sm md:text-2xl" id="a">
-                    {userData.msg.data[0].monthly_deduction}
-                  </p>
-                </div>
+              </div>
+              {/**LOAN MONTHLY DEDUCTION */}
+              <div>
+                <p className="text-xs md:text-sm opacity-70">
+                  Montly Loan Deduction
+                </p>
+                <p className="font-bold text-sm md:text-2xl" id="a">
+                  {userData.msg.data[0].monthly_deduction}
+                </p>
               </div>
             </div>
           ) : (
