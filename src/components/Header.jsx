@@ -1,9 +1,12 @@
-import React, {useState} from 'react'
+import React, { useState, useContext} from "react";
 import { Link } from 'react-router-dom'
 import HlcLogo from '../assets/hlc-logo.png'
 import CsLogo from '../assets/cs-logo.png'
+import { coperativeUserContext } from "../components/Context";
 
 function Header() {
+  const { userID } = useContext(coperativeUserContext);
+
     let menuOpenBtn = document.getElementById('menu-open-btn')
     let menuCloseBtn = document.getElementById('menu-close-btn')
     let navMenu = document.getElementById('nav-menu')
@@ -94,7 +97,7 @@ function Header() {
           <Link to="/contact">Contact</Link>
           <div className="relative inline-block">
             <button
-              className="mr-2 bg-blue-500 px-4 py-2 rounded-md focus:outline-none"
+              className="mr-2 focus:outline-none"
               onClick={toggleDropdown}
             >
               Resources
@@ -119,9 +122,14 @@ function Header() {
           <Link to="/login" className="primary-btn m-auto">
             Login
           </Link>
-          <Link to="/dashboard" className="secondary-btn m-auto">
-            Dashboard
-          </Link>
+          {userID && (
+            <Link
+              to="/dashboard"
+              className="text-white w-fit px-4 m-auto bg-blue-500 py-2 rounded-lg"
+            >
+              Dashboard
+            </Link>
+          )}
           {/* <Link to="/register" className="secondary-btn m-auto">
             Register
           </Link> */}
@@ -147,6 +155,14 @@ function Header() {
             {/* <Link className="mr-2" to="/">
               Home
             </Link> */}
+            {userID && (
+              <Link
+                to="/dashboard"
+                className="text-white mr-2 bg-blue-500 p-2 rounded-xl"
+              >
+                Dashboard
+              </Link>
+            )}
             <Link className="mr-2" to="/about">
               About Us
             </Link>

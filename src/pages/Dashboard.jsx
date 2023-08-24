@@ -150,7 +150,7 @@ function Dashboard() {
               {/** AVAILABLE BALANCE */}
               <div className="">
                 <div className="flex items-center gap-2">
-                  <p className="opacity-70">Available Balance</p>
+                  <p className="">Available Balance</p>
                   <img
                     className="w-4 md:w-6 "
                     src={Eye}
@@ -175,8 +175,8 @@ function Dashboard() {
               </div>
               {/** MONTHLY SAVINGS */}
               <div className="flex gap-4 w-[100%]">
-                <div className="w-[50%]">
-                  <p className="text-xs md:text-sm opacity-70">
+                <div className="">
+                  <p className="text-xs md:text-sm">
                     Curr. Mon. Savings
                   </p>
                   <p className="font-bold md:text-2xl" id="savings">
@@ -185,16 +185,16 @@ function Dashboard() {
                 </div>
                 {/** LOAN AMOUNT */}
                 <div children="">
-                  <p className="text-xs md:text-sm opacity-70">Loan Amount</p>
+                  <p className="text-xs md:text-sm">Loan Amount</p>
                   <p className="font-bold text-sm md:text-2xl" id="loan">
                     {userData.msg.data[0].loan_amount}
                   </p>
                 </div>
               </div>
               {/** LOAN */}
-              <div className="flex gap-2 w-[100%]">
-                <div className="w-[50%]">
-                  <p className="text-xs md:text-sm opacity-70">
+              <div className="flex gap-4 w-[100%]">
+                <div className="">
+                  <p className="text-xs md:text-sm">
                     Total Loan Paid
                   </p>
                   <p className="font-bold text-sm md:text-2xl" id="loan">
@@ -203,7 +203,7 @@ function Dashboard() {
                 </div>
                 {/**LOAN BALANCE */}
                 <div className="">
-                  <p className="text-xs md:text-sm opacity-70">
+                  <p className="text-xs md:text-sm">
                     Current Loan Bal.
                   </p>
                   <p
@@ -216,7 +216,7 @@ function Dashboard() {
               </div>
               {/**LOAN MONTHLY DEDUCTION */}
               <div>
-                <p className="text-xs md:text-sm opacity-70">
+                <p className="text-xs md:text-sm">
                   Montly Loan Deduction
                 </p>
                 <p className="font-bold text-sm md:text-2xl" id="a">
