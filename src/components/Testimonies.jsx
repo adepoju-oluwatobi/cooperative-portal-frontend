@@ -1,6 +1,6 @@
 import React from 'react'
 import CustomerImg from '../assets/dummy-off3.png'
-import CustomerImg2 from '../assets/dummy-off2.png'
+// import CustomerImg2 from '../assets/dummy-off2.png'
 
 function Testimonies() {
     let scrollLeftBtn = document.getElementById('scroll-left-btn')
@@ -37,10 +37,10 @@ function Testimonies() {
                 </p>
                <div className='flex flex-col justify-center items-center'>
                <div className='w-[80px]'>
-                <img src={CustomerImg} alt="" />
+                {/* <img src={CustomerImg} alt="" /> */}
                 </div>
                 <div>
-                    <p className='text-white'>FirstName <span className='font-bold text-slate-800'>LastName</span></p>
+                    {/* <p className='text-white'>FirstName <span className='font-bold text-slate-800'>LastName</span></p> */}
                 </div>
                </div>
             </div>
@@ -48,11 +48,11 @@ function Testimonies() {
             <div className='bg-slate-600 p-8 rounded-lg w-[280px] hidden' id='testimony-tab-1'>
                 <p className='text-xs md:text-sm text-white'>
                 “I want to appreciate the excos of this great society
-                for rising for my help this year June. It happened that i needed to write an exam last month August , which i must pay the fees on/before July. I was so worried, i couldn’t apply for a loan because, i’m still owning, to cut the long
+                for rising to my help this year June. It happened that i needed to write an exam last month August , which i must pay the fees on/before July. I was so worried, i couldn’t apply for a loan because, i’m still owning, to cut the long...
                 </p>
                <div className='flex flex-col justify-center items-center'>
                <div className='w-[80px]'>
-                <img src={CustomerImg2} alt="" />
+                {/* <img src={CustomerImg2} alt="" /> */}
                 </div>
                 <div>
                     <p className='text-white'>FirstName <span className='font-bold text-slate-800'>LastName</span></p>
