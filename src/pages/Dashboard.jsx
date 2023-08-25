@@ -63,6 +63,7 @@ function Dashboard() {
   let savings = document.getElementById("savings");
   let loanBalance = document.getElementById("loan-balance");
   let loanDeduction = document.getElementById("a");
+  let totalLoanPaid = document.getElementById("total-loan-paid");
   let hideBal = document.getElementById("hide");
   let showBal = document.getElementById("show");
   let printStatementBtn = document.getElementById("print-statement-btn");
@@ -74,6 +75,7 @@ function Dashboard() {
     savings = document.getElementById("savings").innerHTML = "xxxxx";
     loanBalance = document.getElementById("loan-balance").innerHTML = "xxxxx";
     loanDeduction = document.getElementById("a").innerHTML = "xxxxx";
+    totalLoanPaid = document.getElementById("total-loan-paid").innerHTML = "xxxxx";
     hideBal = document.getElementById("hide").style.display = "none";
     showBal = document.getElementById("show").style.display = "block";
   }
@@ -84,6 +86,7 @@ function Dashboard() {
     savings = document.getElementById("savings").innerHTML = `N${userData.msg.data[0].monthly_saving}`;
     loanBalance = document.getElementById("loan-balance").innerHTML = `N${userData.msg.data[0].loan_balance}`;
     loanDeduction = document.getElementById("a").innerHTML = `N${userData.msg.data[0].monthly_deduction}`;
+    totalLoanPaid = document.getElementById("total-loan-paid").innerHTML = userData.msg.data[0].total_loan_paid;
     hideBal = document.getElementById("hide").style.display = "block";
     showBal = document.getElementById("show").style.display = "none";
   }
@@ -197,7 +200,7 @@ function Dashboard() {
                   <p className="text-xs md:text-sm">
                     Total Loan Paid
                   </p>
-                  <p className="font-bold text-sm md:text-2xl" id="loan">
+                  <p className="font-bold text-sm md:text-2xl" id="total-loan-paid">
                     {userData.msg.data[0].total_loan_paid}
                   </p>
                 </div>
