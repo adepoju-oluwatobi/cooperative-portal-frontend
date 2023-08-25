@@ -2,10 +2,11 @@ import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import carousel styles
 import { Carousel } from "react-responsive-carousel";
 import Vp from "../assets/vice-president.png";
+import Vp2 from "../assets/vp.png";
 import FinSec from "../assets/financial-secretary.png";
 import AssSec from "../assets/ass-sec.png";
 import Sec from "../assets/sec.png";
-import Welfare from "../assets/welfare.png"
+import Welfare from "../assets/welfare.png";
 import AssFinSec from "../assets/ass-fin-sec.png";
 import ChiefWhip from "../assets/chief-whip.png";
 import PRO from "../assets/pro.png";
@@ -23,6 +24,11 @@ function Officials() {
     {
       image: Vp,
       name: "Mr. Samuel Fadare",
+      position: "Vice President",
+    },
+    {
+      image: Vp2,
+      name: "Mrs. Aluko Olabisi",
       position: "Vice President",
     },
     {
@@ -90,7 +96,7 @@ function Officials() {
           renderThumbs={() => null} // Hide thumbnail navigation
           showArrows={true} // Hide default navigation arrows
           //showStatus={false} // Hide carousel status indicators
-         // showIndicators={false} // Hide carousel indicators
+          // showIndicators={false} // Hide carousel indicators
           emulateTouch // Enable touch emulation for desktop
           swipeable // Enable swipe gestures
           selectedItem={1} // Start at the second item to show three items on large screens
