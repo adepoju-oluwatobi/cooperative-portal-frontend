@@ -8,13 +8,11 @@ import CareService from "../assets/customer-care.svg";
 import Settings from "../assets/settings.svg";
 import Eye from "../assets/eye.svg";
 import EyeClose from "../assets/eye-close.svg";
-import LogoutBtn from "../assets/logout-btn.svg";
 import Footer from "../components/Footer";
 import { server, server_cooperative, server_cooperative_login } from "../server";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import Loading from "../components/Loading";
 
 function Dashboard() {
   const {
@@ -121,16 +119,12 @@ function Dashboard() {
         <div className="w-[300px] md:w-[600px] h-auto py-2">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              {/* <img className="w-10 md:w-20" src={ProfilePics} alt="" /> */}
               <div>
                 <img className="w-10 md:w-20" src={ProfilePics} alt="" />
               </div>
               <p className="text-sm md:text-xl">
-                {/* Hello,{user.data.user} */}
                 Hello, <span className="font-bold">{user_dash}</span>
-                <span className="font-bold text-sm md:text-xl">
-                  {/* {user?.data.users} */}
-                </span>{" "}
+                <span className="font-bold text-sm md:text-xl"></span>{" "}
               </p>
             </div>
             <div className="flex items-start cursor-pointer gap-3 pr-4">
@@ -147,7 +141,7 @@ function Dashboard() {
           </div>
 
           {userData ? (
-            <div className="w-[100%] h-fit md:h-[280px] bg-[#6A2982] text-white rounded-xl p-4 md:p-4 flex flex-col md:gap-2">
+            <div className="w-[100%] h-fit md:h-[280px] bg-[#6A2982] text-white rounded-xl p-4 md:p-4 flex flex-col md:gap-2 my-4">
               {/** AVAILABLE BALANCE */}
               <div className="">
                 <div className="flex items-center gap-2">
@@ -182,10 +176,8 @@ function Dashboard() {
                 </p>
               </div>
 
-              {/* <hr className="mt-2 opacity-50 z-[99]"/> */}
-
+              {/**LOAN BRIEF */}
               <p className="text-lg font-bold underline mt-2">Loan Brief</p>
-
               <div className="flex gap-4 w-[100%] flex-wrap">
                 {/** LOAN AMOUNT */}
                 <div children="">
@@ -222,7 +214,9 @@ function Dashboard() {
             </div>
           ) : (
             <div>
-              <h1>Loading Data</h1>
+              <h1 className="font-bold text-center bg-[#6A2982] text-white p-10 rounded-2xl my-4">
+                Please wait some seconds, we are fetching your data
+              </h1>
             </div>
           )}
 
