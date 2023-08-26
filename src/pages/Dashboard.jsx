@@ -81,12 +81,12 @@ function Dashboard() {
   }
   //function to show financial figures
   function show() {
-    bal = document.getElementById("balance").innerHTML = `N${userData.msg.data[0].available_balance}`;
-    loan = document.getElementById("loan").innerHTML = `N${userData.msg.data[0].loan_amount}`;
-    savings = document.getElementById("savings").innerHTML = `N${userData.msg.data[0].monthly_saving}`;
-    loanBalance = document.getElementById("loan-balance").innerHTML = `N${userData.msg.data[0].loan_balance}`;
-    loanDeduction = document.getElementById("a").innerHTML = `N${userData.msg.data[0].monthly_deduction}`;
-    totalLoanPaid = document.getElementById("total-loan-paid").innerHTML = userData.msg.data[0].total_loan_paid;
+    bal = document.getElementById("balance").innerHTML = `N ${userData.msg.data[0].available_balance}`;
+    loan = document.getElementById("loan").innerHTML = `N ${userData.msg.data[0].loan_amount}`;
+    savings = document.getElementById("savings").innerHTML = `N ${userData.msg.data[0].monthly_saving}`;
+    loanBalance = document.getElementById("loan-balance").innerHTML = `N ${userData.msg.data[0].loan_balance}`;
+    loanDeduction = document.getElementById("a").innerHTML = `N ${userData.msg.data[0].monthly_deduction}`;
+    totalLoanPaid = document.getElementById("total-loan-paid").innerHTML = `N ${userData.msg.data[0].total_loan_paid}`;
     hideBal = document.getElementById("hide").style.display = "block";
     showBal = document.getElementById("show").style.display = "none";
   }
@@ -125,17 +125,15 @@ function Dashboard() {
               <div>
                 <img className="w-10 md:w-20" src={ProfilePics} alt="" />
               </div>
-              <p className="md:text-xl">
+              <p className="text-sm md:text-xl">
                 {/* Hello,{user.data.user} */}
-                Hello, {user_dash}
+                Hello, <span className="font-bold">{user_dash}</span>
                 <span className="font-bold text-sm md:text-xl">
                   {/* {user?.data.users} */}
                 </span>{" "}
               </p>
             </div>
             <div className="flex items-start cursor-pointer gap-3 pr-4">
-              {/**LOGOUT BUTTON */}
-              {/* <img src={LogoutBtn} alt="" /> */}
               <button
                 onClick={logout}
                 className="p-1 px-2 mb-2 rounded-lg bg-red-500 text-white text-xs md:text-sm"
@@ -149,7 +147,7 @@ function Dashboard() {
           </div>
 
           {userData ? (
-            <div className="w-[100%] h-[180px] md:h-[280px] bg-[#6A2982] text-white rounded-xl px-4 py-2 md:p-4 flex flex-col md:gap-2">
+            <div className="w-[100%] h-fit md:h-[280px] bg-[#6A2982] text-white rounded-xl p-4 md:p-4 flex flex-col md:gap-2">
               {/** AVAILABLE BALANCE */}
               <div className="">
                 <div className="flex items-center gap-2">
@@ -170,61 +168,56 @@ function Dashboard() {
                   />
                 </div>
                 <p className="text-xl md:text-3xl font-bold" id="balance">
-                  {userData.msg.data[0].available_balance}
+                  {`N ${userData.msg.data[0].available_balance}`}
                 </p>
                 {/* <p className="text-xs font-thin opacity-50">
                   Devided:{} || Total bal: N155,000.00
                 </p> */}
               </div>
               {/** MONTHLY SAVINGS */}
-              <div className="flex gap-4 w-[100%]">
-                <div className="">
-                  <p className="text-xs md:text-sm">
-                    Curr. Mon. Savings
-                  </p>
-                  <p className="font-bold md:text-2xl" id="savings">
-                    {userData.msg.data[0].monthly_saving}
-                  </p>
-                </div>
+              <div className="">
+                <p className="text-xs md:text-sm">Curr. Mon. Savings</p>
+                <p className="font-bold md:text-2xl" id="savings">
+                  {`N ${userData.msg.data[0].monthly_saving}`}
+                </p>
+              </div>
+
+              {/* <hr className="mt-2 opacity-50 z-[99]"/> */}
+
+              <p className="text-lg font-bold underline mt-2">Loan Brief</p>
+
+              <div className="flex gap-4 w-[100%] flex-wrap">
                 {/** LOAN AMOUNT */}
                 <div children="">
                   <p className="text-xs md:text-sm">Loan Amount</p>
                   <p className="font-bold text-sm md:text-2xl" id="loan">
-                    {userData.msg.data[0].loan_amount}
+                    {`N ${userData.msg.data[0].loan_amount}`}
                   </p>
                 </div>
-              </div>
-              {/** LOAN */}
-              <div className="flex gap-4 w-[100%]">
                 <div className="">
-                  <p className="text-xs md:text-sm">
-                    Total Loan Paid
-                  </p>
-                  <p className="font-bold text-sm md:text-2xl" id="total-loan-paid">
-                    {userData.msg.data[0].total_loan_paid}
+                  <p className="text-xs md:text-sm">Total Loan Paid</p>
+                  <p
+                    className="font-bold text-sm md:text-2xl"
+                    id="total-loan-paid"
+                  >
+                    {`N ${userData.msg.data[0].total_loan_paid}`}
                   </p>
                 </div>
-                {/**LOAN BALANCE */}
                 <div className="">
-                  <p className="text-xs md:text-sm">
-                    Current Loan Bal.
-                  </p>
+                  <p className="text-xs md:text-sm">Current Loan Bal.</p>
                   <p
                     className="font-bold text-sm md:text-2xl"
                     id="loan-balance"
                   >
-                    {userData.msg.data[0].loan_balance}
+                    {`N ${userData.msg.data[0].loan_balance}`}
                   </p>
                 </div>
-              </div>
-              {/**LOAN MONTHLY DEDUCTION */}
-              <div>
-                <p className="text-xs md:text-sm">
-                  Montly Loan Deduction
-                </p>
-                <p className="font-bold text-sm md:text-2xl" id="a">
-                  {userData.msg.data[0].monthly_deduction}
-                </p>
+                <div>
+                  <p className="text-xs md:text-sm">Montly Loan Deduction</p>
+                  <p className="font-bold text-sm md:text-2xl" id="a">
+                    {`N ${userData.msg.data[0].monthly_deduction}`}
+                  </p>
+                </div>
               </div>
             </div>
           ) : (
