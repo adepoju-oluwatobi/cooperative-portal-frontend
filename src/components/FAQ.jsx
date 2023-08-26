@@ -69,8 +69,8 @@ const faqData = [
   },
   {
     question: "How do I become a member?",
-    answer: `Make your interest known to representative of your campus, obtain a membership form for the amount stated, fill and you can become a member. 
-    (Membership for is to be fill on the website)`,
+    answer: `Make your interest known to representative of your campus, pay the stated amount and fill the membership form on the cooperative website.
+    All financial transanctions are now to be done online.`,
   },
   {
     question: "Can I see the Bye-Law before joining?",
