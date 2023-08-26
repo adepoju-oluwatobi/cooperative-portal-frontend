@@ -15,10 +15,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
 function Dashboard() {
-  const {
-    userID,
-    user_dash,
-  } = useContext(coperativeUserContext);
+  const { userID, user_dash } = useContext(coperativeUserContext);
 
   const [userData, setUserData] = useState(null);
   console.log(userData);
@@ -36,7 +33,7 @@ function Dashboard() {
       console.log(error);
     }
   };
- 
+
   // Fetch user details when the component mounts
   useEffect(() => {
     async function fetchUserData() {
@@ -73,18 +70,31 @@ function Dashboard() {
     savings = document.getElementById("savings").innerHTML = "xxxxx";
     loanBalance = document.getElementById("loan-balance").innerHTML = "xxxxx";
     loanDeduction = document.getElementById("a").innerHTML = "xxxxx";
-    totalLoanPaid = document.getElementById("total-loan-paid").innerHTML = "xxxxx";
+    totalLoanPaid = document.getElementById("total-loan-paid").innerHTML =
+      "xxxxx";
     hideBal = document.getElementById("hide").style.display = "none";
     showBal = document.getElementById("show").style.display = "block";
   }
   //function to show financial figures
   function show() {
-    bal = document.getElementById("balance").innerHTML = `N ${userData.msg.data[0].available_balance}`;
-    loan = document.getElementById("loan").innerHTML = `N ${userData.msg.data[0].loan_amount}`;
-    savings = document.getElementById("savings").innerHTML = `N ${userData.msg.data[0].monthly_saving}`;
-    loanBalance = document.getElementById("loan-balance").innerHTML = `N ${userData.msg.data[0].loan_balance}`;
-    loanDeduction = document.getElementById("a").innerHTML = `N ${userData.msg.data[0].monthly_deduction}`;
-    totalLoanPaid = document.getElementById("total-loan-paid").innerHTML = `N ${userData.msg.data[0].total_loan_paid}`;
+    bal = document.getElementById(
+      "balance"
+    ).innerHTML = `N ${userData.msg.data[0].available_balance}`;
+    loan = document.getElementById(
+      "loan"
+    ).innerHTML = `N ${userData.msg.data[0].loan_amount}`;
+    savings = document.getElementById(
+      "savings"
+    ).innerHTML = `N ${userData.msg.data[0].monthly_saving}`;
+    loanBalance = document.getElementById(
+      "loan-balance"
+    ).innerHTML = `N ${userData.msg.data[0].loan_balance}`;
+    loanDeduction = document.getElementById(
+      "a"
+    ).innerHTML = `N ${userData.msg.data[0].monthly_deduction}`;
+    totalLoanPaid = document.getElementById(
+      "total-loan-paid"
+    ).innerHTML = `N ${userData.msg.data[0].total_loan_paid}`;
     hideBal = document.getElementById("hide").style.display = "block";
     showBal = document.getElementById("show").style.display = "none";
   }
@@ -106,13 +116,25 @@ function Dashboard() {
     toast.info(
       "This service is not available yet. We ll notify once its done."
     );
-
-    //show date
-    const currentDate = new date();
-    const day = currentDate.getDate();
-    const currentMonth = currentDate.getMonth();
-    const currentYear = currentDate.getFullYear();
   }
+  //show date
+  // Get the current date and time
+  const currentDate = new Date();
+
+  const year = currentDate.getFullYear();
+  const month = currentDate.getMonth(); // Note: Months are zero-indexed (0-11)
+  const options = { month: "long" };
+  const specificMonth = new Intl.DateTimeFormat("en-US", options).format(
+    currentDate
+  );
+  const dayOption = {weekday: "long"};
+const specificDay = new Intl.DateTimeFormat("en-US", dayOption).format(
+  currentDate
+);
+const day = currentDate.getDate();
+  const hours = currentDate.getHours();
+  const minutes = currentDate.getMinutes();
+  const seconds = currentDate.getSeconds();
   return (
     <div>
       <Header />
@@ -141,8 +163,12 @@ function Dashboard() {
             </div>
           </div>
 
+          <p className="">
+            <span className="font-bold">{specificDay}</span>, {day}<sup>th</sup> of{" "}
+            {specificMonth}, {year} {/* {hours} : {minutes} */}
+          </p>
           {userData ? (
-            <div className="w-[100%] h-fit md:h-[280px] bg-[#6A2982] text-white rounded-xl p-4 md:p-4 flex flex-col md:gap-2 my-4">
+            <div className="w-[100%] h-fit md:h-[280px] bg-[#6A2982] text-white rounded-xl p-4 md:p-4 flex flex-col md:gap-2 my-2">
               {/** AVAILABLE BALANCE */}
               <div className="">
                 <div className="flex items-center gap-2">
