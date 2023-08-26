@@ -164,8 +164,7 @@ const day = currentDate.getDate();
           </div>
 
           <p className="text-sm">
-            <span className="font-bold">{specificDay}</span>, {day}<sup>th</sup> of{" "}
-            {specificMonth}, {year} {/* {hours} : {minutes} */}
+            Account updated as at <span className="font-bold">July</span>, {year} {/* {hours} : {minutes} */}
           </p>
           {userData ? (
             <div className="w-[100%] h-fit md:h-[280px] bg-[#6A2982] text-white rounded-xl p-4 md:p-4 flex flex-col md:gap-2 my-2">
