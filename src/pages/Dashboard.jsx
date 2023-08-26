@@ -163,7 +163,7 @@ const day = currentDate.getDate();
             </div>
           </div>
 
-          <p className="">
+          <p className="text-sm">
             <span className="font-bold">{specificDay}</span>, {day}<sup>th</sup> of{" "}
             {specificMonth}, {year} {/* {hours} : {minutes} */}
           </p>
