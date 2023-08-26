@@ -20,61 +20,73 @@ function Officials() {
       image: President,
       name: "Mr. Akintirohun Olabode",
       position: "President",
+      campus: "Ipaja Campus",
     },
     {
       image: Vp,
       name: "Mr. Samuel Fadare",
       position: "Vice President",
+      campus: "Baruwa Campus",
     },
     {
       image: Vp2,
       name: "Mrs. Aluko Olabisi",
       position: "Vice President",
+      campus: "Lekki Campus",
     },
     {
       image: FinSec,
       name: "Mr. Michael Akindolani",
       position: "Financial Secretary",
+      campus: "Ipaja Campus",
     },
     {
       image: AssFinSec,
       name: "Mr. Olorunfemi Michael",
       position: "Assitant Financial Secretary",
+      campus: "Ajasa Campus",
     },
     {
       image: Sec,
       name: "Mrs Apatira .T",
       position: "Secretary",
+      campus: "Baruwa Campus",
     },
     {
       image: AssSec,
       name: "Mrs. Ogunjobi Bolanle",
       position: "Assitant Secretary",
+      campus: "Ajasa Campus",
     },
     {
       image: Welfare,
       name: "Mrs. Olufunso Ogunsanya",
       position: "Welfare Officer",
+      campus: "Baruwa Campus",
     },
     {
       image: ChiefWhip,
       name: "Mr. Bamgbola T.A",
       position: "Chief Whip",
+      campus: "Magodo Campus",
     },
     {
       image: Auditor,
       name: "Mr. Babatunde Kayode",
       position: "Auditor",
+      campus: "Ipaja Campus",
     },
     {
       image: Treasurer,
       name: "Mrs. Olajumoke Ajibola",
       position: "Treasurer",
+      campus: "Ipaja Campus",
     },
     {
       image: PRO,
       name: "Mr. Akerele Akinola .O",
       position: "Public Relation Officer",
+      campus: "Lekki Campus",
     },
     // Add other officials' data here
   ];
@@ -110,6 +122,7 @@ function Officials() {
                 <div className="-mt-4">
                   <p>{official.name}</p>
                   <p className="text-center font-bold">{official.position}</p>
+                  <p>{official.campus}</p>
                 </div>
               </div>
             </div>
