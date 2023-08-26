@@ -188,7 +188,7 @@ function Dashboard() {
                   </p>
                 </div>
                 <div className="">
-                  <p className="text-xs md:text-sm">Curr. Mth. Loan Paid</p>
+                  <p className="text-xs md:text-sm">Total Loan Paid</p>
                   <p
                     className="font-bold text-sm md:text-2xl"
                     id="total-loan-paid"
@@ -206,7 +206,7 @@ function Dashboard() {
                   </p>
                 </div>
                 <div>
-                  <p className="text-xs md:text-sm">Montly Loan Deduction</p>
+                  <p className="text-xs md:text-sm">Curr. Mth. Loan Paid</p>
                   <p className="font-bold text-sm md:text-2xl" id="a">
                     {`N ${userData.msg.data[0].monthly_deduction}`}
                   </p>
