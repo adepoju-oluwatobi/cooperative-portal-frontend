@@ -7,7 +7,7 @@
         @apply p-2
     }
     .primary-btn{
-        @apply bg-green-600 p-4 text-white text-xs md:text-sm lg:text-base w-[100px] rounded-lg
+        @apply bg-green-600 p-4 text-white text-xs md:text-sm lg:text-base w-[150px] rounded-lg
     }
     .primary-btn:hover{
         @apply bg-green-900
