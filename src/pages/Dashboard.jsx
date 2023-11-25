@@ -167,7 +167,7 @@ const day = currentDate.getDate();
             Account updated as at <span className="font-bold">July</span>, {year} {/* {hours} : {minutes} */}
           </p>
           {userData ? (
-            <div className="w-[100%] h-fit md:h-[280px] bg-[#6A2982] text-white rounded-xl p-4 md:p-4 flex flex-col md:gap-2 my-2">
+            <div className="w-[100%] h-fit md:h-fit bg-[#6A2982] text-white rounded-xl p-4 md:p-4 flex flex-col md:gap-2 my-2">
               {/** AVAILABLE BALANCE */}
               <div className="">
                 <div className="flex items-center gap-2">
@@ -237,6 +237,43 @@ const day = currentDate.getDate();
                   </p>
                 </div>
               </div>
+
+                 {/**PURCHASE BRIEF */}
+              <p className="text-lg font-bold underline mt-2">Purchase Brief</p>
+              <div className="flex gap-4 w-[100%] flex-wrap">
+                {/** LOAN AMOUNT */}
+                <div children="">
+                  <p className="text-xs md:text-sm">Purchase Amount</p>
+                  <p className="font-bold text-sm md:text-2xl" id="loan">
+                    N 0
+                  </p>
+                </div>
+                <div className="">
+                  <p className="text-xs md:text-sm">Total Purchase Paid</p>
+                  <p
+                    className="font-bold text-sm md:text-2xl"
+                    id="total-loan-paid"
+                  >
+                    N 0
+                  </p>
+                </div>
+                <div className="">
+                  <p className="text-xs md:text-sm">Curr. pur. Bal.</p>
+                  <p
+                    className="font-bold text-sm md:text-2xl"
+                    id="loan-balance"
+                  >
+                    N 0
+                  </p>
+                </div>
+                <div>
+                  <p className="text-xs md:text-sm">Curr. Mnth. pur. Paid</p>
+                  <p className="font-bold text-sm md:text-2xl" id="a">
+                    N 0
+                  </p>
+                </div>
+              </div>
+              
             </div>
           ) : (
             <div>

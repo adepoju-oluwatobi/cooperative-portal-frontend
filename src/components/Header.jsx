@@ -119,20 +119,9 @@ function Header() {
               </div>
             )}
           </div>
-          <Link to="/login" className="primary-btn m-auto">
-            Login
-          </Link>
-          {userID && (
-            <Link
-              to="/dashboard"
-              className="text-white w-fit px-4 m-auto bg-blue-500 py-2 rounded-lg"
-            >
-              Dashboard
-            </Link>
-          )}
-          {/* <Link to="/register" className="secondary-btn m-auto">
-            Register
-          </Link> */}
+          <a href="https://hlc-cooperative.onrender.com/" className="primary-btn m-auto">
+            Go to portal
+          </a>
         </nav>
       </div>
 
@@ -152,17 +141,6 @@ function Header() {
 
         <div>
           <nav className="text-xs">
-            {/* <Link className="mr-2" to="/">
-              Home
-            </Link> */}
-            {userID && (
-              <Link
-                to="/dashboard"
-                className="text-white mr-2 bg-blue-500 p-2 rounded-xl"
-              >
-                Dashboard
-              </Link>
-            )}
             <Link className="mr-2" to="/about">
               About Us
             </Link>
@@ -193,18 +171,12 @@ function Header() {
             <Link className="mr-2" to="/contact">
               Contact Us
             </Link>
-            <Link
+            <a href="https://hlc-cooperative.onrender.com/"
               className="mr-2 bg-black px-4 py-2 text-white rounded-xl"
               to="/login"
             >
-              Login
-            </Link>
-            {/* <Link
-              className="mr-2 bg-black px-4 py-2 text-white rounded-xl"
-              to="/register"
-            >
-              Become a member
-            </Link> */}
+              Go to Portal
+            </a>
           </nav>
         </div>
       </div>

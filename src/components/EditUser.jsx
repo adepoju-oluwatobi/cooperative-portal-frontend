@@ -61,12 +61,14 @@ function EditUser() {
             onSubmit={handleSubmit}
           >
             <input placeholder="ID" type="text" value={data._id} disabled />
+            <label htmlFor="username">Name:</label>
             <input
               placeholder="Members Name"
               type="text"
               value={data.username}
               onChange={(e) => setData({ ...data, username: e.target.value })}
             />
+            label
             <input
               placeholder="Monthly Savings"
               type="number"
