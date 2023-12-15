@@ -92,11 +92,6 @@ function ServicesMobile() {
             </p>
           </div>
           <div>
-            <Link to="/contact">
-              <button className="service-tab-title bg-black text-white rounded-lg">
-                Start Savings
-              </button>
-            </Link>
           </div>
         </div>
       </div>
@@ -110,15 +105,9 @@ function ServicesMobile() {
             <p className="w-[40ch] text-center md:text-left text-xs md:text-sm mt-4">
               Our low interest rate loan facility has over the years helped
               increase the welfare of our members.
-              <p className="font-bold py-2 text-lg">Apply for one now!</p>
             </p>
           </div>
           <div>
-            <Link to="/login">
-              <button className="service-tab-title bg-black text-white rounded-lg">
-                Get a Loan
-              </button>
-            </Link>
           </div>
         </div>
       </div>
@@ -135,11 +124,6 @@ function ServicesMobile() {
             </p>
           </div>
           <div>
-            <Link to="/login">
-              <button className="service-tab-title bg-black text-white rounded-lg hover:bg-green-700">
-                Make a Purchase
-              </button>
-            </Link>
           </div>
         </div>
       </div>

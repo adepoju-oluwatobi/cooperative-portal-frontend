@@ -119,6 +119,9 @@ function Header() {
               </div>
             )}
           </div>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfwnLrQ1ZqTtcKYcGXYRhbJJVfbMv37L-3gtSq8aPJiHyvxSQ/viewform">
+              Become a Member
+            </a>
           <a href="https://hlc-cooperative.onrender.com/" className="primary-btn m-auto">
             Go to portal
           </a>
@@ -171,6 +174,9 @@ function Header() {
             <Link className="mr-2" to="/contact">
               Contact Us
             </Link>
+            <a className="mr-2" href="https://docs.google.com/forms/d/e/1FAIpQLSfwnLrQ1ZqTtcKYcGXYRhbJJVfbMv37L-3gtSq8aPJiHyvxSQ/viewform">
+              Become a Member
+            </a>
             <a href="https://hlc-cooperative.onrender.com/"
               className="mr-2 bg-black px-4 py-2 text-white rounded-xl"
               to="/login"
