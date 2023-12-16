@@ -9,7 +9,7 @@ function Contact() {
       <div className="h-[100vh] bg-[url(./assets/loan-bg.jpg)]">
         <div className="p-4 text-white">
           <div className="flex flex-col justify-center items-center">
-            <form action="" className="flex flex-col w-[280px] m-auto bg-black">
+            <form action="" className="flex flex-col w-[290px] m-auto bg-black">
               <p className="font-bold text-2xl text-center">Contact Us</p>
               <p className="text-xs md:text-base mb-4">
                 For enquirys and complaints, please contact us via:
