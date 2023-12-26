@@ -122,7 +122,7 @@ function Header() {
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSfwnLrQ1ZqTtcKYcGXYRhbJJVfbMv37L-3gtSq8aPJiHyvxSQ/viewform">
               Become a Member
             </a>
-          <a href="https://hlc-cooperative.onrender.com/" className="primary-btn m-auto">
+          <a href="https://hlc-cooperative-portal.onrender.com" className="primary-btn m-auto">
             Go to portal
           </a>
         </nav>
@@ -177,7 +177,7 @@ function Header() {
             <a className="mr-2" href="https://docs.google.com/forms/d/e/1FAIpQLSfwnLrQ1ZqTtcKYcGXYRhbJJVfbMv37L-3gtSq8aPJiHyvxSQ/viewform">
               Become a Member
             </a>
-            <a href="https://hlc-cooperative.onrender.com/"
+            <a href="https://hlc-cooperative-portal.onrender.com"
               className="mr-2 bg-black px-4 py-2 text-white rounded-xl"
               to="/login"
             >
