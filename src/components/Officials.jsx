@@ -71,22 +71,10 @@ function Officials() {
       campus: "Magodo Campus",
     },
     {
-      image: Auditor,
-      name: "Mr. Babatunde Kayode",
-      position: "Auditor",
-      campus: "Ipaja Campus",
-    },
-    {
       image: Treasurer,
       name: "Mrs. Olajumoke Ajibola",
       position: "Treasurer",
       campus: "Ipaja Campus",
-    },
-    {
-      image: PRO,
-      name: "Mr. Akerele Akinola .O",
-      position: "Public Relation Officer",
-      campus: "Lekki Campus",
     },
     // Add other officials' data here
   ];
